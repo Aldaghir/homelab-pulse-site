@@ -81,6 +81,9 @@ code, .ltr { font-family: var(--mono); font-size: .92em; direction: ltr; unicode
 .features strong { display: block; margin-bottom: 4px; }
 .features span { color: var(--muted); font-size: 15px; }
 .note { text-align: center; color: var(--muted); font-size: 15px; margin: 0; }
+/* Pre-launch notice under links that go live with the first public release (E0-03). */
+.prelaunch { margin: 8px 0 0; padding: 8px 12px; border-radius: 12px; background: var(--brand-soft); color: var(--text-2); font-size: 14px; }
+.prelaunch a { font-weight: 600; }
 
 /* Setup guides (P8-09) */
 .lead { color: var(--text-2); font-size: 17px; margin: 0 0 18px; }
