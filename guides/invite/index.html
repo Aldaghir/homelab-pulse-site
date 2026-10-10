@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invite someone to your server · Homelab Pulse</title>
+<meta name="description" content="Give another phone access to your server with a one-time code, and choose what it may do.">
+<link rel="icon" href="../../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/invite/">
+<link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/invite/">
+</head>
+<body>
+<header class="wrap top">
+  <a class="brand" href="../../"><img src="../../assets/icon.svg" alt="" width="34" height="34">Homelab Pulse</a>
+  <a class="lang" href="../../ar/guides/invite/" hreflang="ar" lang="ar">العربية</a>
+</header>
+<main class="wrap">
+<article class="card">
+  <p class="crumbs"><a href="../">Setup guides</a></p>
+  <h1>Invite someone to your server</h1>
+  <p class="lead">Give another phone access to your server, whether a family member's or your own tablet, with a one-time code, and choose what it may do.</p>
+  <section class="needs" aria-labelledby="needs">
+    <h2 id="needs">Roles</h2>
+    <ul>
+      <li><strong>Viewer</strong> sees everything and can't change anything.</li>
+      <li><strong>Operator</strong> can also restart containers and services and acknowledge alerts.</li>
+      <li><strong>Admin</strong> has full control: terminal, power, integrations and members.</li>
+    </ul>
+  </section>
+  <ol class="steps">
+    <li class="with-shot">
+      <h2>Create the invite</h2>
+      <p>On an admin phone, open <strong>Settings → Members &amp; devices</strong>. Under <strong>Invite someone</strong>, pick the role and tap <strong>Create invite</strong>.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/invite_choose_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/invite_choose_en_light.webp" alt="Members & devices, with the role choice and the Create invite button" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>Scan it with the other phone</h2>
+      <p>On the other phone, install Homelab Pulse, open <strong>Add a server → Scan QR code</strong>, and scan the code. It works once, until the time shown.</p>
+      <p>Not in the same room? <strong>Share invite link</strong> sends it as a link, but anyone holding it can pair until it's used or expires, so share it privately.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/invite_code_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/invite_code_en_light.webp" alt="The invite QR code, its code, expiry and share button" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li>
+      <h2>Manage access</h2>
+      <p>The new phone appears in <strong>Members &amp; devices</strong>. To cut it off, tap the remove icon next to it: it's signed out at once, and its open streams and terminal sessions end.</p>
+    </li>
+  </ol>
+  <div class="tip"><p>Pair the new phone while it's on the same network as the server. Every change it makes is recorded in the <strong>Audit log</strong>.</p></div>
+</article>
+</main>
+<footer class="wrap foot">
+  <span>© 2026 Aldaghir</span>
+  <a href="../../privacy/">Privacy Policy</a>
+  <a href="../../terms/">Terms of Use</a>
+  <a href="mailto:android@aldaghir.com">Contact</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>اعرض مراقبات Uptime Kuma · Homelab Pulse</title>
+<meta name="description" content="اربط Uptime Kuma ليعرض Homelab Pulse حالة كل مراقب بجانب حالة سيرفرك.">
+<link rel="icon" href="../../../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../../assets/site.css">
+<link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/uptime-kuma/">
+<link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/uptime-kuma/">
+</head>
+<body>
+<header class="wrap top">
+  <a class="brand" href="../../"><img src="../../../assets/icon.svg" alt="" width="34" height="34"><span dir="ltr" class="nw">Homelab Pulse</span></a>
+  <a class="lang" href="../../../guides/uptime-kuma/" hreflang="en" lang="en">English</a>
+</header>
+<main class="wrap">
+<article class="card">
+  <p class="crumbs"><a href="../">أدلة الإعداد</a></p>
+  <h1>اعرض مراقبات <span dir="ltr" class="nw">Uptime Kuma</span></h1>
+  <p class="lead">إن كنت تستخدم <span dir="ltr" class="nw">Uptime Kuma</span> فيمكن لـ <span dir="ltr" class="nw">Homelab Pulse</span> عرض مراقباتك بجانب حالة سيرفرك. يقرأ الوكيل مقاييس <span dir="ltr" class="nw">Uptime Kuma</span> بمفتاح API، ويبقى المفتاح على سيرفرك.</p>
+  <section class="needs" aria-labelledby="needs">
+    <h2 id="needs">تحتاج إلى</h2>
+    <ul>
+      <li><span dir="ltr" class="nw">Uptime Kuma</span> بالإصدار 1.21 أو أحدث (الإصدارات التي تدعم مفاتيح API)، يمكن الوصول إليه من سيرفرك.</li>
+      <li>هاتف بصلاحية مسؤول في <span dir="ltr" class="nw">Homelab Pulse</span>.</li>
+    </ul>
+  </section>
+  <ol class="steps">
+    <li>
+      <h2>أنشئ مفتاح API في <span dir="ltr" class="nw">Uptime Kuma</span></h2>
+      <p>افتح في <span dir="ltr" class="nw">Uptime Kuma</span> المسار <span lang="en" dir="ltr">Settings → API Keys → Generate</span>. سمِّ المفتاح، مثل «Homelab Pulse»، واختر هل تنتهي صلاحيته، ثم انسخه: يبدأ بـ <code>uk1_</code>.</p>
+    </li>
+    <li class="with-shot">
+      <h2>اربطه في التطبيق</h2>
+      <p>افتح <strong>الإعدادات ← <span dir="ltr" class="nw">Uptime Kuma</span></strong>. اكتب عنوان <span dir="ltr" class="nw">Uptime Kuma</span> كما يصل إليه سيرفرك، مثل <code>http://192.168.1.10:3001</code>، أو <code>http://127.0.0.1:3001</code> إن كانا يعملان على الجهاز نفسه. الصق المفتاح واضغط <strong>تحقّق واحفظ</strong>.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../../../guides/img/kuma_form_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../guides/img/kuma_form_ar_light.webp" alt="عنوان Uptime Kuma ومفتاح API مخفي المحتوى" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>انتهى</h2>
+      <p>يعرض المعالج عدد المراقبات التي وجدها. يُخزَّن المفتاح مشفّراً على سيرفرك ولا يمكن قراءته مرة أخرى.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../../../guides/img/kuma_connected_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../guides/img/kuma_connected_ar_light.webp" alt="Uptime Kuma متصل مع عدد المراقبات" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>شاهد مراقباتك</h2>
+      <p>اضغط بطاقة <strong><span dir="ltr" class="nw">Uptime Kuma</span></strong> في الشاشة الرئيسية لترى حالة كل مراقب.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../../../guides/img/kuma_monitors_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../guides/img/kuma_monitors_ar_light.webp" alt="مراقبات Uptime Kuma في التطبيق" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+  </ol>
+  <h2 id="trouble">إن واجهتك مشكلة</h2>
+  <dl class="trouble">
+    <dt>العنوان لا يمكن الوصول إليه</dt>
+    <dd>يتصل الوكيل من سيرفرك لا من هاتفك: استخدم عنواناً يعمل على السيرفر.</dd>
+    <dt>المفتاح مرفوض</dt>
+    <dd>ربما انتهت صلاحيته أو حُذف. أنشئ مفتاحاً جديداً في <span dir="ltr" class="nw">Uptime Kuma</span>.</dd>
+  </dl>
+</article>
+</main>
+<footer class="wrap foot">
+  <span dir="ltr" class="nw">© 2026 Aldaghir</span>
+  <a href="../../privacy/">سياسة الخصوصية</a>
+  <a href="../../terms/">شروط الاستخدام</a>
+  <a href="mailto:android@aldaghir.com">تواصل معنا</a>
+</footer>
+</body>
+</html>

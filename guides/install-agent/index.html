@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install the agent and pair your phone · Homelab Pulse</title>
+<meta name="description" content="Install the Homelab Pulse agent on your server with one command, then pair your phone by scanning a QR code.">
+<link rel="icon" href="../../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/install-agent/">
+<link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/install-agent/">
+</head>
+<body>
+<header class="wrap top">
+  <a class="brand" href="../../"><img src="../../assets/icon.svg" alt="" width="34" height="34">Homelab Pulse</a>
+  <a class="lang" href="../../ar/guides/install-agent/" hreflang="ar" lang="ar">العربية</a>
+</header>
+<main class="wrap">
+<article class="card">
+  <p class="crumbs"><a href="../">Setup guides</a></p>
+  <h1>Install the agent and pair your phone</h1>
+  <p class="lead">Homelab Pulse reads your server through a small agent that runs on it. You install it once with one command, then pair your phone by scanning a QR code. It takes about five minutes.</p>
+  <section class="needs" aria-labelledby="needs">
+    <h2 id="needs">You need</h2>
+    <ul>
+      <li>A server running Debian, Ubuntu or Raspberry Pi OS, 64-bit (amd64 or arm64), with systemd.</li>
+      <li>An account that can use <code>sudo</code> on it.</li>
+      <li>Your phone on the same network as the server for the first pairing.</li>
+    </ul>
+  </section>
+  <ol class="steps">
+    <li class="with-shot">
+      <h2>Copy the install command</h2>
+      <p>In the app, open <strong>Add a server</strong>. The first card holds the install command: copy it, or share it to the computer you use to reach your server.</p>
+      <pre>curl -fsSL https://github.com/Aldaghir/homelab-pulse/releases/latest/download/install.sh | sudo sh</pre>
+      <div class="tip"><p>Rather read a script before running it? Download <code>install.sh</code> from the latest release, read it, then run <code>sudo sh install.sh</code>. The installer checks the agent it downloads against the release's checksums.</p></div>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/agent_install_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/agent_install_en_light.webp" alt="The Add a server screen with the install command and the Scan QR, Nearby and Manual options" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li>
+      <h2>Run it on your server</h2>
+      <p>Paste the command into a terminal on the server. It installs the agent as the systemd service <code>hlpulse-agent</code>, under its own user <code>hlpulse</code>, and finishes by printing a QR code, a pairing code and the server's fingerprint. The code works once and expires after 10 minutes.</p>
+      <div class="tip"><p>Code expired, or the agent was already installed? Run <code>sudo hlpulse-agent pair</code> for a new one.</p></div>
+    </li>
+    <li class="with-shot">
+      <h2>Scan the QR code</h2>
+      <p>Tap <strong>Scan QR code</strong> and point the camera at the terminal.</p>
+      <p>Can't scan? <strong>Nearby</strong> lists the agents announcing themselves on your Wi-Fi, and <strong>Manual</strong> takes the server's IP address or name, on port 8443.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/agent_manual_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/agent_manual_en_light.webp" alt="Manual: the server's address and port" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+      <figcaption>Manual: the server's address and port 8443.</figcaption>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>Check it's your server, then pair</h2>
+      <p>The app shows the server's name, address and fingerprint. A scanned QR code proves the server's identity by itself; when you add a server by hand, compare the fingerprint with the one the agent printed.</p>
+      <p>Type the pairing code if the app asks for it, give this phone a name, and tap <strong>Pair</strong>.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/agent_confirm_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/agent_confirm_en_light.webp" alt="The server's name, address and verified fingerprint, with the device name field and the Pair button" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>Done</h2>
+      <p>The dashboard opens with your server's live state. Next, <a href="../remote-access/">reach it away from home</a> or <a href="../telegram/">get alerts on Telegram</a>.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/agent_paired_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/agent_paired_en_light.webp" alt="Paired: the server is now connected to this phone" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+  </ol>
+  <h2 id="trouble">If something goes wrong</h2>
+  <dl class="trouble">
+    <dt>The app can't reach the server</dt>
+    <dd>The phone and the server must be on the same network, and the server must accept TCP port 8443 from it. If it runs a firewall, allow that port from your local network.</dd>
+    <dt>The fingerprint doesn't match</dt>
+    <dd>Don't pair: something else is answering at that address. Run <code>sudo hlpulse-agent pair</code> on the server and compare again.</dd>
+    <dt>Is the agent running?</dt>
+    <dd><code>systemctl status hlpulse-agent</code> shows its state, and <code>journalctl -u hlpulse-agent -e</code> its latest messages.</dd>
+    <dt>Removing the agent</dt>
+    <dd>Run the install command with <code>--uninstall</code> added: <code>curl -fsSL …/install.sh | sudo sh -s -- --uninstall</code>. It stops and removes the agent. Its data in <code>/var/lib/hlpulse</code> and settings in <code>/etc/hlpulse</code> stay until you delete them.</dd>
+  </dl>
+</article>
+</main>
+<footer class="wrap foot">
+  <span>© 2026 Aldaghir</span>
+  <a href="../../privacy/">Privacy Policy</a>
+  <a href="../../terms/">Terms of Use</a>
+  <a href="mailto:android@aldaghir.com">Contact</a>
+</footer>
+</body>
+</html>

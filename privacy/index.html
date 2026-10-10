@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy · Homelab Pulse</title>
+<meta name="description" content="How Homelab Pulse handles your data: no accounts, no ads, no tracking; your server's data stays between your phone and your server.">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/privacy/">
+<link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/privacy/">
+</head>
+<body>
+<header class="wrap top">
+  <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="34" height="34">Homelab Pulse</a>
+  <a class="lang" href="../ar/privacy/" hreflang="ar" lang="ar">العربية</a>
+</header>
+<main class="wrap">
+<article class="card">
+  <h1>Privacy Policy</h1>
+  <p class="meta">Effective 10 October 2026</p>
+
+  <section class="summary" aria-labelledby="summary">
+    <h2 id="summary">In short</h2>
+    <ul>
+      <li>No accounts, no ads, no analytics, no tracking.</li>
+      <li>Your server's data travels only between your phone and your own server.</li>
+      <li>Only two optional things ever reach us: alerts that are end-to-end encrypted so we cannot read them (if you use push notifications), and crash reports (if you turn them on).</li>
+    </ul>
+  </section>
+
+  <nav class="toc" aria-label="Contents">
+    <ol>
+      <li><a href="#who">Who we are</a></li>
+      <li><a href="#server-data">Data between your phone and your server</a></li>
+      <li><a href="#on-phone">Data stored on your phone</a></li>
+      <li><a href="#push">Push notifications</a></li>
+      <li><a href="#crash">Crash reports</a></li>
+      <li><a href="#scanner">Scanning a pairing code</a></li>
+      <li><a href="#services">Services you connect</a></li>
+      <li><a href="#permissions">Permissions</a></li>
+      <li><a href="#never">What we never do</a></li>
+      <li><a href="#children">Children</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#choices">Your choices</a></li>
+      <li><a href="#changes">Changes</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="who">1. Who we are</h2>
+  <p>Homelab Pulse (“the app”) is developed by Aldaghir (“we”, “us”). It works together with the Homelab Pulse agent, a program you install on your own server. You can reach us at <a href="mailto:android@aldaghir.com">android@aldaghir.com</a>.</p>
+
+  <h2 id="server-data">2. Data between your phone and your server</h2>
+  <p>The app talks directly to the agent on your server to show system metrics, storage and network figures, services and containers, logs, alerts and terminal sessions, and to apply the settings you choose. This data:</p>
+  <ul>
+    <li>travels directly between your phone and your server: on your local network over TLS, with your server's certificate pinned from the pairing code, or remotely through your own Cloudflare Tunnel and Cloudflare Access if you set them up (Cloudflare then handles that traffic under your Cloudflare account and Cloudflare's privacy policy);</li>
+    <li>is never sent to us.</li>
+  </ul>
+
+  <h2 id="on-phone">3. Data stored on your phone</h2>
+  <ul>
+    <li>The servers you add: name, address, certificate fingerprint and the agent's features.</li>
+    <li>Access tokens for your servers and, if you use them, Cloudflare Access credentials, encrypted with a key kept by the Android Keystore.</li>
+    <li>A short cache of recent readings so the app opens quickly, and your settings.</li>
+  </ul>
+  <p>This data is excluded from Android cloud backup and from device-to-device transfer. If you export a backup of your settings, the file is encrypted with a password you choose and stays wherever you save it. Removing a server, or uninstalling the app, deletes the related data from your phone.</p>
+
+  <h2 id="push">4. Push notifications (optional)</h2>
+  <p>If your phone has Google Play services and you add a server, the app registers with Firebase Cloud Messaging (FCM), a Google service, to receive alerts. Registering creates a push token and a Firebase installation identifier at Google. It does not happen before you add your first server, and the registration is deleted when you remove your last server.</p>
+  <p>The app gives the push token to your agent. When an alert fires, your agent encrypts it for your phone (X25519 and AES-256-GCM) and sends the sealed message, with the push token, to Pulse Relay, a small service we run that hands it to FCM. The relay cannot read your alerts, stores nothing, and does not log tokens, addresses or message contents. FCM then delivers the message under Google's privacy policy. You can run your own relay instead, or rely on Telegram alerts from your agent and not use push at all.</p>
+
+  <h2 id="crash">5. Crash reports (optional, off by default)</h2>
+  <p>If you turn on “Send crash reports” in Settings, the app keeps a report when it crashes and sends it the next time it starts, through your own agent. A report contains the app and Android versions, the phone model, the types of the errors and where in the code they happened, and the error messages with addresses, host names, e-mail addresses and tokens removed.</p>
+  <p>Your agent writes the report to your server's system log and, when a relay is configured, forwards it to us. We use crash reports only to find and fix bugs. They stay in our relay's log for at most 7 days and are then deleted automatically. Nothing is recorded while the setting is off, and turning it off deletes any report still waiting on your phone.</p>
+
+  <h2 id="scanner">6. Scanning a pairing code</h2>
+  <p>The app reads pairing QR codes with Google code scanner, part of Google Play services. Google Play services handles the camera, the scan runs on your phone, and the app receives only the text of the code. Google may collect diagnostic data about the scanner's use, such as the device model, app version and performance figures, as described in <a href="https://developers.google.com/ml-kit/android-data-disclosure">Google's ML Kit data disclosure</a>. You can type the code instead of scanning it.</p>
+
+  <h2 id="services">7. Services you connect</h2>
+  <p>Integrations you set up, such as Telegram, Cloudflare or Uptime Kuma, are run by your agent. Credentials you enter in the app go directly to your agent, which stores them encrypted on your server; they never reach us. Those services' own terms and privacy policies apply to them.</p>
+
+  <h2 id="permissions">8. Permissions</h2>
+  <ul>
+    <li><strong>Internet and network state</strong>: to reach your server and choose between your local network and remote access.</li>
+    <li><strong>Wi-Fi multicast</strong>: to find agents on your local network.</li>
+    <li><strong>Notifications</strong>: to show alerts; asked for when needed.</li>
+    <li><strong>Biometrics</strong>: for the optional app lock. Android checks your fingerprint or face; the app never receives biometric data.</li>
+    <li><strong>Run at startup, foreground service and wake lock</strong>: added by Android libraries to deliver notifications and refresh widgets.</li>
+  </ul>
+
+  <h2 id="never">9. What we never do</h2>
+  <p>We have no user accounts, show no ads and include no analytics or tracking libraries. We do not sell or share personal data, and we do not build profiles.</p>
+
+  <h2 id="children">10. Children</h2>
+  <p>The app is a tool for managing servers and is not directed at children under 13, or under the minimum age in your country.</p>
+
+  <h2 id="security">11. Security</h2>
+  <p>Every connection is encrypted with TLS, and your server's certificate is pinned on your phone. Secrets on the phone are encrypted with Android Keystore keys. The agent stores only hashes of device tokens and enforces a permission level for each device. No system is perfectly secure; if you find a vulnerability, please tell us at <a href="mailto:android@aldaghir.com">android@aldaghir.com</a>.</p>
+
+  <h2 id="choices">12. Your choices</h2>
+  <ul>
+    <li>Turn crash reports on or off at any time in Settings.</li>
+    <li>Turn notifications off in Android settings. Removing a server unpairs your phone from it, so it stops sending you alerts.</li>
+    <li>We keep no account or profile about you. The only data we hold are crash reports, which are deleted within 7 days. You are still welcome to contact us with any request.</li>
+  </ul>
+
+  <h2 id="changes">13. Changes</h2>
+  <p>We will post any change on this page with a new effective date, and mention important changes in the app's release notes.</p>
+
+  <h2 id="contact">14. Contact</h2>
+  <p><a href="mailto:android@aldaghir.com">android@aldaghir.com</a></p>
+</article>
+</main>
+<footer class="wrap foot">
+  <span>© 2026 Aldaghir</span>
+  <a href="../terms/">Terms of Use</a>
+  <a href="../ar/privacy/" hreflang="ar" lang="ar">سياسة الخصوصية</a>
+</footer>
+</body>
+</html>

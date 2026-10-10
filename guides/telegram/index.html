@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get alerts on Telegram · Homelab Pulse</title>
+<meta name="description" content="Send your server's alerts to a Telegram chat through a bot you create and own.">
+<link rel="icon" href="../../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/telegram/">
+<link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/telegram/">
+</head>
+<body>
+<header class="wrap top">
+  <a class="brand" href="../../"><img src="../../assets/icon.svg" alt="" width="34" height="34">Homelab Pulse</a>
+  <a class="lang" href="../../ar/guides/telegram/" hreflang="ar" lang="ar">العربية</a>
+</header>
+<main class="wrap">
+<article class="card">
+  <p class="crumbs"><a href="../">Setup guides</a></p>
+  <h1>Get alerts on Telegram</h1>
+  <p class="lead">Your server sends its alerts to a Telegram chat through a bot that you create and own. Alerts go straight from your server to Telegram, never through us. It takes about two minutes.</p>
+  <section class="needs" aria-labelledby="needs">
+    <h2 id="needs">You need</h2>
+    <ul>
+      <li>Telegram on your phone.</li>
+      <li>An admin phone in Homelab Pulse.</li>
+      <li>Internet access from your server to Telegram (<code>api.telegram.org</code>).</li>
+    </ul>
+  </section>
+  <ol class="steps">
+    <li class="with-shot">
+      <h2>Open the wizard</h2>
+      <p>Open <strong>Settings → Telegram</strong> and tap <strong>Start</strong>.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/telegram_intro_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/telegram_intro_en_light.webp" alt="The Telegram wizard's first page" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>Create your bot with BotFather</h2>
+      <p>Tap <strong>Open @BotFather</strong>, Telegram's official bot for creating bots, and send <code>/newbot</code>. Pick a display name, then a username ending in “bot”, for example <code>my_homelab_bot</code>.</p>
+      <p>BotFather replies with a token like <code>123456789:AAE…</code>. Copy it, then tap <strong>I have the token</strong>.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/telegram_bot_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/telegram_bot_en_light.webp" alt="The three steps with BotFather" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>Paste the token</h2>
+      <p><strong>Paste from clipboard</strong> fills the field and clears the clipboard. Tap <strong>Verify</strong>.</p>
+      <div class="tip"><p>The token is sent once to your server, stored there encrypted, and never shown again, not even to you.</p></div>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/telegram_token_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/telegram_token_en_light.webp" alt="The bot token field, masked" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>Link your chat</h2>
+      <p>Tap <strong>Open the bot</strong>, then <strong>START</strong> in Telegram. The wizard notices within seconds.</p>
+      <p>For a group instead, add the bot to the group and send <code>/start</code> there.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/telegram_link_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/telegram_link_en_light.webp" alt="Bot found, waiting for /start" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>Send a test</h2>
+      <p>Tap <strong>Send test message</strong>. When it arrives in Telegram, tap <strong>It arrived — continue</strong>.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/telegram_test_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/telegram_test_en_light.webp" alt="Chat linked and test message sent" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>Choose the language and which alerts</h2>
+      <p>Pick the language of the messages, then whether to send all alerts, warnings and above, or critical ones only. Tap <strong>Finish</strong>.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/telegram_customize_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/telegram_customize_en_light.webp" alt="Message language and alert level" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>Done</h2>
+      <p>Telegram is connected. From the same page you can send another test, replace the bot or remove Telegram.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/telegram_done_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/telegram_done_en_light.webp" alt="Telegram connected, with the bot, the chat and the masked token" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+  </ol>
+  <h2 id="good-to-know">Good to know</h2>
+  <ul>
+    <li>The bot answers only the chat you linked; messages from anyone else are ignored.</li>
+    <li>If you think the token leaked, send <code>/revoke</code> to @BotFather, then tap <strong>Replace bot</strong> in the app.</li>
+  </ul>
+  <h2 id="trouble">If something goes wrong</h2>
+  <dl class="trouble">
+    <dt>The token is refused</dt>
+    <dd>Copy the whole token, including the digits before the colon.</dd>
+    <dt>Nothing happens after START</dt>
+    <dd>Make sure you opened your own bot (check its username) and tapped START. In a group, send <code>/start</code> after adding the bot.</dd>
+    <dt>The test message doesn't arrive</dt>
+    <dd>Your server needs internet access to <code>api.telegram.org</code>.</dd>
+  </dl>
+</article>
+</main>
+<footer class="wrap foot">
+  <span>© 2026 Aldaghir</span>
+  <a href="../../privacy/">Privacy Policy</a>
+  <a href="../../terms/">Terms of Use</a>
+  <a href="mailto:android@aldaghir.com">Contact</a>
+</footer>
+</body>
+</html>

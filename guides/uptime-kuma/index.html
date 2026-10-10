@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Show your Uptime Kuma monitors · Homelab Pulse</title>
+<meta name="description" content="Connect Uptime Kuma so Homelab Pulse shows each monitor's status next to your server's state.">
+<link rel="icon" href="../../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/uptime-kuma/">
+<link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/uptime-kuma/">
+</head>
+<body>
+<header class="wrap top">
+  <a class="brand" href="../../"><img src="../../assets/icon.svg" alt="" width="34" height="34">Homelab Pulse</a>
+  <a class="lang" href="../../ar/guides/uptime-kuma/" hreflang="ar" lang="ar">العربية</a>
+</header>
+<main class="wrap">
+<article class="card">
+  <p class="crumbs"><a href="../">Setup guides</a></p>
+  <h1>Show your Uptime Kuma monitors</h1>
+  <p class="lead">If you run Uptime Kuma, Homelab Pulse can show your monitors next to your server's state. The agent reads Uptime Kuma's metrics with an API key, and the key stays on your server.</p>
+  <section class="needs" aria-labelledby="needs">
+    <h2 id="needs">You need</h2>
+    <ul>
+      <li>Uptime Kuma 1.21 or newer (the versions with API keys), reachable from your server.</li>
+      <li>An admin phone in Homelab Pulse.</li>
+    </ul>
+  </section>
+  <ol class="steps">
+    <li>
+      <h2>Create an API key in Uptime Kuma</h2>
+      <p>In Uptime Kuma, open <strong>Settings → API Keys → Generate</strong>. Name it, for example “Homelab Pulse”, choose whether it expires, and copy the key: it starts with <code>uk1_</code>.</p>
+    </li>
+    <li class="with-shot">
+      <h2>Connect it in the app</h2>
+      <p>Open <strong>Settings → Uptime Kuma</strong>. Enter Uptime Kuma's address as your server reaches it, such as <code>http://192.168.1.10:3001</code>, or <code>http://127.0.0.1:3001</code> when both run on the same machine. Paste the key and tap <strong>Verify &amp; save</strong>.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/kuma_form_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/kuma_form_en_light.webp" alt="Uptime Kuma's address and the masked API key" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>Done</h2>
+      <p>The wizard shows how many monitors it found. The key is stored encrypted on your server and can't be read back.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/kuma_connected_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/kuma_connected_en_light.webp" alt="Uptime Kuma connected, with the number of monitors" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>See your monitors</h2>
+      <p>Tap the <strong>Uptime Kuma</strong> tile on the home screen to see every monitor's status.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/kuma_monitors_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/kuma_monitors_en_light.webp" alt="Uptime Kuma monitors in the app" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+  </ol>
+  <h2 id="trouble">If something goes wrong</h2>
+  <dl class="trouble">
+    <dt>The address can't be reached</dt>
+    <dd>The agent connects from your server, not from your phone: use an address that works on the server.</dd>
+    <dt>The key is refused</dt>
+    <dd>It may have expired or been deleted. Generate a new one in Uptime Kuma.</dd>
+  </dl>
+</article>
+</main>
+<footer class="wrap foot">
+  <span>© 2026 Aldaghir</span>
+  <a href="../../privacy/">Privacy Policy</a>
+  <a href="../../terms/">Terms of Use</a>
+  <a href="mailto:android@aldaghir.com">Contact</a>
+</footer>
+</body>
+</html>

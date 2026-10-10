@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>استقبل التنبيهات على Telegram · Homelab Pulse</title>
+<meta name="description" content="أرسل تنبيهات سيرفرك إلى محادثة Telegram عبر بوت تنشئه وتملكه بنفسك.">
+<link rel="icon" href="../../../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../../assets/site.css">
+<link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/telegram/">
+<link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/telegram/">
+</head>
+<body>
+<header class="wrap top">
+  <a class="brand" href="../../"><img src="../../../assets/icon.svg" alt="" width="34" height="34"><span dir="ltr" class="nw">Homelab Pulse</span></a>
+  <a class="lang" href="../../../guides/telegram/" hreflang="en" lang="en">English</a>
+</header>
+<main class="wrap">
+<article class="card">
+  <p class="crumbs"><a href="../">أدلة الإعداد</a></p>
+  <h1>استقبل التنبيهات على Telegram</h1>
+  <p class="lead">يرسل سيرفرك تنبيهاته إلى محادثة في Telegram عبر بوت تنشئه وتملكه بنفسك. تصل التنبيهات من سيرفرك إلى Telegram مباشرة، ولا تمر عبرنا أبداً. يستغرق ذلك نحو دقيقتين.</p>
+  <section class="needs" aria-labelledby="needs">
+    <h2 id="needs">تحتاج إلى</h2>
+    <ul>
+      <li>تطبيق Telegram على هاتفك.</li>
+      <li>هاتف بصلاحية مسؤول في <span dir="ltr" class="nw">Homelab Pulse</span>.</li>
+      <li>اتصال من سيرفرك بالإنترنت يصل إلى Telegram (<code>api.telegram.org</code>).</li>
+    </ul>
+  </section>
+  <ol class="steps">
+    <li class="with-shot">
+      <h2>افتح المعالج</h2>
+      <p>افتح <strong>الإعدادات ← Telegram</strong> واضغط <strong>ابدأ</strong>.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../../../guides/img/telegram_intro_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../guides/img/telegram_intro_ar_light.webp" alt="الصفحة الأولى من معالج Telegram" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>أنشئ بوتك عبر BotFather</h2>
+      <p>اضغط <strong>فتح <span dir="ltr" class="nw">@BotFather</span></strong>، وهو بوت Telegram الرسمي لإنشاء البوتات، وأرسل <code>/newbot</code>. اختر اسماً للعرض، ثم اسم مستخدم ينتهي بـ «bot»، مثل <code>my_homelab_bot</code>.</p>
+      <p>سيردّ BotFather بمفتاح مثل <code>123456789:AAE…</code>. انسخه، ثم اضغط <strong>لديّ المفتاح</strong>.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../../../guides/img/telegram_bot_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../guides/img/telegram_bot_ar_light.webp" alt="الخطوات الثلاث مع BotFather" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>الصق المفتاح</h2>
+      <p>زر <strong>لصق من الحافظة</strong> يملأ الحقل ويمسح الحافظة. اضغط <strong>تحقّق</strong>.</p>
+      <div class="tip"><p>يُرسل المفتاح مرة واحدة إلى سيرفرك ويُخزَّن هناك مشفّراً، ولا يُعرض مجدداً، ولا حتى لك.</p></div>
+      <figure class="shot">
+      <picture>
+        <source srcset="../../../guides/img/telegram_token_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../guides/img/telegram_token_ar_light.webp" alt="حقل مفتاح البوت مخفي المحتوى" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>اربط محادثتك</h2>
+      <p>اضغط <strong>فتح البوت</strong>، ثم <strong>START</strong> في Telegram. يلتقط المعالج ذلك خلال ثوانٍ.</p>
+      <p>لاستخدام مجموعة بدلاً من ذلك، أضف البوت إليها وأرسل <code>/start</code> فيها.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../../../guides/img/telegram_link_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../guides/img/telegram_link_ar_light.webp" alt="تم العثور على البوت وبانتظار /start" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>أرسل رسالة تجريبية</h2>
+      <p>اضغط <strong>إرسال رسالة تجريبية</strong>. وعندما تصل في Telegram اضغط <strong>وصلت — متابعة</strong>.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../../../guides/img/telegram_test_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../guides/img/telegram_test_ar_light.webp" alt="تم ربط المحادثة وأُرسلت الرسالة التجريبية" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>اختر اللغة ونوع التنبيهات</h2>
+      <p>اختر لغة الرسائل، ثم إرسال كل التنبيهات، أو التحذيرات فأعلى، أو الحرجة فقط. اضغط <strong>إنهاء</strong>.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../../../guides/img/telegram_customize_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../guides/img/telegram_customize_ar_light.webp" alt="لغة الرسائل ومستوى التنبيهات" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>انتهى</h2>
+      <p>أصبح Telegram متصلاً. ومن الصفحة نفسها يمكنك إرسال رسالة تجريبية أخرى، أو استبدال البوت، أو إزالة Telegram.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../../../guides/img/telegram_done_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../guides/img/telegram_done_ar_light.webp" alt="Telegram متصل مع البوت والمحادثة والمفتاح المخفي" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+  </ol>
+  <h2 id="good-to-know">معلومات مفيدة</h2>
+  <ul>
+    <li>لا يردّ البوت إلا على المحادثة التي ربطتها، ويتجاهل رسائل أي شخص آخر.</li>
+    <li>إن ظننت أن المفتاح تسرّب، أرسل <code>/revoke</code> إلى <span dir="ltr" class="nw">@BotFather</span>، ثم اضغط <strong>استبدال البوت</strong> في التطبيق.</li>
+  </ul>
+  <h2 id="trouble">إن واجهتك مشكلة</h2>
+  <dl class="trouble">
+    <dt>المفتاح مرفوض</dt>
+    <dd>انسخ المفتاح كاملاً، بما فيه الأرقام التي تسبق النقطتين.</dd>
+    <dt>لا يحدث شيء بعد START</dt>
+    <dd>تأكد أنك فتحت بوتك أنت (راجع اسم المستخدم) وضغطت START. وفي المجموعة أرسل <code>/start</code> بعد إضافة البوت.</dd>
+    <dt>الرسالة التجريبية لا تصل</dt>
+    <dd>يحتاج سيرفرك اتصالاً بالإنترنت يصل إلى <code>api.telegram.org</code>.</dd>
+  </dl>
+</article>
+</main>
+<footer class="wrap foot">
+  <span dir="ltr" class="nw">© 2026 Aldaghir</span>
+  <a href="../../privacy/">سياسة الخصوصية</a>
+  <a href="../../terms/">شروط الاستخدام</a>
+  <a href="mailto:android@aldaghir.com">تواصل معنا</a>
+</footer>
+</body>
+</html>

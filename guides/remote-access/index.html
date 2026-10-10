@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reach your server from anywhere · Homelab Pulse</title>
+<meta name="description" content="Set up remote access to your server through Cloudflare Tunnel and Cloudflare Access, with nothing opened on your router.">
+<link rel="icon" href="../../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/remote-access/">
+<link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/remote-access/">
+</head>
+<body>
+<header class="wrap top">
+  <a class="brand" href="../../"><img src="../../assets/icon.svg" alt="" width="34" height="34">Homelab Pulse</a>
+  <a class="lang" href="../../ar/guides/remote-access/" hreflang="ar" lang="ar">العربية</a>
+</header>
+<main class="wrap">
+<article class="card">
+  <p class="crumbs"><a href="../">Setup guides</a></p>
+  <h1>Reach your server from anywhere</h1>
+  <p class="lead">At home the app talks to your server directly. Away from home it goes through Cloudflare Tunnel, protected by Cloudflare Access: nothing is opened on your router, and only phones that hold your service token get through. The wizard sets it all up from one Cloudflare API token.</p>
+  <section class="needs" aria-labelledby="needs">
+    <h2 id="needs">You need</h2>
+    <ul>
+      <li>A domain on your Cloudflare account. The free plan is enough.</li>
+      <li><code>cloudflared</code> running a tunnel on the server. Cloudflare explains how in <a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/">Get started with Cloudflare Tunnel</a>.</li>
+      <li>An admin phone: the one that installed the agent, or one invited as admin.</li>
+    </ul>
+  </section>
+  <ol class="steps">
+    <li class="with-shot">
+      <h2>Choose a public hostname</h2>
+      <p>Open <strong>Settings → Remote access</strong> and keep <strong>Automatic</strong> selected. Enter a subdomain of your Cloudflare domain, for example <code>pulse.example.com</code>. It doesn't need to exist yet.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/remote_automatic_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/remote_automatic_en_light.webp" alt="The remote access wizard in automatic mode, with the hostname and the Cloudflare API token" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li>
+      <h2>Create a Cloudflare API token</h2>
+      <p>Tap <strong>Open Cloudflare API tokens</strong>, then <strong>Create Token → Create Custom Token</strong>, and give it these four permissions:</p>
+      <ul>
+        <li>Zone → DNS → Edit</li>
+        <li>Account → Cloudflare Tunnel → Edit</li>
+        <li>Account → Access: Apps and Policies → Edit</li>
+        <li>Account → Access: Service Tokens → Edit</li>
+      </ul>
+      <p>Under <strong>Zone Resources</strong>, pick your domain. Create the token, copy it, and paste it into the wizard.</p>
+      <div class="tip"><p>The token is used once to configure everything, then discarded: it's never stored. You can delete it in Cloudflare afterwards.</p></div>
+    </li>
+    <li class="with-shot">
+      <h2>Set it up</h2>
+      <p>Tap <strong>Set up remote access</strong>. The agent, on your server, checks the token, finds your domain and tunnel, adds the route and the DNS record, creates an Access application, a service token and a policy, then tests the connection end to end through Cloudflare. Each step shows its result.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/remote_result_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/remote_result_en_light.webp" alt="The setup result: every step checked, with the lines to add to config.yml" width="411" height="1200" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li>
+      <h2>If your tunnel uses a config file, add the route</h2>
+      <p>Tunnels managed from the Cloudflare dashboard get the route automatically. If yours is configured in <code>/etc/cloudflared/config.yml</code>, the wizard shows two lines to add: put them before the catch-all rule, then restart cloudflared.</p>
+      <pre>ingress:
+  - hostname: pulse.example.com
+    service: http://127.0.0.1:8444
+  # … your other routes …
+  - service: http_status:404</pre>
+      <pre>sudo systemctl restart cloudflared</pre>
+    </li>
+    <li class="with-shot">
+      <h2>Test it</h2>
+      <p>Tap <strong>Test the connection</strong>: the connection doctor checks every hop and says what to fix if one fails. From now on the app switches by itself between the direct connection at home and Cloudflare outside.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../img/remote_on_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/remote_on_en_light.webp" alt="Remote access is on, with the public hostname and the test button" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+  </ol>
+  <h2 id="manual">Already have an Access application?</h2>
+  <div class="aside">
+    <p>Choose <strong>Manual</strong>, enter the hostname, and paste the <strong>Client ID</strong> and <strong>Client Secret</strong> of a service token from <strong>Zero Trust → Access → Service auth</strong>. The team domain and application audience are found from the hostname.</p>
+    <figure class="shot">
+      <picture>
+        <source srcset="../img/remote_manual_en_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../img/remote_manual_en_light.webp" alt="Manual mode: the hostname, Client ID and Client Secret" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+  </div>
+  <h2 id="trouble">If something goes wrong</h2>
+  <dl class="trouble">
+    <dt>“No running tunnel found”</dt>
+    <dd>Install cloudflared and start a tunnel on the server first, then run the wizard again.</dd>
+    <dt>The token is refused</dt>
+    <dd>Check the four permissions above and that Zone Resources include your domain.</dd>
+    <dt>The test fails right after setup</dt>
+    <dd>A new DNS record can take a minute to work. If your tunnel uses config.yml, make sure you added the lines and restarted cloudflared.</dd>
+    <dt>Turning it off</dt>
+    <dd><strong>Turn off remote access</strong> makes the agent forget the hostname and service token. The Access application and the DNS record stay in your Cloudflare account until you delete them there.</dd>
+  </dl>
+</article>
+</main>
+<footer class="wrap foot">
+  <span>© 2026 Aldaghir</span>
+  <a href="../../privacy/">Privacy Policy</a>
+  <a href="../../terms/">Terms of Use</a>
+  <a href="mailto:android@aldaghir.com">Contact</a>
+</footer>
+</body>
+</html>

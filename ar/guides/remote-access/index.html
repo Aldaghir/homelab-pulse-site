@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>صِل إلى سيرفرك من أي مكان · Homelab Pulse</title>
+<meta name="description" content="أعدّ الوصول إلى سيرفرك من خارج المنزل عبر Cloudflare Tunnel وCloudflare Access، دون فتح أي منفذ في الراوتر.">
+<link rel="icon" href="../../../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../../assets/site.css">
+<link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/remote-access/">
+<link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/remote-access/">
+</head>
+<body>
+<header class="wrap top">
+  <a class="brand" href="../../"><img src="../../../assets/icon.svg" alt="" width="34" height="34"><span dir="ltr" class="nw">Homelab Pulse</span></a>
+  <a class="lang" href="../../../guides/remote-access/" hreflang="en" lang="en">English</a>
+</header>
+<main class="wrap">
+<article class="card">
+  <p class="crumbs"><a href="../">أدلة الإعداد</a></p>
+  <h1>صِل إلى سيرفرك من أي مكان</h1>
+  <p class="lead">في المنزل يتصل التطبيق بسيرفرك مباشرة، وخارجه يمر عبر <span dir="ltr" class="nw">Cloudflare Tunnel</span> محمياً بـ <span dir="ltr" class="nw">Cloudflare Access</span>: لا يُفتح أي منفذ في الراوتر، ولا يمر إلا الهاتف الذي يملك رمز الخدمة الخاص بك. يعدّ المعالج كل ذلك من رمز API واحد في Cloudflare.</p>
+  <section class="needs" aria-labelledby="needs">
+    <h2 id="needs">تحتاج إلى</h2>
+    <ul>
+      <li>نطاق (دومين) في حسابك على Cloudflare. تكفي الخطة المجانية.</li>
+      <li>نفق يعمل على السيرفر عبر <code>cloudflared</code>. تشرح Cloudflare ذلك في <a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/" lang="en">Get started with Cloudflare Tunnel</a>.</li>
+      <li>هاتف بصلاحية مسؤول: الهاتف الذي ثبّت الوكيل، أو هاتف دُعي بصلاحية مسؤول.</li>
+    </ul>
+  </section>
+  <ol class="steps">
+    <li class="with-shot">
+      <h2>اختر اسم نطاق عاماً</h2>
+      <p>افتح <strong>الإعدادات ← الوصول عن بُعد</strong> وأبقِ <strong>تلقائي</strong> مختاراً. اكتب نطاقاً فرعياً من نطاقك في Cloudflare، مثل <code>pulse.example.com</code>. لا يلزم أن يكون موجوداً مسبقاً.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../../../guides/img/remote_automatic_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../guides/img/remote_automatic_ar_light.webp" alt="معالج الوصول عن بُعد في الوضع التلقائي مع اسم النطاق ورمز API من Cloudflare" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li>
+      <h2>أنشئ رمز API في Cloudflare</h2>
+      <p>اضغط <strong>فتح رموز API في Cloudflare</strong>، ثم <span lang="en" dir="ltr">Create Token → Create Custom Token</span>، وامنحه هذه الصلاحيات الأربع:</p>
+      <ul>
+        <li dir="ltr" lang="en">Zone → DNS → Edit</li>
+        <li dir="ltr" lang="en">Account → Cloudflare Tunnel → Edit</li>
+        <li dir="ltr" lang="en">Account → Access: Apps and Policies → Edit</li>
+        <li dir="ltr" lang="en">Account → Access: Service Tokens → Edit</li>
+      </ul>
+      <p>واختر نطاقك تحت <span lang="en" dir="ltr">Zone Resources</span>. أنشئ الرمز وانسخه والصقه في المعالج.</p>
+      <div class="tip"><p>يُستخدم الرمز مرة واحدة لإعداد كل شيء ثم يُتلف، ولا يُخزَّن أبداً. يمكنك حذفه من Cloudflare بعد ذلك.</p></div>
+    </li>
+    <li class="with-shot">
+      <h2>ابدأ الإعداد</h2>
+      <p>اضغط <strong>إعداد الوصول عن بُعد</strong>. يتحقق الوكيل على سيرفرك من الرمز، ويجد نطاقك ونفقك، ويضيف المسار وسجل DNS، وينشئ تطبيق Access ورمز خدمة وسياسة وصول، ثم يختبر الاتصال كاملاً عبر Cloudflare. تظهر نتيجة كل خطوة أمامك.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../../../guides/img/remote_result_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../guides/img/remote_result_ar_light.webp" alt="نتيجة الإعداد: كل الخطوات ناجحة مع الأسطر المطلوب إضافتها إلى config.yml" width="411" height="1200" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li>
+      <h2>إن كان نفقك يُدار بملف إعداد، فأضف المسار</h2>
+      <p>الأنفاق المُدارة من لوحة Cloudflare يُضاف إليها المسار تلقائياً. أما إن كان نفقك مُعدّاً في <code>/etc/cloudflared/config.yml</code> فسيعرض المعالج سطرين تضيفهما قبل القاعدة الأخيرة، ثم تعيد تشغيل cloudflared.</p>
+      <pre>ingress:
+  - hostname: pulse.example.com
+    service: http://127.0.0.1:8444
+  # … your other routes …
+  - service: http_status:404</pre>
+      <pre>sudo systemctl restart cloudflared</pre>
+    </li>
+    <li class="with-shot">
+      <h2>اختبر الاتصال</h2>
+      <p>اضغط <strong>اختبار الاتصال</strong>: يفحص فاحص الاتصال كل مرحلة، ويخبرك بما يجب إصلاحه إن فشلت إحداها. من الآن يتنقّل التطبيق وحده بين الاتصال المباشر في المنزل وCloudflare خارجه.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../../../guides/img/remote_on_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../guides/img/remote_on_ar_light.webp" alt="الوصول عن بُعد مفعّل مع اسم النطاق العام وزر الاختبار" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+  </ol>
+  <h2 id="manual">لديك تطبيق Access مسبقاً؟</h2>
+  <div class="aside">
+    <p>اختر <strong>يدوي</strong>، واكتب اسم النطاق، ثم الصق <span lang="en" dir="ltr">Client ID</span> و<span lang="en" dir="ltr">Client Secret</span> لرمز خدمة من <span lang="en" dir="ltr">Zero Trust → Access → Service auth</span>. يُكتشف نطاق الفريق وجمهور التطبيق تلقائياً من اسم النطاق.</p>
+    <figure class="shot">
+      <picture>
+        <source srcset="../../../guides/img/remote_manual_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../guides/img/remote_manual_ar_light.webp" alt="الوضع اليدوي: اسم النطاق ومعرّف العميل وسرّه" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+  </div>
+  <h2 id="trouble">إن واجهتك مشكلة</h2>
+  <dl class="trouble">
+    <dt>رسالة «لم يُعثر على نفق يعمل»</dt>
+    <dd>ثبّت cloudflared وشغّل نفقاً على السيرفر أولاً، ثم أعد تشغيل المعالج.</dd>
+    <dt>الرمز مرفوض</dt>
+    <dd>تحقق من الصلاحيات الأربع أعلاه، ومن أن <span lang="en" dir="ltr">Zone Resources</span> تشمل نطاقك.</dd>
+    <dt>فشل الاختبار بعد الإعداد مباشرة</dt>
+    <dd>قد يحتاج سجل DNS الجديد دقيقة ليعمل. وإن كان نفقك يستخدم config.yml فتأكد أنك أضفت الأسطر وأعدت تشغيل cloudflared.</dd>
+    <dt>الإيقاف</dt>
+    <dd><strong>إيقاف الوصول عن بُعد</strong> يجعل الوكيل ينسى اسم النطاق ورمز الخدمة. يبقى تطبيق Access وسجل DNS في حسابك على Cloudflare حتى تحذفهما من هناك.</dd>
+  </dl>
+</article>
+</main>
+<footer class="wrap foot">
+  <span dir="ltr" class="nw">© 2026 Aldaghir</span>
+  <a href="../../privacy/">سياسة الخصوصية</a>
+  <a href="../../terms/">شروط الاستخدام</a>
+  <a href="mailto:android@aldaghir.com">تواصل معنا</a>
+</footer>
+</body>
+</html>
