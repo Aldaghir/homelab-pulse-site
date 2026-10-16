@@ -18,7 +18,7 @@
 <main class="wrap">
 <article class="card">
   <h1>Privacy Policy</h1>
-  <p class="meta">Effective 10 October 2026</p>
+  <p class="meta">Effective 16 October 2026</p>
 
   <section class="summary" aria-labelledby="summary">
     <h2 id="summary">In short</h2>
@@ -75,7 +75,8 @@
   <p>Your agent writes the report to your server's system log and, when a relay is configured, forwards it to us. We use crash reports only to find and fix bugs. They stay in our relay's log on Cloudflare for at most 7 days and are then deleted automatically. Nothing is recorded while the setting is off, and turning it off deletes any report still waiting on your phone.</p>
 
   <h2 id="scanner">6. Scanning a pairing code</h2>
-  <p>The app reads pairing QR codes with Google code scanner, part of Google Play services. Google Play services handles the camera, the scan runs on your phone, and the app receives only the text of the code. Google may collect diagnostic data about the scanner's use, such as the device model, app version and performance figures, as described in <a href="https://developers.google.com/ml-kit/android-data-disclosure">Google's ML Kit data disclosure</a>. You can type the code instead of scanning it.</p>
+  <p>The app reads pairing QR codes with Google code scanner, part of Google Play services. Google Play services handles the camera, the scan runs on your phone, and the app receives only the text of the code. Google may collect diagnostic data about the scanner's use, such as the device model, app version and performance figures, as described in <a href="https://developers.google.com/ml-kit/android-data-disclosure">Google's ML Kit data disclosure</a>.</p>
+  <p>When Google code scanner is missing or cannot open on your phone, the app scans with its own scanner instead. It asks for the camera permission the first time, reads the camera's picture on your phone only while the scanner is open, and keeps or sends no picture: only the text of the code is used. You can type the code instead of scanning it.</p>
 
   <h2 id="services">7. Services you connect</h2>
   <p>Integrations you set up, such as Telegram, Cloudflare or Uptime Kuma, are run by your agent. Credentials you enter in the app go directly to your agent, which stores them encrypted on your server; they never reach us. Those services' own terms and privacy policies apply to them.</p>
@@ -85,6 +86,7 @@
     <li><strong>Internet and network state</strong>: to reach your server and choose between your local network and remote access.</li>
     <li><strong>Wi-Fi multicast</strong>: to find agents on your local network.</li>
     <li><strong>Notifications</strong>: to show alerts; asked for when needed.</li>
+    <li><strong>Camera</strong>: only for the app's own QR scanner, when Google code scanner cannot open; asked for the first time. The picture is read on your phone and is not kept or sent.</li>
     <li><strong>Biometrics</strong>: for the optional app lock. Android checks your fingerprint or face; the app never receives biometric data.</li>
     <li><strong>Run at startup, foreground service and wake lock</strong>: added by Android libraries to deliver notifications and refresh widgets.</li>
   </ul>
