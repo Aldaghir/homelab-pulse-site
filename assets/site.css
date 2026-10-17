@@ -10,6 +10,7 @@
   --muted: #5F6672;
   --brand: #087A51;
   --brand-soft: #E3F5EC;
+  --border-strong: #848B96; /* ≥ 3:1 on --bg and --surface: outlines that must be seen (WCAG 1.4.11) */
   --radius: 20px;
   --font: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Noto Sans Arabic", "Noto Naskh Arabic", Tahoma, sans-serif;
   --mono: ui-monospace, "SFMono-Regular", "IBM Plex Mono", Menlo, Consolas, monospace;
@@ -26,6 +27,7 @@
     --muted: #8A919C;
     --brand: #4FD3A0;
     --brand-soft: #12352A;
+    --border-strong: #666E7A;
   }
 }
 
@@ -37,16 +39,81 @@ a { color: var(--brand); text-decoration-thickness: 1px; text-underline-offset: 
 a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 6px; }
 
+/* Reading column for long pages; the header, the footer and the landing page use the wide one. */
 .wrap { max-width: 760px; margin-inline: auto; padding-inline: 16px; }
-.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 18px; }
-.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--text); font-weight: 700; font-size: 17px; text-decoration: none; }
-.brand img { width: 34px; height: 34px; border-radius: 10px; display: block; }
+.wide { max-width: 1120px; margin-inline: auto; padding-inline: 16px; }
+
+/* Shared header and footer (E7-01, E7-09): the same blocks in every page, written by tools/site_sync.py
+   from tools/site/. Below 720px the links fold into a <details> menu, with no JavaScript: its button
+   sits in the header's corner, and the open menu takes a full row under the bar, pushing the page down,
+   so it never covers what has focus (WCAG 2.4.11). Every target is at least 44px. */
+main:focus { outline: none; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip {
+  position: absolute; z-index: 20; top: 8px; inset-inline-start: 8px;
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px;
+  background: var(--surface); color: var(--text); border: 2px solid var(--brand); border-radius: 12px;
+  font-weight: 700; text-decoration: none;
+}
+.skip:not(:focus) { width: 1px; height: 1px; min-height: 0; padding: 0; border: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip:focus-visible { border-radius: 12px; }
+.top { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding-block: 18px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; margin-inline-end: auto; color: var(--text); font-weight: 700; font-size: 17px; text-decoration: none; }
+.brand img { width: 34px; height: 34px; border-radius: 10px; display: block; flex: none; }
 .lang {
-  display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px;
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px;
   border: 1px solid var(--border); border-radius: 999px; background: var(--surface);
   color: var(--text-2); font-size: 14px; text-decoration: none;
 }
 .lang:hover { color: var(--text); border-color: var(--muted); }
+.lang:focus-visible { border-radius: 999px; }
+.top nav a { color: var(--text-2); text-decoration: none; }
+.top nav a:hover { color: var(--brand); }
+.top nav a[aria-current] { color: var(--brand); font-weight: 700; }
+.nav { display: none; }
+.menu > summary {
+  display: grid; place-items: center; width: 44px; height: 44px; list-style: none; cursor: pointer;
+  border: 1px solid var(--border-strong); border-radius: 12px; background: var(--surface); color: var(--text);
+}
+.menu > summary::-webkit-details-marker { display: none; }
+.menu > summary:hover { border-color: var(--muted); }
+.menu > summary:focus-visible { border-radius: 12px; }
+.menu[open] > summary { border-color: var(--brand); color: var(--brand); }
+.menu svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.menu .cross, .menu[open] .bars { display: none; }
+.menu[open] .cross { display: inline; }
+.menu > nav {
+  display: grid; gap: 2px; margin-block-start: 16px; padding: 8px;
+  background: var(--surface); border: 1px solid var(--border-strong); border-radius: 16px;
+}
+.menu > nav a { display: flex; align-items: center; min-height: 48px; padding: 4px 14px; border-radius: 10px; color: var(--text); font-size: 16px; }
+.menu > nav a:hover { background: var(--surface-2); }
+@media (max-width: 719.98px) {
+  /* Room for the button in the corner (--menu-room); the menu's row spans the full width under the bar.
+     No row gap: the closed menu's row is empty, and a gap before it would still add height (a negative
+     margin cannot pull an empty flex line below zero). The open menu's own margin spaces it. */
+  .top { --menu-room: calc(44px + 12px); row-gap: 0; padding-inline-end: calc(16px + var(--menu-room)); }
+  .menu { flex: 0 0 calc(100% + var(--menu-room)); margin-inline-end: calc(-1 * var(--menu-room)); }
+  .menu > summary { position: absolute; top: 18px; inset-inline-end: 16px; }
+}
+@media (max-width: 379.98px) {
+  /* One line from 320px: a little tighter. */
+  .top { --menu-room: calc(44px + 6px); column-gap: 6px; }
+  .brand { gap: 6px; font-size: 16px; }
+  .brand img { width: 30px; height: 30px; }
+  .lang { padding: 0 10px; }
+}
+@media (max-width: 259.98px) {
+  /* 200% zoom on a phone: the bar wraps and the button joins the flow, on its own row. */
+  .top { --menu-room: 0px; row-gap: 8px; }
+  .menu > summary { position: static; }
+  .menu > nav { margin-block-start: 8px; }
+}
+@media (min-width: 720px) {
+  .nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+  .nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; font-size: 15px; }
+  .menu { display: none; }
+}
 
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(20px, 5vw, 40px); }
 h1 { font-size: clamp(26px, 6vw, 34px); line-height: 1.25; margin: 0 0 4px; letter-spacing: -0.01em; }
@@ -68,8 +135,9 @@ li + li { margin-top: 6px; }
 .toc a:hover { color: var(--brand); text-decoration: underline; }
 
 code, .ltr { font-family: var(--mono); font-size: .92em; direction: ltr; unicode-bidi: isolate; }
-.foot { display: flex; flex-wrap: wrap; gap: 6px 18px; padding-block: 24px 40px; color: var(--muted); font-size: 14px; }
-.foot a { color: var(--muted); }
+.foot { display: flex; flex-wrap: wrap; align-items: center; gap: 0 18px; padding-block: 24px 40px; color: var(--muted); font-size: 14px; }
+.foot a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; color: var(--muted); }
+.foot a[aria-current] { color: var(--text-2); font-weight: 700; }
 
 /* Project page */
 .hero { text-align: center; padding-block: 28px 4px; }
@@ -134,11 +202,6 @@ pre {
 .nw { white-space: nowrap; }
 
 /* Product site (landing) */
-.wide { max-width: 1120px; margin-inline: auto; padding-inline: 16px; }
-.nav { display: flex; align-items: center; gap: 20px; }
-.nav a.link { color: var(--text-2); text-decoration: none; font-size: 15px; }
-.nav a.link:hover { color: var(--brand); }
-@media (max-width: 720px) { .nav a.link { display: none; } }
 .hero2 { display: grid; gap: 36px; align-items: center; padding-block: 28px 12px; }
 @media (min-width: 900px) { .hero2 { grid-template-columns: 1.05fr 1fr; padding-block: 56px 24px; } }
 .hero2 h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.12; margin: 0 0 14px; }
