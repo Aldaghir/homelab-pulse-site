@@ -38,7 +38,7 @@
 <main id="main" tabindex="-1" class="wrap">
 <article class="card">
   <h1>Privacy Policy</h1>
-  <p class="meta">Effective 21 October 2026</p>
+  <p class="meta">Effective 22 October 2026</p>
 
   <section class="summary" aria-labelledby="summary">
     <h2 id="summary">In short</h2>
@@ -72,7 +72,7 @@
   <p>Homelab Pulse (“the app”) is developed by Aldaghir (“we”, “us”). It works together with the Homelab Pulse agent, a program you install on your own server. You can reach us at <a href="mailto:android@aldaghir.com">android@aldaghir.com</a>.</p>
 
   <h2 id="server-data">2. Data between your phone and your server</h2>
-  <p>The app talks directly to the agent on your server to show system metrics, storage and network figures, services and containers, logs, alerts and terminal sessions, and to apply the settings you choose. This data:</p>
+  <p>The app talks directly to the agent on your server to show system metrics, storage and network figures, services and containers, logs, alerts, terminal sessions and, with Pro, the files you browse and download, and to apply the settings you choose. This data:</p>
   <ul>
     <li>travels directly between your phone and your server: on your local network over TLS, with your server's certificate pinned from the pairing code, or remotely through your own Cloudflare Tunnel and Cloudflare Access if you set them up (Cloudflare then handles that traffic under your Cloudflare account and Cloudflare's privacy policy);</li>
     <li>is never sent to us.</li>
@@ -81,11 +81,13 @@
   <h2 id="on-phone">3. Data stored on your phone</h2>
   <ul>
     <li>The servers you add: name, address, certificate fingerprint and the agent's features.</li>
-    <li>Access tokens for your servers and, if you use them, Cloudflare Access credentials, encrypted with a key kept by the Android Keystore.</li>
-    <li>The latest data the app showed you from your servers, so it can show it with its age when there is no connection: readings, server details, containers and services, alerts and their rules, the state of backups, updates, security, network and Uptime Kuma, checks (without the credentials in their targets), the timeline, devices and the audit log. It stays until newer data replaces it, you remove the server, or the server refuses this phone.</li>
-    <li>Your settings in the app.</li>
+    <li>Access tokens for your servers, the end of your access if it is a temporary guest access, Cloudflare Access credentials if you use them, and the private key that decrypts your push notifications, encrypted with a key kept by the Android Keystore.</li>
+    <li>The latest data the app showed you from your servers, so it can show it with its age when there is no connection: readings, server details, storage (disks, their mount points and health, Docker images), containers and services, alerts and their rules, the state of backups, updates, security, network and Uptime Kuma, checks (without the credentials in their targets), the timeline (including SSH sign-ins with their user names and addresses), devices and the audit log (including the address each action came from). It stays until newer data replaces it, you remove or re-pair the server, your temporary access ends, or the server refuses this phone.</li>
+    <li>With Pro: the files you download, in the folder you choose; they are yours and stay there. While a download is running or paused, the app keeps its list: the server, the paths and names of the files and folders, the folder you chose and a short-lived ticket from your server. The list goes when the download finishes, you cancel it, or you remove the server. Android's task scheduler keeps a short record of a finished or cancelled download (the server, the file's path and name, the folder and the ticket, which expires within a day) until it clears it by itself, a day or more later.</li>
+    <li>If you buy Pro on Google Play: when Google Play last confirmed the purchase, sealed with a key kept by the Android Keystore. Google Play handles the payment under Google's privacy policy; the app keeps no payment details.</li>
+    <li>Your settings in the app, including the quick commands you write for the terminal.</li>
   </ul>
-  <p>This data is excluded from Android cloud backup and from device-to-device transfer. If you export a backup of your settings, the file is encrypted with a password you choose and stays wherever you save it. Removing a server, or uninstalling the app, deletes the related data from your phone.</p>
+  <p>This data is excluded from Android cloud backup and from device-to-device transfer. If you export a backup, the file holds your servers, their access tokens and other secrets, and your settings, encrypted with a password you choose, and stays wherever you save it. Removing a server, or uninstalling the app, deletes the related data from your phone; files you downloaded stay in the folder you chose.</p>
 
   <h2 id="push">4. Push notifications (optional)</h2>
   <p>If your phone has Google Play services and you add a server, the app registers with Firebase Cloud Messaging (FCM), a Google service, to receive alerts. Registering creates a push token and a Firebase installation identifier at Google. It does not happen before you add your first server, and the registration is deleted when you remove your last server.</p>
