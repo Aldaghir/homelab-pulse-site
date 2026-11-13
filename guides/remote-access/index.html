@@ -16,7 +16,7 @@
 <!-- @header -->
 <a class="skip" href="#main">Skip to content</a>
 <header class="wide top">
-  <a class="brand" href="../../"><img src="../../assets/icon.svg" alt="" width="34" height="34"><span dir="ltr">Homelab Pulse</span></a>
+  <a class="brand" href="../../"><img src="../../assets/icon.svg" alt="" role="presentation" width="34" height="34"><span dir="ltr">Homelab Pulse</span></a>
   <nav class="nav" aria-label="Main">
     <a href="../../#features">Features</a>
     <a href="../../#how">How it works</a>
@@ -84,12 +84,12 @@
     <li>
       <h2>If your tunnel uses a config file, add the route</h2>
       <p>Tunnels managed from the Cloudflare dashboard get the route automatically. If yours is configured in <code>/etc/cloudflared/config.yml</code>, the wizard shows two lines to add: put them before the catch-all rule, then restart cloudflared.</p>
-      <pre>ingress:
+      <pre tabindex="0" role="region" aria-label="Lines to add to config.yml">ingress:
   - hostname: pulse.example.com
     service: http://127.0.0.1:8444
   # … your other routes …
   - service: http_status:404</pre>
-      <pre>sudo systemctl restart cloudflared</pre>
+      <pre tabindex="0" role="region" aria-label="Command to restart cloudflared">sudo systemctl restart cloudflared</pre>
     </li>
     <li class="with-shot">
       <h2>Test it</h2>

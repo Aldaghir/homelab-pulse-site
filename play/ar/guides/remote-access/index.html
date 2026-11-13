@@ -17,7 +17,7 @@
 <!-- @header -->
 <a class="skip" href="#main">تخطَّ إلى المحتوى</a>
 <header class="wide top">
-  <a class="brand" href="../../"><img src="../../../../assets/icon.svg" alt="" width="34" height="34"><span dir="ltr">Homelab Pulse</span></a>
+  <a class="brand" href="../../"><img src="../../../../assets/icon.svg" alt="" role="presentation" width="34" height="34"><span dir="ltr">Homelab Pulse</span></a>
   <nav class="nav" aria-label="الرئيسي">
     <a href="../../#features">المزايا</a>
     <a href="../../#how">كيف يعمل</a>
@@ -85,12 +85,12 @@
     <li>
       <h2>إن كان نفقك يُدار بملف إعداد، فأضف المسار</h2>
       <p>الأنفاق المُدارة من لوحة Cloudflare يُضاف إليها المسار تلقائياً. أما إن كان نفقك مُعدّاً في <code>/etc/cloudflared/config.yml</code> فسيعرض المعالج سطرين تضيفهما قبل القاعدة الأخيرة، ثم تعيد تشغيل cloudflared.</p>
-      <pre>ingress:
+      <pre tabindex="0" role="region" aria-label="الأسطر التي تُضاف إلى config.yml">ingress:
   - hostname: pulse.example.com
     service: http://127.0.0.1:8444
   # … your other routes …
   - service: http_status:404</pre>
-      <pre>sudo systemctl restart cloudflared</pre>
+      <pre tabindex="0" role="region" aria-label="أمر إعادة تشغيل cloudflared">sudo systemctl restart cloudflared</pre>
     </li>
     <li class="with-shot">
       <h2>اختبر الاتصال</h2>

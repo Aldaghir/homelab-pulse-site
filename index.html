@@ -22,7 +22,7 @@
 <!-- @header -->
 <a class="skip" href="#main">Skip to content</a>
 <header class="wide top">
-  <a class="brand" href="./"><img src="assets/icon.svg" alt="" width="34" height="34"><span dir="ltr">Homelab Pulse</span></a>
+  <a class="brand" href="./"><img src="assets/icon.svg" alt="" role="presentation" width="34" height="34"><span dir="ltr">Homelab Pulse</span></a>
   <nav class="nav" aria-label="Main">
     <a href="#features">Features</a>
     <a href="#how">How it works</a>
@@ -69,7 +69,7 @@
     <h2 id="how-title">Up and running in three steps</h2>
     <p class="sub">A tiny agent on your server collects metrics, keeps history and sends alerts; the app shows everything and puts you in control.</p>
     <ol class="how">
-      <li><strong>Install the agent</strong><p>One command on Debian, Ubuntu or Raspberry Pi OS.</p><pre>curl -fsSL https://github.com/Aldaghir/homelab-pulse/releases/latest/download/install.sh | sudo sh</pre><p class="prelaunch" data-prelaunch>This command goes live with the first public release, coming soon. <a href="mailto:android@aldaghir.com?subject=Notify%20me%20when%20Homelab%20Pulse%20launches">Get notified</a></p></li>
+      <li><strong>Install the agent</strong><p>One command on Debian, Ubuntu or Raspberry Pi OS.</p><pre tabindex="0" role="region" aria-label="Install command">curl -fsSL https://github.com/Aldaghir/homelab-pulse/releases/latest/download/install.sh | sudo sh</pre><p class="prelaunch" data-prelaunch>This command goes live with the first public release, coming soon. <a href="mailto:android@aldaghir.com?subject=Notify%20me%20when%20Homelab%20Pulse%20launches">Get notified</a></p></li>
       <li><strong>Scan the QR code</strong><p>Your phone pairs with a pinned certificate and its own device token.</p></li>
       <li><strong>Monitor and act from anywhere</strong><p>Alerts on your phone or Telegram, and secure access through Cloudflare.</p></li>
     </ol>
@@ -77,15 +77,15 @@
   </section>
   <section class="section" id="screens" aria-labelledby="screens-title">
     <h2 id="screens-title">Screenshots</h2>
-    <div class="gallery" tabindex="0">
-      <img src="assets/shots/en/01.webp" alt="" width="540" height="960" loading="lazy" decoding="async">
-      <img src="assets/shots/en/02.webp" alt="" width="540" height="960" loading="lazy" decoding="async">
-      <img src="assets/shots/en/03.webp" alt="" width="540" height="960" loading="lazy" decoding="async">
-      <img src="assets/shots/en/04.webp" alt="" width="540" height="960" loading="lazy" decoding="async">
-      <img src="assets/shots/en/05.webp" alt="" width="540" height="960" loading="lazy" decoding="async">
-      <img src="assets/shots/en/06.webp" alt="" width="540" height="960" loading="lazy" decoding="async">
-      <img src="assets/shots/en/07.webp" alt="" width="540" height="960" loading="lazy" decoding="async">
-      <img src="assets/shots/en/08.webp" alt="" width="540" height="960" loading="lazy" decoding="async">
+    <div class="gallery" tabindex="0" role="group" aria-label="Screenshot gallery">
+      <img src="assets/shots/en/01.webp" alt="Your whole server at a glance: the dashboard with alerts, uptime, CPU, memory, temperature, storage, network, containers and services" width="540" height="960" loading="lazy" decoding="async">
+      <img src="assets/shots/en/02.webp" alt="Up to 30 days of history: the CPU screen with ranges from 1 hour to 30 days, a load chart with its minimum, average and maximum, and each core's load" width="540" height="960" loading="lazy" decoding="async">
+      <img src="assets/shots/en/03.webp" alt="Every container and service in one place: the Services list with search and filters, and each container's status, CPU and memory" width="540" height="960" loading="lazy" decoding="async">
+      <img src="assets/shots/en/04.webp" alt="Restart and read logs in a tap: a container's screen with its CPU, memory and port, the Restart, Stop and Logs buttons, and its recent logs" width="540" height="960" loading="lazy" decoding="async">
+      <img src="assets/shots/en/05.webp" alt="Live logs for every service: the live log of ssh.service, with a filter field and a button for each level, ERR, WARN, INFO and DBG" width="540" height="960" loading="lazy" decoding="async">
+      <img src="assets/shots/en/06.webp" alt="Alerts even while your phone sleeps: the active alerts, a critical one for an unhealthy container with Acknowledge and Snooze, and an acknowledged warning for high CPU usage with Snooze" width="540" height="960" loading="lazy" decoding="async">
+      <img src="assets/shots/en/07.webp" alt="Telegram alerts through your own bot: Telegram connected to a bot, with buttons to send a test message, replace the bot or remove Telegram" width="540" height="960" loading="lazy" decoding="async">
+      <img src="assets/shots/en/08.webp" alt="From anywhere, with no open ports: remote access on through Cloudflare Tunnel, with buttons to test the connection or turn it off" width="540" height="960" loading="lazy" decoding="async">
     </div>
   </section>
   <section class="section" id="privacy" aria-labelledby="privacy-title">

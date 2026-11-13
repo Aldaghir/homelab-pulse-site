@@ -23,7 +23,7 @@
 <!-- @header -->
 <a class="skip" href="#main">تخطَّ إلى المحتوى</a>
 <header class="wide top">
-  <a class="brand" href="./"><img src="../../assets/icon.svg" alt="" width="34" height="34"><span dir="ltr">Homelab Pulse</span></a>
+  <a class="brand" href="./"><img src="../../assets/icon.svg" alt="" role="presentation" width="34" height="34"><span dir="ltr">Homelab Pulse</span></a>
   <nav class="nav" aria-label="الرئيسي">
     <a href="#features">المزايا</a>
     <a href="#how">كيف يعمل</a>
@@ -70,7 +70,7 @@
     <h2 id="how-title">يعمل في ثلاث خطوات</h2>
     <p class="sub">وكيل صغير على سيرفرك يجمع المقاييس ويحفظ التاريخ ويرسل التنبيهات، والتطبيق يعرض كل شيء ويتحكّم به.</p>
     <ol class="how">
-      <li><strong>ثبّت الوكيل</strong><p>أمر واحد على Debian أو Ubuntu أو Raspberry Pi OS.</p><pre>curl -fsSL https://github.com/Aldaghir/homelab-pulse/releases/latest/download/install.sh | sudo sh</pre><p class="prelaunch" data-prelaunch>يعمل هذا الأمر مع أول إصدار عام قريباً. <a href="mailto:android@aldaghir.com?subject=%D8%A3%D8%B9%D9%84%D9%85%D9%86%D9%8A%20%D8%B9%D9%86%D8%AF%20%D8%A5%D8%B7%D9%84%D8%A7%D9%82%20Homelab%20Pulse">أعلمني عند الإطلاق</a></p></li>
+      <li><strong>ثبّت الوكيل</strong><p>أمر واحد على Debian أو Ubuntu أو Raspberry Pi OS.</p><pre tabindex="0" role="region" aria-label="أمر التثبيت">curl -fsSL https://github.com/Aldaghir/homelab-pulse/releases/latest/download/install.sh | sudo sh</pre><p class="prelaunch" data-prelaunch>يعمل هذا الأمر مع أول إصدار عام قريباً. <a href="mailto:android@aldaghir.com?subject=%D8%A3%D8%B9%D9%84%D9%85%D9%86%D9%8A%20%D8%B9%D9%86%D8%AF%20%D8%A5%D8%B7%D9%84%D8%A7%D9%82%20Homelab%20Pulse">أعلمني عند الإطلاق</a></p></li>
       <li><strong>امسح رمز QR</strong><p>يقترن هاتفك بسيرفرك بشهادة مثبّتة ورمز جهاز خاص به.</p></li>
       <li><strong>راقب وتحكّم من أي مكان</strong><p>تنبيهات على هاتفك أو Telegram، ووصول آمن عبر Cloudflare.</p></li>
     </ol>
@@ -78,15 +78,15 @@
   </section>
   <section class="section" id="screens" aria-labelledby="screens-title">
     <h2 id="screens-title">لقطات من التطبيق</h2>
-    <div class="gallery" tabindex="0">
-      <img src="../../assets/shots/ar/01.webp" alt="" width="540" height="960" loading="lazy" decoding="async">
-      <img src="../../assets/shots/ar/02.webp" alt="" width="540" height="960" loading="lazy" decoding="async">
-      <img src="../../assets/shots/ar/03.webp" alt="" width="540" height="960" loading="lazy" decoding="async">
-      <img src="../../assets/shots/ar/04.webp" alt="" width="540" height="960" loading="lazy" decoding="async">
-      <img src="../../assets/shots/ar/05.webp" alt="" width="540" height="960" loading="lazy" decoding="async">
-      <img src="../../assets/shots/ar/06.webp" alt="" width="540" height="960" loading="lazy" decoding="async">
-      <img src="../../assets/shots/ar/07.webp" alt="" width="540" height="960" loading="lazy" decoding="async">
-      <img src="../../assets/shots/ar/08.webp" alt="" width="540" height="960" loading="lazy" decoding="async">
+    <div class="gallery" tabindex="0" role="group" aria-label="معرض اللقطات">
+      <img src="../../assets/shots/ar/01.webp" alt="سيرفرك كلّه بنظرة واحدة: لوحة المعلومات وفيها التنبيهات ووقت التشغيل والمعالج والذاكرة والحرارة والتخزين والشبكة والحاويات والخدمات" width="540" height="960" loading="lazy" decoding="async">
+      <img src="../../assets/shots/ar/02.webp" alt="تاريخ حتى 30 يوماً لكل مقياس: شاشة المعالج بمدى من ساعة إلى شهر، ورسم للحمل بأدناه ومتوسطه وأعلاه، وحمل كل نواة" width="540" height="960" loading="lazy" decoding="async">
+      <img src="../../assets/shots/ar/03.webp" alt="كل الحاويات والخدمات في مكان واحد: قائمة الخدمات مع البحث والتصفية، وحالة كل حاوية واستهلاكها من المعالج والذاكرة" width="540" height="960" loading="lazy" decoding="async">
+      <img src="../../assets/shots/ar/04.webp" alt="أعد التشغيل واقرأ السجلات بلمسة: شاشة حاوية فيها المعالج والذاكرة والمنفذ، وأزرار إعادة التشغيل والإيقاف والسجلات، وآخر سجلاتها" width="540" height="960" loading="lazy" decoding="async">
+      <img src="../../assets/shots/ar/05.webp" alt="سجلات كل خدمة مباشرة: سجل ssh.service المباشر، مع حقل للتصفية وزر لكل مستوى، ERR وWARN وINFO وDBG" width="540" height="960" loading="lazy" decoding="async">
+      <img src="../../assets/shots/ar/06.webp" alt="تنبيهات من سيرفرك حتى والهاتف نائم: التنبيهات النشطة، تنبيه حرج لحاوية غير سليمة مع زرّي إقرار وتأجيل، وتحذير تم الإقرار به لارتفاع استخدام المعالج مع زر تأجيل" width="540" height="960" loading="lazy" decoding="async">
+      <img src="../../assets/shots/ar/07.webp" alt="تنبيهات على Telegram ببوتك الخاص: Telegram متصل ببوت، مع أزرار إرسال رسالة تجريبية واستبدال البوت وإزالة Telegram" width="540" height="960" loading="lazy" decoding="async">
+      <img src="../../assets/shots/ar/08.webp" alt="من أي مكان، دون فتح أي منفذ: الوصول عن بُعد مفعّل عبر نفق Cloudflare، مع زرّي اختبار الاتصال وإيقاف الوصول عن بُعد" width="540" height="960" loading="lazy" decoding="async">
     </div>
   </section>
   <section class="section" id="privacy" aria-labelledby="privacy-title">
