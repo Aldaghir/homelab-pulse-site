@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Written by tools/site_sync.py from tools/site/pages.json: every public page and its languages (E7-05). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://pulse.aldaghir.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/ar/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/guides/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/guides/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/ar/guides/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/guides/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/guides/install-agent/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/install-agent/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/install-agent/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/guides/install-agent/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/ar/guides/install-agent/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/install-agent/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/install-agent/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/guides/install-agent/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/guides/remote-access/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/remote-access/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/remote-access/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/guides/remote-access/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/ar/guides/remote-access/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/remote-access/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/remote-access/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/guides/remote-access/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/guides/telegram/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/telegram/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/telegram/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/guides/telegram/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/ar/guides/telegram/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/telegram/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/telegram/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/guides/telegram/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/guides/uptime-kuma/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/uptime-kuma/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/uptime-kuma/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/guides/uptime-kuma/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/ar/guides/uptime-kuma/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/uptime-kuma/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/uptime-kuma/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/guides/uptime-kuma/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/guides/invite/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/invite/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/invite/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/guides/invite/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/ar/guides/invite/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/guides/invite/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/guides/invite/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/guides/invite/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/privacy/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/ar/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/privacy/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/terms/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/ar/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/terms/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/source/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/source/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/source/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/source/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/ar/source/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/source/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/source/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/source/"/>
+  </url>
+</urlset>

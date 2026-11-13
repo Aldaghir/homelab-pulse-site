@@ -1,0 +1,6 @@
+# Written by tools/site_sync.py (E7-05). Nothing is blocked: a Play copy under /play/ names its public
+# page as canonical (ADR-0022), which a crawler sees only if it may read the copy.
+User-agent: *
+Allow: /
+
+Sitemap: https://pulse.aldaghir.com/sitemap.xml
