@@ -1,0 +1,128 @@
+<!doctype html>
+<!-- Written by tools/site_sync.py from site/ar/guides/install-agent/index.html: edit that page, never this copy (ADR-0022). -->
+<html lang="ar" dir="rtl">
+<head>
+<!-- @head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ثبّت الوكيل واقرن هاتفك · Homelab Pulse</title>
+<meta name="description" content="ثبّت وكيل Homelab Pulse على سيرفرك بأمر واحد، ثم اقرن هاتفك بمسح رمز QR.">
+<link rel="icon" href="../../../../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../../../assets/site.css">
+<link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/play/guides/install-agent/">
+<link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/play/ar/guides/install-agent/">
+<!-- /@head -->
+</head>
+<body>
+<!-- @header -->
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+<header class="wide top">
+  <a class="brand" href="../../"><img src="../../../../assets/icon.svg" alt="" width="34" height="34"><span dir="ltr">Homelab Pulse</span></a>
+  <nav class="nav" aria-label="الرئيسي">
+    <a href="../../#features">المزايا</a>
+    <a href="../../#how">كيف يعمل</a>
+    <a href="../" aria-current="true">الأدلة</a>
+    <a href="../../privacy/">الخصوصية</a>
+  </nav>
+  <a class="lang" href="../../../guides/install-agent/" hreflang="en" lang="en">English</a>
+  <details class="menu">
+    <summary><svg viewBox="0 0 24 24" aria-hidden="true"><path class="bars" d="M4 7h16M4 12h16M4 17h16"/><path class="cross" d="M6 6l12 12M18 6L6 18"/></svg><span class="sr">القائمة</span></summary>
+    <nav aria-label="الرئيسي">
+      <a href="../../#features">المزايا</a>
+      <a href="../../#how">كيف يعمل</a>
+      <a href="../" aria-current="true">الأدلة</a>
+      <a href="../../privacy/">الخصوصية</a>
+    </nav>
+  </details>
+</header>
+<!-- /@header -->
+<main id="main" tabindex="-1" class="wrap">
+<article class="card">
+  <p class="crumbs"><a href="../">أدلة الإعداد</a></p>
+  <h1>ثبّت الوكيل واقرن هاتفك</h1>
+  <p class="lead">يقرأ <span dir="ltr" class="nw">Homelab Pulse</span> سيرفرك عبر وكيل صغير يعمل عليه. تثبّته مرة واحدة بأمر واحد، ثم يقترن هاتفك به بمسح رمز QR. يستغرق ذلك نحو خمس دقائق.</p>
+  <section class="needs" aria-labelledby="needs">
+    <h2 id="needs">تحتاج إلى</h2>
+    <ul>
+      <li>سيرفر يعمل بنظام Debian أو Ubuntu أو <span dir="ltr" class="nw">Raspberry Pi OS</span> بإصدار 64 بت (amd64 أو arm64) مع systemd.</li>
+      <li>حساب يملك صلاحية <code>sudo</code> عليه.</li>
+      <li>أن يكون هاتفك على شبكة السيرفر نفسها في أول اقتران.</li>
+    </ul>
+  </section>
+  <ol class="steps">
+    <li class="with-shot">
+      <h2>انسخ أمر التثبيت</h2>
+      <p>افتح في التطبيق <strong>إضافة سيرفر</strong>. تجد أمر التثبيت في البطاقة الأولى: انسخه، أو شاركه إلى الحاسوب الذي تصل منه إلى سيرفرك.</p>
+      <pre>curl -fsSL https://github.com/Aldaghir/homelab-pulse/releases/latest/download/install.sh | sudo sh</pre><p class="prelaunch" data-prelaunch>يعمل هذا الأمر مع أول إصدار عام قريباً. <a href="mailto:android@aldaghir.com?subject=%D8%A3%D8%B9%D9%84%D9%85%D9%86%D9%8A%20%D8%B9%D9%86%D8%AF%20%D8%A5%D8%B7%D9%84%D8%A7%D9%82%20Homelab%20Pulse">أعلمني عند الإطلاق</a></p>
+      <div class="tip"><p>تفضّل قراءة السكربت قبل تشغيله؟ نزّل <code>install.sh</code> من آخر إصدار واقرأه، ثم شغّله بالأمر <code>sudo sh install.sh</code>. يتحقق المثبّت من الوكيل الذي ينزّله بمطابقته مع بصمات الإصدار (checksums).</p></div>
+      <figure class="shot">
+      <picture>
+        <source srcset="../../../../guides/img/agent_install_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../../guides/img/agent_install_ar_light.webp" alt="شاشة إضافة سيرفر وفيها أمر التثبيت وخيارات المسح والقريب واليدوي" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li>
+      <h2>شغّله على سيرفرك</h2>
+      <p>الصق الأمر في طرفية السيرفر. يثبّت الوكيل خدمةَ systemd باسم <code>hlpulse-agent</code> تعمل بمستخدمها الخاص <code>hlpulse</code>، ويطبع في النهاية رمز QR ورمز اقتران وبصمة السيرفر. يعمل الرمز مرة واحدة وتنتهي صلاحيته بعد 10 دقائق.</p>
+      <div class="tip"><p>انتهت صلاحية الرمز، أو كان الوكيل مثبّتاً من قبل؟ شغّل <code>sudo hlpulse-agent pair</code> لرمز جديد.</p></div>
+    </li>
+    <li class="with-shot">
+      <h2>امسح رمز QR</h2>
+      <p>اضغط <strong>مسح رمز QR</strong> ووجّه الكاميرا نحو الطرفية.</p>
+      <p>تعذّر المسح؟ يعرض خيار <strong>قريب</strong> الوكلاءَ المعلنين على شبكة Wi-Fi، ويقبل خيار <strong>يدوي</strong> عنوان IP للسيرفر أو اسمه على المنفذ 8443.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../../../../guides/img/agent_manual_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../../guides/img/agent_manual_ar_light.webp" alt="الإدخال اليدوي: عنوان السيرفر ومنفذه" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+      <figcaption>الإدخال اليدوي: عنوان السيرفر والمنفذ 8443.</figcaption>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>تأكّد أنه سيرفرك ثم اقترن</h2>
+      <p>يعرض التطبيق اسم السيرفر وعنوانه وبصمته. مسح رمز QR يثبت هوية السيرفر وحده؛ أما عند الإضافة اليدوية فقارن البصمة بالتي طبعها الوكيل.</p>
+      <p>اكتب رمز الاقتران إن طلبه التطبيق، وسمِّ هذا الهاتف، ثم اضغط <strong>اقترن</strong>.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../../../../guides/img/agent_confirm_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../../guides/img/agent_confirm_ar_light.webp" alt="اسم السيرفر وعنوانه وبصمته الموثّقة مع حقل اسم الجهاز وزر الاقتران" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+    <li class="with-shot">
+      <h2>انتهى</h2>
+      <p>تُفتح اللوحة بحالة سيرفرك الحيّة. الخطوة التالية: <a href="../remote-access/">الوصول إليه من خارج المنزل</a>، أو <a href="../telegram/">استقبال التنبيهات على Telegram</a>.</p>
+      <figure class="shot">
+      <picture>
+        <source srcset="../../../../guides/img/agent_paired_ar_dark.webp" media="(prefers-color-scheme: dark)">
+        <img src="../../../../guides/img/agent_paired_ar_light.webp" alt="تم الاقتران: السيرفر متصل الآن بهذا الهاتف" width="411" height="891" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    </li>
+  </ol>
+  <h2 id="trouble">إن واجهتك مشكلة</h2>
+  <dl class="trouble">
+    <dt>التطبيق لا يصل إلى السيرفر</dt>
+    <dd>يجب أن يكون الهاتف والسيرفر على الشبكة نفسها، وأن يقبل السيرفر الاتصال على منفذ TCP رقم 8443. إن كان عليه جدار حماية فاسمح بهذا المنفذ من شبكتك المحلية.</dd>
+    <dt>البصمة لا تطابق</dt>
+    <dd>لا تقترن: جهاز آخر يردّ على ذلك العنوان. شغّل <code>sudo hlpulse-agent pair</code> على السيرفر وقارن مرة أخرى.</dd>
+    <dt>هل الوكيل يعمل؟</dt>
+    <dd>الأمر <code>systemctl status hlpulse-agent</code> يعرض حالته، والأمر <code>journalctl -u hlpulse-agent -e</code> يعرض آخر رسائله.</dd>
+    <dt>إزالة الوكيل</dt>
+    <dd>شغّل أمر التثبيت مع إضافة <code>--uninstall</code>: <code>curl -fsSL …/install.sh | sudo sh -s -- --uninstall</code>، فيوقف الوكيل ويزيله. تبقى بياناته في <code>/var/lib/hlpulse</code> وإعداداته في <code>/etc/hlpulse</code> حتى تحذفها بنفسك.</dd>
+  </dl>
+</article>
+</main>
+<!-- @footer -->
+<footer class="wide foot">
+  <span dir="ltr">© 2026 Aldaghir</span>
+  <a href="../" aria-current="true">أدلة الإعداد</a>
+  <a href="../../privacy/">سياسة الخصوصية</a>
+  <a href="../../terms/">شروط الاستخدام</a>
+  <a href="../../source/">الكود المصدري</a>
+  <a href="mailto:android@aldaghir.com">تواصل معنا</a>
+</footer>
+<!-- /@footer -->
+</body>
+</html>
