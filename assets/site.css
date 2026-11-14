@@ -1,4 +1,5 @@
-/* Homelab Pulse: the project site (home page, guides, privacy policy, terms, source code, 404).
+/* Homelab Pulse: the project site (home page, guides, download, pricing, support, privacy policy, terms, source
+   code, 404).
 
    الاتجاه: «سجل المناوبة». الموقع دفتر مناوبة ليلية لسيرفر منزلي: ما جرى مكتوب أسطراً مختومة بالوقت، يقرؤها
    صاحبه في الصباح. ورقٌ هادئ وحبرٌ داكن في الفاتح، وليلُ غرفة السيرفر في الداكن. الأخضر لمبة «سليم» لا لون
@@ -133,9 +134,10 @@ code, kbd, .ltr { font-family: var(--mono); font-size: .9em; direction: ltr; uni
 main.wrap:has(.steps) { max-width: calc(960px + 2 * var(--gutter)); }
 
 /* ── Shared header (E7-01, E7-09): the same block in every page, written by tools/site_sync.py from
-   tools/site/. Below 720px the links fold into a <details> menu, with no JavaScript: its button sits in
+   tools/site/. Below 960px the links fold into a <details> menu, with no JavaScript: its button sits in
    the header's corner, and the open menu takes a full row under the bar, pushing the page down, so it never
-   covers what has focus (WCAG 2.4.11). Every target is at least 44px. */
+   covers what has focus (WCAG 2.4.11). Every target is at least 44px. Seven links (E7-03) fit beside the
+   name and the language on one line from 960px; narrower, they wrapped to a second line under the bar. */
 .skip {
   position: absolute; z-index: 20; top: 8px; inset-inline-start: 8px;
   display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px;
@@ -174,7 +176,7 @@ main.wrap:has(.steps) { max-width: calc(960px + 2 * var(--gutter)); }
 .menu > nav { display: grid; margin-block-start: 14px; border-top: 1px solid var(--rule); }
 .menu > nav a { display: flex; align-items: center; min-height: 52px; padding: 4px 2px; border-bottom: 1px solid var(--rule); color: var(--ink); font-size: 17px; }
 .menu > nav a[aria-current]::after { content: ""; width: 8px; height: 8px; margin-inline-start: 10px; border-radius: 50%; background: var(--ok-lamp); }
-@media (max-width: 719.98px) {
+@media (max-width: 959.98px) {
   /* Room for the button in the corner (--menu-room); the menu's row spans the full width under the bar.
      No row gap: the closed menu's row is empty, and a gap before it would still add height (a negative
      margin cannot pull an empty flex line below zero). The open menu's own margin spaces it. */
@@ -195,7 +197,7 @@ main.wrap:has(.steps) { max-width: calc(960px + 2 * var(--gutter)); }
   .menu > summary { position: static; }
   .menu > nav { margin-block-start: 8px; }
 }
-@media (min-width: 720px) {
+@media (min-width: 960px) {
   .nav { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 6px; }
   .nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; font-size: 15px; }
   .nav a[aria-current] { box-shadow: inset 0 -2px 0 var(--ok); }
@@ -558,6 +560,57 @@ html[lang="ar"] .closing h2 { line-height: 1.3; }
   .entry { grid-template-columns: minmax(0, 1fr) 200px; grid-template-rows: auto auto auto 1fr; column-gap: 24px; }
   .entry > *, .entry > p:last-of-type { grid-column: 1; grid-row: auto; }
   .entry .screen { grid-column: 2; grid-row: 1 / span 4; }
+}
+
+/* ── Download, pricing and support (E7-03): pages of the log book at the home page's width. The title over the
+   ink rule, then numbered parts: each one's label, title and price at the reading edge, and on a wide screen
+   its entries ruled beside them, the title holding its place as they scroll past (as in the security band). */
+.page { padding-block: clamp(28px, 6vw, 56px) 0; }
+.page-head { padding-bottom: 24px; border-bottom: 1px solid var(--ink); }
+/* One word ("Download") is wider than a 320 px phone with text at 200%: it breaks, as the home page's title does. */
+.page-head h1 { overflow-wrap: break-word; font-size: clamp(40px, 7vw, 72px); line-height: 1.02; letter-spacing: -0.015em; margin: 0 0 16px; }
+html[lang="ar"] .page-head h1 { line-height: 1.3; letter-spacing: 0; }
+.page-head .lead { font-size: 19px; max-width: 34em; margin: 0; }
+.part { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 64px; padding-block: 44px 0; }
+.part h2 { margin: 0 0 10px; font-size: clamp(26px, 3.2vw, 34px); line-height: 1.15; }
+html[lang="ar"] .part h2 { line-height: 1.4; }
+.side > p:not(.label):not(.price) { color: var(--ink-2); max-width: 30em; }
+.part .price { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin: 0 0 14px; }
+.part .price b { font: 400 clamp(44px, 6vw, 64px)/1 var(--mono); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.part .price span { color: var(--ink-2); font-size: 16px; }
+@media (min-width: 960px) {
+  .part { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); padding-block: 72px 0; }
+  .part > .side { position: sticky; top: 24px; align-self: start; }
+}
+/* Entries: a title with its state, a line or two, and what to tap. */
+.ledger { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.ledger > li { margin: 0; padding-block: 22px; border-bottom: 1px solid var(--rule); }
+.ledger h3 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 14px; font-size: 22px; margin: 0 0 6px; }
+.ledger h3 .state { flex: 0 1 auto; min-width: 0; } /* a long state wraps under its name when text is made big */
+.ledger p { margin: 0 0 12px; color: var(--ink-2); }
+.ledger .note { font-size: 15px; }
+.ledger > li > :last-child, .ledger .actions + .prelaunch { margin-bottom: 0; }
+.ledger .actions { margin: 4px 0 0; }
+.ledger + .note { margin-top: 14px; }
+.ledger pre { margin: 4px 0 14px; }
+.part .term { margin-top: 0; }
+.part .prelaunch { margin-bottom: 16px; } /* a note keeps to the link above it, apart from the text below */
+/* What is free: names on ruled lines, two to a row where they fit. */
+.names { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); column-gap: 32px; border-top: 1px solid var(--ink); }
+.names li { margin: 0; padding-block: 11px; border-bottom: 1px solid var(--rule); }
+@media (min-width: 560px) { .names { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* Where a gift goes: the page's name, and the address it opens under it. */
+.give { list-style: none; margin: 0 0 4px; padding: 0; border-top: 1px solid var(--ink); }
+.give li { margin: 0; border-bottom: 1px solid var(--rule); }
+.give a { display: block; padding-block: 16px 14px; color: var(--ink); text-decoration: none; }
+.give strong { display: block; font: 600 26px/1.3 var(--display); }
+.give a:hover strong { text-decoration: underline; text-decoration-color: var(--ok); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.give .host { display: block; margin-top: 2px; color: var(--muted); font: 14px/1.5 var(--mono); }
+@media (max-width: 719.98px) {
+  .page-head .lead { font-size: 17px; }
+  .ledger > li { padding-block: 18px; }
+  .ledger h3 { font-size: 20px; }
+  .part .price b { font-size: 38px; }
 }
 
 /* ── The page served at any missing address (404.html, E7-05): one message in both languages, the Arabic
