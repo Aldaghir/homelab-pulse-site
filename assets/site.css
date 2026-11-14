@@ -458,6 +458,15 @@ html[lang="ar"] .needs-list .opt { font: 600 14px/1.6 var(--sans); letter-spacin
 @media (min-width: 560px) and (max-width: 899.98px), (min-width: 1100px) {
   .needs-list > div { grid-template-columns: minmax(0, 8.5em) minmax(0, 1fr); column-gap: 18px; }
 }
+/* The privacy policy's Data safety answers (E7-11): a ruled line each, its id in the margin as a log line's,
+   the subject beside its answer once both fit. */
+.ds { margin: 18px 0 0; border-top: 1px solid var(--ink); }
+.ds > div { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px 24px; padding-block: 14px; border-bottom: 1px solid var(--rule); scroll-margin-top: 16px; }
+.ds dt { display: flex; align-items: baseline; gap: 10px; font-weight: 600; }
+.ds dd { margin: 0; color: var(--ink-2); }
+.ds dd b { color: var(--ink); }
+.ds-id { flex: none; color: var(--muted); font: 400 13px/1.6 var(--mono); letter-spacing: .04em; }
+@media (min-width: 640px) { .ds > div { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); } }
 
 /* 04 Security: the title holds its place while the guards scroll past it (a wide screen). */
 .guard-band .wide { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px 64px; }
