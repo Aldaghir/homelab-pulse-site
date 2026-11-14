@@ -6,11 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Homelab Pulse · سيرفرك المنزلي في جيبك</title>
 <meta name="description" content="راقب سيرفرك المنزلي وأدِره من هاتف أندرويد عبر وكيل صغير تثبّته عليه: حالة حيّة، وتنبيهات حتى والهاتف نائم، وحاويات وخدمات وطرفية، ووصول آمن من أي مكان.">
-<meta name="theme-color" content="#F3F4F6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0F1114" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1113" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="../favicon.ico" sizes="32x32">
 <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/site.css">
+<link rel="preload" href="../assets/fonts/plex-arabic-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/plex-arabic-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/changa-arabic-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/plex-sans-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/changa-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="canonical" href="https://pulse.aldaghir.com/ar/">
 <link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/">
 <link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/">
@@ -41,8 +48,9 @@
   <nav class="nav" aria-label="الرئيسي">
     <a href="#features">المزايا</a>
     <a href="#how">كيف يعمل</a>
+    <a href="#security">الأمان</a>
+    <a href="#pro">Pro</a>
     <a href="guides/">الأدلة</a>
-    <a href="privacy/">الخصوصية</a>
   </nav>
   <a class="lang" href="../" hreflang="en" lang="en">English</a>
   <details class="menu">
@@ -50,81 +58,225 @@
     <nav aria-label="الرئيسي">
       <a href="#features">المزايا</a>
       <a href="#how">كيف يعمل</a>
+      <a href="#security">الأمان</a>
+      <a href="#pro">Pro</a>
       <a href="guides/">الأدلة</a>
-      <a href="privacy/">الخصوصية</a>
     </nav>
   </details>
 </header>
 <!-- /@header -->
-<main id="main" tabindex="-1" class="wide">
-  <section class="hero2">
-    <div>
-      <span class="badge">الإصدار الأول قريباً على Google Play</span>
-      <h1>سيرفرك المنزلي في جيبك</h1>
-      <p class="tagline"><span dir="ltr" class="nw">Homelab Pulse</span> تطبيق أندرويد يراقب سيرفرك المنزلي ويديره عبر وكيل صغير تثبّته عليه: حالته فوراً، وتنبيهات قبل وقوع المشكلة، وإصلاح آمن من أي مكان.</p>
-      <div class="cta-row"><a class="btn primary" href="guides/install-agent/">ابدأ الإعداد</a><a class="btn ghost" href="#features">شاهد المزايا</a></div>
+<main id="main" tabindex="-1" class="home">
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="kicker"><span class="lamp" aria-hidden="true"></span>لأندرويد · الإصدار الأول قريباً على Google Play</p>
+    <h1 id="hero-title">سيرفرك يسهر طوال الليل، <em>فلا تسهر معه.</em></h1>
+    <div class="hero-text">
+      <p class="lede"><span dir="ltr" class="nw">Homelab Pulse</span> تطبيق أندرويد ووكيل صغير تثبّته على سيرفرك المنزلي. يراقب الوكيل السيرفر ليلاً ونهاراً، ولا يوقظ هاتفك إلا حين يحتاجك أمر فعلاً. والتطبيق يريك كل شيء، ويتيح لك التصرّف من أي مكان دون أن تفتح منفذاً واحداً.</p>
+      <div class="actions"><a class="btn primary" href="guides/install-agent/">ثبّت الوكيل</a><a class="btn line" href="#how">كيف يعمل</a></div>
+      <p class="facts-line"><a href="#source">مفتوح المصدر</a> · بالعربية والإنجليزية · أندرويد 8.0 فما فوق</p>
     </div>
-    <figure class="hero-shot"><img src="../assets/hero/ar.webp" alt="لوحة التطبيق على هاتف مستند إلى حجر: المعالج والذاكرة والحرارة والتخزين والشبكة" width="600" height="800" decoding="async" fetchpriority="high"></figure>
-  </section>
-  <section class="section" id="features" aria-labelledby="features-title">
-    <h2 id="features-title">كل ما يحتاجه سيرفرك المنزلي</h2>
-    <p class="sub">مصمّم لبيئة الـ homelab: Docker وsystemd والنسخ الاحتياطي وCloudflare Tunnel، بالعربية أولاً.</p>
-    <ul class="grid3">
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14l4-4"/><path d="M3.3 17a9 9 0 1 1 17.4 0"/><circle cx="12" cy="14" r="1.5"/></svg><strong>لوحة حيّة</strong><span>المعالج والذاكرة والحرارة والتخزين مع صحة الأقراص والشبكة، وتاريخ حتى 30 يوماً.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg><strong>الحاويات والخدمات</strong><span>حالة Docker وsystemd وصحتها واستهلاكها، وتشغيل وإيقاف وإعادة تشغيل بلمسة.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4l2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><strong>تنبيهات من السيرفر نفسه</strong><span>قواعد يقيّمها الوكيل حتى والهاتف نائم، بإشعارات مشفّرة من طرف إلى طرف أو عبر Telegram.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 9l3 3-3 3"/><path d="M12 15h5"/></svg><strong>الطرفية والسجلات</strong><span>طرفية كاملة تعرض العربية بشكل صحيح، وسجلات مباشرة لكل خدمة.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><strong>من أي مكان</strong><span>عبر Cloudflare Tunnel وAccess دون فتح أي منفذ، مع تنقّل تلقائي بين المنزل والخارج.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg><strong>يفهم السيرفر المنزلي</strong><span>حداثة النسخ الاحتياطية، والتحديثات، وfail2ban وUFW، وفحوص HTTP وTCP، وUptime Kuma.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></svg><strong>للعائلة والفريق</strong><span>عدة سيرفرات، ودعوات لمرة واحدة بصلاحيات، وسحب فوري، وسجل تدقيق لكل إجراء.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><strong>خاص منذ التصميم</strong><span>بلا حسابات ولا إعلانات ولا تتبّع؛ بيانات سيرفرك تبقى بين هاتفك وسيرفرك.</span></li>
-    </ul>
-  </section>
-  <section class="section" id="how" aria-labelledby="how-title">
-    <h2 id="how-title">يعمل في ثلاث خطوات</h2>
-    <p class="sub">وكيل صغير على سيرفرك يجمع المقاييس ويحفظ التاريخ ويرسل التنبيهات، والتطبيق يعرض كل شيء ويتحكّم به.</p>
-    <ol class="how">
-      <li><strong>ثبّت الوكيل</strong><p>أمر واحد على Debian أو Ubuntu أو Raspberry Pi OS.</p><pre tabindex="0" role="region" aria-label="أمر التثبيت">curl -fsSL https://github.com/Aldaghir/homelab-pulse/releases/latest/download/install.sh | sudo sh</pre><p class="prelaunch" data-prelaunch>يعمل هذا الأمر مع أول إصدار عام قريباً. <a href="mailto:android@aldaghir.com?subject=%D8%A3%D8%B9%D9%84%D9%85%D9%86%D9%8A%20%D8%B9%D9%86%D8%AF%20%D8%A5%D8%B7%D9%84%D8%A7%D9%82%20Homelab%20Pulse">أعلمني عند الإطلاق</a></p></li>
-      <li><strong>امسح رمز QR</strong><p>يقترن هاتفك بسيرفرك بشهادة مثبّتة ورمز جهاز خاص به.</p></li>
-      <li><strong>راقب وتحكّم من أي مكان</strong><p>تنبيهات على هاتفك أو Telegram، ووصول آمن عبر Cloudflare.</p></li>
-    </ol>
-    <div class="arch"><div><b>هاتفك</b><small>التطبيق</small></div><i aria-hidden="true">⇄</i><div><b>سيرفرك</b><small>الوكيل</small></div><i aria-hidden="true">←</i><div><b>تنبيهاتك</b><small>Telegram أو إشعارات مشفّرة</small></div></div>
-  </section>
-  <section class="section" id="screens" aria-labelledby="screens-title">
-    <h2 id="screens-title">لقطات من التطبيق</h2>
-    <div class="gallery" tabindex="0" role="group" aria-label="معرض اللقطات">
-      <img src="../assets/shots/ar/01.webp" alt="سيرفرك كلّه بنظرة واحدة: لوحة المعلومات وفيها التنبيهات ووقت التشغيل والمعالج والذاكرة والحرارة والتخزين والشبكة والحاويات والخدمات" width="540" height="960" loading="lazy" decoding="async">
-      <img src="../assets/shots/ar/02.webp" alt="تاريخ حتى 30 يوماً لكل مقياس: شاشة المعالج بمدى من ساعة إلى شهر، ورسم للحمل بأدناه ومتوسطه وأعلاه، وحمل كل نواة" width="540" height="960" loading="lazy" decoding="async">
-      <img src="../assets/shots/ar/03.webp" alt="كل الحاويات والخدمات في مكان واحد: قائمة الخدمات مع البحث والتصفية، وحالة كل حاوية واستهلاكها من المعالج والذاكرة" width="540" height="960" loading="lazy" decoding="async">
-      <img src="../assets/shots/ar/04.webp" alt="أعد التشغيل واقرأ السجلات بلمسة: شاشة حاوية فيها المعالج والذاكرة والمنفذ، وأزرار إعادة التشغيل والإيقاف والسجلات، وآخر سجلاتها" width="540" height="960" loading="lazy" decoding="async">
-      <img src="../assets/shots/ar/05.webp" alt="سجلات كل خدمة مباشرة: سجل ssh.service المباشر، مع حقل للتصفية وزر لكل مستوى، ERR وWARN وINFO وDBG" width="540" height="960" loading="lazy" decoding="async">
-      <img src="../assets/shots/ar/06.webp" alt="تنبيهات من سيرفرك حتى والهاتف نائم: التنبيهات النشطة، تنبيه حرج لحاوية غير سليمة مع زرّي إقرار وتأجيل، وتحذير تم الإقرار به لارتفاع استخدام المعالج مع زر تأجيل" width="540" height="960" loading="lazy" decoding="async">
-      <img src="../assets/shots/ar/07.webp" alt="تنبيهات على Telegram ببوتك الخاص: Telegram متصل ببوت، مع أزرار إرسال رسالة تجريبية واستبدال البوت وإزالة Telegram" width="540" height="960" loading="lazy" decoding="async">
-      <img src="../assets/shots/ar/08.webp" alt="من أي مكان، دون فتح أي منفذ: الوصول عن بُعد مفعّل عبر نفق Cloudflare، مع زرّي اختبار الاتصال وإيقاف الوصول عن بُعد" width="540" height="960" loading="lazy" decoding="async">
+    <div class="hero-photo">
+      <picture>
+        <source media="(min-width: 960px)" srcset="../assets/hero/ar-tall-880.webp 880w, ../assets/hero/ar-tall-1320.webp 1320w, ../assets/hero/ar-tall-1760.webp 1760w" sizes="(min-width: 1200px) 50vw, 75vw" width="1760" height="2048">
+        <img src="../assets/hero/ar-wide-800.webp" srcset="../assets/hero/ar-wide-800.webp 800w, ../assets/hero/ar-wide-1200.webp 1200w, ../assets/hero/ar-wide-1600.webp 1600w" sizes="100vw" width="1600" height="1200" alt="هاتف مستند إلى حجر داكن على رف ليلاً، بجانب سيرفر منزلي صغير، يعرض لوحة Homelab Pulse للسيرفر home-srv: مدة التشغيل والمعالج والذاكرة والحرارة والتخزين والشبكة" fetchpriority="high" decoding="async">
+      </picture>
     </div>
   </section>
-  <section class="section" id="privacy" aria-labelledby="privacy-title">
-    <h2 id="privacy-title">خصوصيتك وأمانك أولاً</h2>
-    <ul class="grid3">
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><strong>بلا حسابات ولا تتبّع</strong><span>لا تسجيل ولا إعلانات ولا تحليلات.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg><strong>مفاتيح مشفّرة على سيرفرك</strong><span>مفاتيح التكاملات لا تُقرأ مرة أخرى ولا تظهر في أي سجل.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></svg><strong>صلاحيات لكل جهاز</strong><span>مشاهد أو مشغّل أو مسؤول، وسحب فوري للصلاحية.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4l2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><strong>تأكيد للإجراءات الحساسة</strong><span>تأكيد بالضغط المطوّل والبصمة، وكل تغيير مسجّل.</span></li>
+
+  <div class="wide facts-row">
+    <ul class="facts" aria-label="Homelab Pulse بالأرقام">
+      <li><b>1</b> <span>أمر واحد يثبّت الوكيل</span></li>
+      <li><b>0</b> <span>منفذ تفتحه في الراوتر</span></li>
+      <li><b>0</b> <span>حسابات أو إعلانات أو تتبّع</span></li>
+      <li><b>30<small>يوماً</small></b> <span>من الرسوم البيانية، محفوظة على سيرفرك أنت</span></li>
+      <li><b>27.7<small>MB</small></b> <span>ذاكرة الوكيل على Raspberry Pi 5، وسيطاً على مدى 72 ساعة، ومساعده root يأخذ 16.3MB أخرى</span></li>
     </ul>
-    <p class="note" style="margin-top:16px"><a href="privacy/">اقرأ سياسة الخصوصية</a></p>
+  </div>
+
+  <section class="band" id="night" aria-labelledby="night-title">
+    <div class="wide">
+      <p class="label"><span class="num">01</span> ليلة مع سيرفرك</p>
+      <h2 id="night-title">ما جرى وأنت نائم، سطراً بسطر.</h2>
+      <p class="intro">ليلة واحدة على سيرفر منزلي، نرويها بشاشات التطبيق نفسه.</p>
+      <ol class="night">
+        <li class="entry">
+          <p class="stamp"><time>02:39</time><span class="lvl crit">CRIT</span></p>
+          <p class="logline">الحاوية immich-server غير سليمة</p>
+          <h3>هاتفك نائم، والسيرفر صاحٍ.</h3>
+          <p>يفحص الوكيل قواعد التنبيه على السيرفر نفسه، فلا شيء ينتظر أن يستيقظ هاتفك. ويصله التنبيه إشعاراً لا يقرؤه غيره: مشفّراً من طرف إلى طرف، بمفتاح أُنشئ يوم الاقتران.</p>
+          <figure class="screen">
+            <picture>
+              <source media="(prefers-color-scheme: dark)" srcset="../assets/screens/ar/alerts-dark-280.webp 280w, ../assets/screens/ar/alerts-dark-560.webp 560w" sizes="(min-width: 1100px) 280px, (min-width: 720px) 248px, (min-width: 540px) 200px, (min-width: 360px) 35vw, 56vw">
+              <img src="../assets/screens/ar/alerts-light-560.webp" srcset="../assets/screens/ar/alerts-light-280.webp 280w, ../assets/screens/ar/alerts-light-560.webp 560w" sizes="(min-width: 1100px) 280px, (min-width: 720px) 248px, (min-width: 540px) 200px, (min-width: 360px) 35vw, 56vw" width="560" height="1214" alt="أعلى شاشة الحالة والتنبيهات: 4 مشاكل تحتاج انتباهك، وتنبيه حرج بأن الحاوية immich-server غير سليمة، مع زرّي الإقرار والتأجيل" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+        </li>
+        <li class="entry">
+          <p class="stamp"><time>02:44</time><span class="lvl crit">CRIT</span></p>
+          <p class="logline">لم يُقَرّ خلال 5 دقائق: أُرسل إلى Telegram</p>
+          <h3>لم يردّ أحد، فالدور على Telegram.</h3>
+          <p>التنبيه الحرج الذي لا يُقرّ به أحد خلال خمس دقائق يذهب إلى Telegram أيضاً، عبر بوت تنشئه وتملكه. يرسله سيرفرك إلى Telegram مباشرة، فيصل حتى إلى هاتف بلا خدمات Google.</p>
+          <figure class="screen">
+            <picture>
+              <source media="(prefers-color-scheme: dark)" srcset="../assets/screens/ar/telegram-dark-280.webp 280w, ../assets/screens/ar/telegram-dark-560.webp 560w" sizes="(min-width: 1100px) 280px, (min-width: 720px) 248px, (min-width: 540px) 200px, (min-width: 360px) 35vw, 56vw">
+              <img src="../assets/screens/ar/telegram-light-560.webp" srcset="../assets/screens/ar/telegram-light-280.webp 280w, ../assets/screens/ar/telegram-light-560.webp 560w" sizes="(min-width: 1100px) 280px, (min-width: 720px) 248px, (min-width: 540px) 200px, (min-width: 360px) 35vw, 56vw" width="560" height="1214" alt="إعدادات Telegram: متصل بالبوت ‎@pulse_bot، مع أزرار لإرسال رسالة تجريبية واستبدال البوت وإزالة Telegram" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+        </li>
+        <li class="entry">
+          <p class="stamp"><time>07:30</time><span class="lvl info">INFO</span></p>
+          <p class="logline">home-srv يعمل منذ يوم وساعتين · الحاويات السليمة 5 من 6</p>
+          <h3>نظرة واحدة مع قهوة الصباح.</h3>
+          <p>مدة التشغيل والمعالج والذاكرة والحرارة والتخزين والشبكة، ثم الحاويات والخدمات والنسخ الاحتياطي والتحديثات، في شاشة واحدة. وللمعالج والذاكرة والحرارة والتخزين والشبكة تاريخها على سيرفرك، حتى 30 يوماً إلى الوراء.</p>
+          <figure class="screen">
+            <picture>
+              <source media="(prefers-color-scheme: dark)" srcset="../assets/screens/ar/dashboard-dark-280.webp 280w, ../assets/screens/ar/dashboard-dark-560.webp 560w" sizes="(min-width: 1100px) 280px, (min-width: 720px) 248px, (min-width: 540px) 200px, (min-width: 360px) 35vw, 56vw">
+              <img src="../assets/screens/ar/dashboard-light-560.webp" srcset="../assets/screens/ar/dashboard-light-280.webp 280w, ../assets/screens/ar/dashboard-light-560.webp 560w" sizes="(min-width: 1100px) 280px, (min-width: 720px) 248px, (min-width: 540px) 200px, (min-width: 360px) 35vw, 56vw" width="560" height="1214" alt="أعلى لوحة السيرفر home-srv: يعمل منذ يوم وساعتين، و9 خدمات تعمل، وآخر نسخ احتياطي 23:53، والمعالج 24% والذاكرة 38% والحرارة 51 درجة، والتخزين 531 من 916 GB، والشبكة" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+        </li>
+        <li class="entry">
+          <p class="stamp"><time>12:10</time><span class="lvl ok">OK</span></p>
+          <p class="logline">أُعيد تشغيل immich-server · عبر Cloudflare · في سجل التدقيق</p>
+          <h3>أصلحته من المكتب، ولم تفتح شيئاً في البيت.</h3>
+          <p>خارج البيت يصل التطبيق إلى سيرفرك عبر Cloudflare Tunnel، خلف Cloudflare Access، وينتقل بين البيت وخارجه من تلقاء نفسه. وإعادة التشغيل تطلب بصمتك أو قفل الشاشة أولاً، ثم يكتبها السيرفر في سجل التدقيق.</p>
+          <figure class="screen">
+            <picture>
+              <source media="(prefers-color-scheme: dark)" srcset="../assets/screens/ar/container-dark-280.webp 280w, ../assets/screens/ar/container-dark-411.webp 411w" sizes="(min-width: 1100px) 280px, (min-width: 720px) 248px, (min-width: 540px) 200px, (min-width: 360px) 35vw, 56vw">
+              <img src="../assets/screens/ar/container-light-411.webp" srcset="../assets/screens/ar/container-light-280.webp 280w, ../assets/screens/ar/container-light-411.webp 411w" sizes="(min-width: 1100px) 280px, (min-width: 720px) 248px, (min-width: 540px) 200px, (min-width: 360px) 35vw, 56vw" width="411" height="891" alt="أعلى شاشة الحاوية immich-server: غير سليمة، والمعالج 41% والذاكرة 1.3 GB، وأزرار إعادة التشغيل والإيقاف والسجلات، وأول أسطر سجلاتها" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+        </li>
+      </ol>
+    </div>
   </section>
-  <section class="section faq" id="faq" aria-labelledby="faq-title">
-    <h2 id="faq-title">أسئلة شائعة</h2>
-    <details><summary>ما الأنظمة المدعومة على السيرفر؟</summary><p>Debian وUbuntu وRaspberry Pi OS بإصدار 64 بت (arm64 أو amd64) مع systemd. ودعم Docker يعمل تلقائياً إن وُجد.</p></details>
-    <details><summary>هل أحتاج إلى فتح منافذ في الراوتر؟</summary><p>لا. في المنزل يتصل التطبيق بالسيرفر مباشرة، وخارجه يمر عبر Cloudflare Tunnel محمياً بـ Cloudflare Access.</p></details>
-    <details><summary>أين تُحفظ بيانات سيرفري؟</summary><p>على سيرفرك. يتصل التطبيق بالوكيل مباشرة، والإشعارات مشفّرة من طرف إلى طرف فلا يستطيع أحد غيرك قراءتها.</p></details>
-    <details><summary>كم يستهلك الوكيل من موارد السيرفر؟</summary><p>على Raspberry Pi 5: نحو 26 ميغابايت من الذاكرة وأقل من 1% من المعالج في المتوسط.</p></details>
-    <details><summary>هل تصلني التنبيهات بلا خدمات Google؟</summary><p>نعم، عبر Telegram ببوتك الخاص؛ يرسلها السيرفر مباشرة حتى لو كان الهاتف بلا خدمات Google.</p></details>
+
+  <section class="band" id="features" aria-labelledby="features-title">
+    <div class="wide">
+      <p class="label"><span class="num">02</span> ما يراقبه</p>
+      <h2 id="features-title">وكيل صغير واحد، ومختبرك المنزلي كله.</h2>
+      <dl class="spec">
+        <div><dt>الصحة</dt> <dd>المعالج وكل نواة فيه، والذاكرة، والحرارة، والتخزين مع صحة الأقراص، والشبكة، حيّةً كل ثانيتين. والتاريخ يبقى على سيرفرك: حتى 30 يوماً من الرسوم البيانية في التطبيق.</dd></div>
+        <div><dt>الحاويات والخدمات</dt> <dd>حاويات Docker وخدمات systemd بحالتها وصحتها ومعالجها وذاكرتها. شغّلها وأوقفها وأعد تشغيلها، واقرأ سجلاتها حيّةً مصفّاة حسب المستوى.</dd></div>
+        <div><dt>التنبيهات</dt> <dd>سبع عشرة قاعدة مدمجة، ست عشرة منها مفعّلة من البداية، وفحوص HTTP وTCP تضيفها بنفسك، وكلها تُفحص على السيرفر. وتصلك إشعاراً مشفّراً، أو على Telegram، أو بهما معاً.</dd></div>
+        <div><dt>الطرفية</dt> <dd>طرفية حقيقية على سيرفرك، يعمل فيها htop وvim، وتظهر فيها العربية كما ينبغي. وإن انقطع الاتصال انتظرتك الجلسة حتى 30 دقيقة.</dd></div>
+        <div><dt>المختبر المنزلي</dt> <dd>حداثة النسخ الاحتياطي (النسخة الأقدم من 26 ساعة تُعدّ فاشلة افتراضياً)، والتحديثات المعلّقة، وfail2ban وUFW، ومراقبات Uptime Kuma بجانب حالة سيرفرك نفسه.</dd></div>
+        <div><dt>العائلة والفريق</dt> <dd>ما شئت من السيرفرات. ادعُ هاتفاً آخر برمز لمرة واحدة ودور تختاره، وأنهِ وصوله فوراً، واطّلع في سجل التدقيق على كل تغيير أجراه.</dd></div>
+      </dl>
+    </div>
   </section>
-  <section class="final">
-    <h2>جاهز لتجرّبه؟</h2>
-    <p>ثبّت الوكيل على سيرفرك، واتبع الدليل خطوة بخطوة.</p>
-    <a class="btn primary" href="guides/install-agent/">دليل التثبيت</a>
+
+  <section class="band" id="how" aria-labelledby="how-title">
+    <div class="wide">
+      <p class="label"><span class="num">03</span> كيف يعمل</p>
+      <h2 id="how-title">وكيل صغير وهاتفك، ولا حساب لدينا.</h2>
+      <p class="intro">الوكيل برنامج واحد على سيرفرك: يحفظ التاريخ، ويفحص القواعد، ويرسل التنبيهات. ويكلّمه هاتفك مباشرة في البيت، وعبر Cloudflare حين تكون خارجه.</p>
+      <figure class="diagram">
+      <svg class="wide-svg" viewBox="0 0 1200 520" aria-hidden="true" focusable="false"><defs><marker id="dwar-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path class="dg-arrow" d="M0 0 L10 5 L0 10 z"/></marker><marker id="dwar-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path class="dg-arrow-ok" d="M0 0 L10 5 L0 10 z"/></marker><marker id="dwar-t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path class="dg-arrow-tg" d="M0 0 L10 5 L0 10 z"/></marker></defs><rect class="dg-box" x="960" y="130" width="210" height="360" rx="30"/><text class="dg-t" x="1144" y="178" text-anchor="start">هاتفك</text><text class="dg-s" x="1144" y="202" text-anchor="start">Homelab Pulse</text><text class="dg-m" x="1144" y="224" text-anchor="start">أندرويد 8.0 فما فوق</text><rect class="dg-box" x="30" y="130" width="280" height="360" rx="10"/><text class="dg-t" x="286" y="178" text-anchor="start">سيرفرك</text><circle class="dg-lamp" cx="280" cy="213" r="4.5"/><text class="dg-ok" x="266" y="218" text-anchor="start">hlpulse-agent</text><path class="dg-tg" d="M286 236 L54 236"/><text class="dg-s" x="286" y="258" text-anchor="start">التاريخ · SQLite</text><path class="dg-tg" d="M286 270 L54 270"/><text class="dg-s" x="286" y="292" text-anchor="start">الأسرار · مشفّرة</text><path class="dg-tg" d="M286 304 L54 304"/><text class="dg-s" x="286" y="326" text-anchor="start">مساعد root · أوامر ثابتة</text><path class="dg-line" d="M960 300 L310 300" marker-start="url(#dwar-a)" marker-end="url(#dwar-a)"/><text class="dg-m" x="635" y="288" text-anchor="middle">في البيت · TLS بشهادة مثبّتة · المنفذ 8443</text><rect class="dg-edge" x="530" y="24" width="240" height="76" rx="10"/><text class="dg-t" x="650" y="56" text-anchor="middle">Cloudflare</text><text class="dg-s" x="650" y="80" text-anchor="middle">Access ثم Tunnel</text><path class="dg-line" d="M1065 130 L1065 62 L770 62" marker-end="url(#dwar-a)"/><path class="dg-line" d="M530 62 L150 62 L150 130" marker-end="url(#dwar-a)"/><text class="dg-m" x="1050" y="112" text-anchor="start">خارج البيت</text><text class="dg-m" x="165" y="112" text-anchor="end">يفتحه السيرفر</text><rect class="dg-edge" x="640" y="352" width="230" height="60" rx="10"/><text class="dg-t" x="755" y="377" text-anchor="middle">Pulse Relay ثم FCM</text><text class="dg-s" x="755" y="399" text-anchor="middle">يمرّره دون أن يقرأه</text><path class="dg-push" d="M310 382 L640 382"/><path class="dg-push" d="M870 382 L960 382" marker-end="url(#dwar-p)"/><text class="dg-ok" x="475" y="372" text-anchor="middle">تنبيه مشفّر لهاتفك</text><rect class="dg-edge" x="640" y="430" width="230" height="54" rx="10"/><text class="dg-t" x="755" y="453" text-anchor="middle">Telegram</text><text class="dg-s" x="755" y="474" text-anchor="middle">بوتك الخاص</text><path class="dg-tg" d="M310 457 L640 457"/><path class="dg-tg" d="M870 457 L960 457" marker-end="url(#dwar-t)"/><text class="dg-m" x="475" y="447" text-anchor="middle">أو إلى Telegram مباشرة</text></svg>
+      <svg class="tall" viewBox="0 0 340 516" aria-hidden="true" focusable="false"><defs><marker id="dtar-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path class="dg-arrow" d="M0 0 L10 5 L0 10 z"/></marker><marker id="dtar-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path class="dg-arrow-ok" d="M0 0 L10 5 L0 10 z"/></marker><marker id="dtar-t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path class="dg-arrow-tg" d="M0 0 L10 5 L0 10 z"/></marker></defs><rect class="dg-box" x="6" y="10" width="328" height="78" rx="22"/><text class="dg-t" x="316" y="44" text-anchor="start">هاتفك</text><text class="dg-s" x="316" y="68" text-anchor="start">Homelab Pulse</text><path class="dg-line" d="M282 172 L282 88" marker-end="url(#dtar-a)"/><path class="dg-line" d="M282 310 L282 266" marker-start="url(#dtar-a)"/><rect class="dg-edge" x="230" y="172" width="104" height="94" rx="10"/><text class="dg-t" x="282" y="200" text-anchor="middle">في البيت</text><text class="dg-s" x="282" y="224" text-anchor="middle">TLS مثبّتة</text><text class="dg-m" x="282" y="247" text-anchor="middle">المنفذ 8443</text><path class="dg-line" d="M170 172 L170 88" marker-end="url(#dtar-a)"/><path class="dg-line" d="M170 310 L170 266" marker-start="url(#dtar-a)"/><rect class="dg-edge" x="118" y="172" width="104" height="94" rx="10"/><text class="dg-t" x="170" y="200" text-anchor="middle">خارج البيت</text><text class="dg-s" x="170" y="224" text-anchor="middle">Cloudflare</text><text class="dg-m" x="170" y="247" text-anchor="middle">بلا منفذ مفتوح</text><path class="dg-push" d="M58 172 L58 88" marker-end="url(#dtar-p)"/><path class="dg-push" d="M58 310 L58 266"/><rect class="dg-edge" x="6" y="172" width="104" height="94" rx="10"/><text class="dg-t" x="58" y="200" text-anchor="middle">التنبيهات</text><text class="dg-s" x="58" y="224" text-anchor="middle">Relay وFCM</text><text class="dg-m" x="58" y="247" text-anchor="middle">أو Telegram</text><rect class="dg-box" x="6" y="310" width="328" height="196" rx="10"/><text class="dg-t" x="316" y="346" text-anchor="start">سيرفرك</text><circle class="dg-lamp" cx="310" cy="375" r="4.5"/><text class="dg-ok" x="296" y="380" text-anchor="start">hlpulse-agent</text><path class="dg-tg" d="M316 398 L24 398"/><text class="dg-s" x="316" y="420" text-anchor="start">التاريخ · SQLite</text><path class="dg-tg" d="M316 432 L24 432"/><text class="dg-s" x="316" y="454" text-anchor="start">الأسرار · مشفّرة</text><path class="dg-tg" d="M316 466 L24 466"/><text class="dg-s" x="316" y="488" text-anchor="start">مساعد root · أوامر ثابتة</text></svg>
+        <figcaption class="sr">كيف يصل الهاتف إلى السيرفر، وكيف تصل التنبيهات إلى الهاتف: المسارات الثلاثة التالية.</figcaption>
+      </figure>
+      <ul class="paths">
+        <li><b>في البيت</b> مباشرة إلى الوكيل عبر TLS على المنفذ 8443 افتراضياً. ولا يثق التطبيق إلا بالشهادة التي في رمز QR الذي مسحته.</li>
+        <li><b>خارج البيت</b> عبر Cloudflare Tunnel الذي يفتحه سيرفرك نحو الخارج، خلف Cloudflare Access. وترى Cloudflare هذه الحركة عند حافتها، كما تذكر سياسة الخصوصية.</li>
+        <li><b>التنبيهات</b> تُشفَّر على السيرفر لهاتفك، ثم يمرّرها <span dir="ltr" class="nw">Pulse Relay</span> إلى Firebase Cloud Messaging، ولا يقرؤها أيّ منهما. أو يرسلها بوت Telegram الخاص بك.</li>
+      </ul>
+      <div class="setup">
+        <div>
+          <h3>التثبيت</h3>
+          <div class="term">
+            <p class="term-bar"><span class="lamp" aria-hidden="true"></span>سيرفرك</p>
+            <pre tabindex="0" role="region" aria-label="أمر التثبيت">curl -fsSL https://github.com/Aldaghir/homelab-pulse/releases/latest/download/install.sh | sudo sh</pre>
+          </div>
+          <p>يطبع الأمر رمز QR، امسحه في التطبيق فيقترن هاتفك بسيرفرك. و<a href="guides/install-agent/">دليل التثبيت</a> يريك كل شاشة.</p>
+          <p class="prelaunch" data-prelaunch>يعمل هذا الأمر مع أول إصدار عام قريباً. <a href="mailto:android@aldaghir.com?subject=%D8%A3%D8%B9%D9%84%D9%85%D9%86%D9%8A%20%D8%B9%D9%86%D8%AF%20%D8%A5%D8%B7%D9%84%D8%A7%D9%82%20Homelab%20Pulse">أعلمني عند الإطلاق</a></p>
+        </div>
+        <div>
+          <h3>تحتاج إلى</h3>
+          <dl class="needs-list">
+            <div><dt>سيرفر</dt> <dd>Debian أو Ubuntu أو Raspberry Pi OS، بنظام 64 بت (arm64 أو amd64)، مع systemd</dd></div>
+            <div><dt>Docker</dt> <dd><span class="opt">اختياري</span> تعمل ميزات الحاويات حين يوجد Docker</dd></div>
+            <div><dt>هاتف</dt> <dd>أندرويد 8.0 فما فوق</dd></div>
+            <div><dt>خارج البيت</dt> <dd><span class="opt">اختياري</span> نطاق في حسابك على Cloudflare، والخطة المجانية تكفي</dd></div>
+            <div><dt>بلا Google</dt> <dd><span class="opt">اختياري</span> بوت Telegram تنشئه بنفسك، للتنبيهات</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band guard-band" id="security" aria-labelledby="security-title">
+    <div class="wide">
+      <div class="side">
+        <p class="label"><span class="num">04</span> الأمان</p>
+        <h2 id="security-title" class="big">ما يُبقي سيرفرك لك.</h2>
+        <p class="intro">التطبيق يعيد تشغيل الخدمات ويفتح طرفية على سيرفرك، فكل خطوة فيه محروسة.</p>
+        <p class="more"><a href="privacy/">اقرأ سياسة الخصوصية</a></p>
+      </div>
+      <ol class="guards">
+        <li><span class="tag">SHA-256</span><h3>شهادة مثبّتة</h3><p>يحمل رمز QR بصمة شهادة الوكيل. لا يثق التطبيق إلا بتلك الشهادة، ويرفض الاتصال إن تغيّرت.</p></li>
+        <li><span class="tag">256-bit</span><h3>توكن لكل هاتف</h3><p>لكل هاتف توكن خاص به، لا يحفظ الوكيل منه إلا بصمته. ورمز الاقتران يعمل مرة واحدة، خلال عشر دقائق.</p></li>
+        <li><span class="tag">viewer · operator · admin</span><h3>دور لكل هاتف</h3><p>اختر ما يُسمح لكل هاتف به. وإنهاء وصول هاتف يقطع بياناته الحية وطرفيته فوراً.</p></li>
+        <li><span class="tag">Android Keystore</span><h3>بصمتك للإجراءات الخطرة</h3><p>الطرفية، والإيقاف وإعادة التشغيل، وإعادة تشغيل السيرفر، والقواعد، والتكاملات، والدعوات، والوصول عن بُعد: كلها تحتاج توقيعاً جديداً بمفتاح في Keystore هاتفك، تفتحه بصمتك أو قفل الشاشة. ومن دونه يرفض السيرفر.</p></li>
+        <li><span class="tag">AES-256-GCM</span><h3>مفاتيح لا يقرؤها أحد</h3><p>مفاتيح Telegram وCloudflare وUptime Kuma محفوظة مشفّرة على سيرفرك. يستطيع التطبيق استبدالها لا قراءتها، ولا يظهر أيّ منها في سجل.</p></li>
+        <li><span class="tag">no sudo</span><h3>أقل ما يلزم من صلاحيات</h3><p>يعمل الوكيل بلا sudo. ومساعد صغير ينفّذ الأوامر القليلة التي تحتاج root، وبالصيغ الثابتة التي يسمح بها إعداده فقط.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band" id="pro" aria-labelledby="pro-title">
+    <div class="wide">
+      <p class="label"><span class="num">05</span> المجاني وPro</p>
+      <h2 id="pro-title">مجاني للتشغيل، وPro لمن يريد المزيد.</h2>
+      <div class="plans">
+        <div class="plan">
+          <p class="price"><b>0</b><span>في كل النسخ</span></p>
+          <h3>كل ما سبق</h3>
+          <p>على ما شئت من السيرفرات<!-- @public -->، في النسخة التي من GitHub والنسخة التي من Google Play<!-- /@public -->. بلا فترة تجربة، ولا حدود، ولا حساب.</p>
+        </div>
+        <div class="plan">
+          <p class="price"><b>4.99</b><span>دولاراً، مرة واحدة، في نسخة Google Play</span></p>
+          <h3>Pro</h3>
+          <ul>
+            <li>متصفح الملفات الكامل<span class="state on">متاح</span></li>
+            <li>ودجات متقدمة<span class="state">قادمة</span></li>
+            <li>ثيمات إضافية<span class="state">قادمة</span></li>
+            <li>ملخص أسبوعي<span class="state">قادم</span></li>
+          </ul>
+        </div>
+      </div>
+      <!-- @public -->
+      <p class="support"><span dir="ltr" class="nw">Homelab Pulse</span> برنامج حرّ. وإن وفّر عليك ليلة، فادعم العمل عليه عبر <a href="https://github.com/sponsors/Aldaghir">GitHub Sponsors</a> أو <a href="https://ko-fi.com/aldaghir">Ko-fi</a>.</p>
+      <!-- /@public -->
+    </div>
+  </section>
+
+  <section class="band source-band" id="source" aria-labelledby="source-title">
+    <div class="wide">
+      <div>
+        <p class="label"><span class="num">06</span> المصدر المفتوح</p>
+        <h2 id="source-title" class="big">اقرأ الكود الذي يعمل على سيرفرك.</h2>
+        <p class="intro">نواة التطبيق بترخيص GPL-3.0، والوكيل وواجهته البرمجية ومرحّل الإشعارات بترخيص Apache-2.0. ولا يُغلق منه إلا Pro في نسخة Google Play.</p>
+      </div>
+      <div>
+        <div class="actions">
+          <!-- @public -->
+          <a class="btn primary" href="https://github.com/Aldaghir/homelab-pulse"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+          <!-- /@public -->
+          <a class="btn line" href="source/">التراخيص والكود المصدري</a>
+        </div>
+        <!-- @public -->
+        <p class="prelaunch" data-prelaunch>يُفتح المستودع مع أول إصدار عام. <a href="mailto:android@aldaghir.com?subject=%D8%A3%D8%B9%D9%84%D9%85%D9%86%D9%8A%20%D8%B9%D9%86%D8%AF%20%D8%A5%D8%B7%D9%84%D8%A7%D9%82%20Homelab%20Pulse">أعلمني عند الإطلاق</a></p>
+        <!-- /@public -->
+      </div>
+    </div>
+  </section>
+
+  <section class="closing" aria-labelledby="closing-title">
+    <div class="wide">
+      <p class="last"><time>12:11</time><span class="lvl ok">OK</span><span>كل الفحوص سليمة</span></p>
+      <h2 id="closing-title">ثبّته الليلة، واقرأ السجل في الصباح.</h2>
+      <div class="actions"><a class="btn primary" href="guides/install-agent/">ثبّت الوكيل</a><a class="btn line" href="guides/">كل أدلة الإعداد</a></div>
+    </div>
   </section>
 </main>
 <!-- @footer -->

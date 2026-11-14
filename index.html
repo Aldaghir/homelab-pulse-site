@@ -6,11 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Homelab Pulse · Your home server in your pocket</title>
 <meta name="description" content="Monitor and manage your home server from an Android phone through a tiny agent: live health, alerts even while your phone sleeps, containers, services and a terminal, and secure access from anywhere.">
-<meta name="theme-color" content="#F3F4F6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0F1114" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1113" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="preload" href="assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plex-sans-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/changa-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/changa-arabic-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="canonical" href="https://pulse.aldaghir.com/">
 <link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/">
 <link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/">
@@ -41,8 +46,9 @@
   <nav class="nav" aria-label="Main">
     <a href="#features">Features</a>
     <a href="#how">How it works</a>
+    <a href="#security">Security</a>
+    <a href="#pro">Pro</a>
     <a href="guides/">Guides</a>
-    <a href="privacy/">Privacy</a>
   </nav>
   <a class="lang" href="ar/" hreflang="ar" lang="ar">العربية</a>
   <details class="menu">
@@ -50,81 +56,225 @@
     <nav aria-label="Main">
       <a href="#features">Features</a>
       <a href="#how">How it works</a>
+      <a href="#security">Security</a>
+      <a href="#pro">Pro</a>
       <a href="guides/">Guides</a>
-      <a href="privacy/">Privacy</a>
     </nav>
   </details>
 </header>
 <!-- /@header -->
-<main id="main" tabindex="-1" class="wide">
-  <section class="hero2">
-    <div>
-      <span class="badge">First release coming soon to Google Play</span>
-      <h1>Your home server in your pocket</h1>
-      <p class="tagline">Homelab Pulse is an Android app that monitors and manages your home server through a tiny agent you install on it: live health, alerts before things break, and safe control from anywhere.</p>
-      <div class="cta-row"><a class="btn primary" href="guides/install-agent/">Get started</a><a class="btn ghost" href="#features">See the features</a></div>
+<main id="main" tabindex="-1" class="home">
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="kicker"><span class="lamp" aria-hidden="true"></span>For Android · first release coming soon to Google Play</p>
+    <h1 id="hero-title">Your server stays up all night. <em>You don’t have to.</em></h1>
+    <div class="hero-text">
+      <p class="lede">Homelab Pulse is an Android app and a small agent you install on your home server. The agent watches the server around the clock and wakes your phone only when something needs you. The app shows you everything, and lets you act from anywhere without opening a single port.</p>
+      <div class="actions"><a class="btn primary" href="guides/install-agent/">Install the agent</a><a class="btn line" href="#how">How it works</a></div>
+      <p class="facts-line"><a href="#source">Open source</a> · Arabic and English · Android 8.0 or later</p>
     </div>
-    <figure class="hero-shot"><img src="assets/hero/en.webp" alt="The app's dashboard on a phone resting on stone: CPU, memory, temperature, storage and network" width="600" height="800" decoding="async" fetchpriority="high"></figure>
-  </section>
-  <section class="section" id="features" aria-labelledby="features-title">
-    <h2 id="features-title">Everything your home server needs</h2>
-    <p class="sub">Built for homelabs: Docker, systemd, backups and Cloudflare Tunnel, Arabic-first with English too.</p>
-    <ul class="grid3">
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14l4-4"/><path d="M3.3 17a9 9 0 1 1 17.4 0"/><circle cx="12" cy="14" r="1.5"/></svg><strong>Live dashboard</strong><span>CPU, memory, temperature, storage with disk health and network, with up to 30 days of history.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg><strong>Containers and services</strong><span>Docker and systemd status, health and resources; start, stop and restart in a tap.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4l2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><strong>Alerts from the server itself</strong><span>Rules the agent checks while your phone sleeps, sent end-to-end encrypted or through Telegram.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 9l3 3-3 3"/><path d="M12 15h5"/></svg><strong>Terminal and logs</strong><span>A full terminal with proper Arabic text, and live logs for every service.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><strong>From anywhere</strong><span>Through Cloudflare Tunnel and Access with no open ports, switching between home and away by itself.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg><strong>Homelab-aware</strong><span>Backup freshness, updates, fail2ban and UFW, HTTP and TCP checks, and Uptime Kuma.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></svg><strong>For family and teams</strong><span>Several servers, one-time invites with roles, instant revocation and an audit log.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><strong>Private by design</strong><span>No accounts, no ads, no tracking; your server's data stays between your phone and your server.</span></li>
-    </ul>
-  </section>
-  <section class="section" id="how" aria-labelledby="how-title">
-    <h2 id="how-title">Up and running in three steps</h2>
-    <p class="sub">A tiny agent on your server collects metrics, keeps history and sends alerts; the app shows everything and puts you in control.</p>
-    <ol class="how">
-      <li><strong>Install the agent</strong><p>One command on Debian, Ubuntu or Raspberry Pi OS.</p><pre tabindex="0" role="region" aria-label="Install command">curl -fsSL https://github.com/Aldaghir/homelab-pulse/releases/latest/download/install.sh | sudo sh</pre><p class="prelaunch" data-prelaunch>This command goes live with the first public release, coming soon. <a href="mailto:android@aldaghir.com?subject=Notify%20me%20when%20Homelab%20Pulse%20launches">Get notified</a></p></li>
-      <li><strong>Scan the QR code</strong><p>Your phone pairs with a pinned certificate and its own device token.</p></li>
-      <li><strong>Monitor and act from anywhere</strong><p>Alerts on your phone or Telegram, and secure access through Cloudflare.</p></li>
-    </ol>
-    <div class="arch"><div><b>Your phone</b><small>the app</small></div><i aria-hidden="true">⇄</i><div><b>Your server</b><small>the agent</small></div><i aria-hidden="true">→</i><div><b>Your alerts</b><small>Telegram or encrypted push</small></div></div>
-  </section>
-  <section class="section" id="screens" aria-labelledby="screens-title">
-    <h2 id="screens-title">Screenshots</h2>
-    <div class="gallery" tabindex="0" role="group" aria-label="Screenshot gallery">
-      <img src="assets/shots/en/01.webp" alt="Your whole server at a glance: the dashboard with alerts, uptime, CPU, memory, temperature, storage, network, containers and services" width="540" height="960" loading="lazy" decoding="async">
-      <img src="assets/shots/en/02.webp" alt="Up to 30 days of history: the CPU screen with ranges from 1 hour to 30 days, a load chart with its minimum, average and maximum, and each core's load" width="540" height="960" loading="lazy" decoding="async">
-      <img src="assets/shots/en/03.webp" alt="Every container and service in one place: the Services list with search and filters, and each container's status, CPU and memory" width="540" height="960" loading="lazy" decoding="async">
-      <img src="assets/shots/en/04.webp" alt="Restart and read logs in a tap: a container's screen with its CPU, memory and port, the Restart, Stop and Logs buttons, and its recent logs" width="540" height="960" loading="lazy" decoding="async">
-      <img src="assets/shots/en/05.webp" alt="Live logs for every service: the live log of ssh.service, with a filter field and a button for each level, ERR, WARN, INFO and DBG" width="540" height="960" loading="lazy" decoding="async">
-      <img src="assets/shots/en/06.webp" alt="Alerts even while your phone sleeps: the active alerts, a critical one for an unhealthy container with Acknowledge and Snooze, and an acknowledged warning for high CPU usage with Snooze" width="540" height="960" loading="lazy" decoding="async">
-      <img src="assets/shots/en/07.webp" alt="Telegram alerts through your own bot: Telegram connected to a bot, with buttons to send a test message, replace the bot or remove Telegram" width="540" height="960" loading="lazy" decoding="async">
-      <img src="assets/shots/en/08.webp" alt="From anywhere, with no open ports: remote access on through Cloudflare Tunnel, with buttons to test the connection or turn it off" width="540" height="960" loading="lazy" decoding="async">
+    <div class="hero-photo">
+      <picture>
+        <source media="(min-width: 960px)" srcset="assets/hero/en-tall-880.webp 880w, assets/hero/en-tall-1320.webp 1320w, assets/hero/en-tall-1760.webp 1760w" sizes="(min-width: 1200px) 50vw, 75vw" width="1760" height="2048">
+        <img src="assets/hero/en-wide-800.webp" srcset="assets/hero/en-wide-800.webp 800w, assets/hero/en-wide-1200.webp 1200w, assets/hero/en-wide-1600.webp 1600w" sizes="100vw" width="1600" height="1200" alt="A phone on dark stone on a shelf at night, beside a small home server, showing the Homelab Pulse dashboard of the server home-srv: uptime, CPU, memory, temperature, storage and network" fetchpriority="high" decoding="async">
+      </picture>
     </div>
   </section>
-  <section class="section" id="privacy" aria-labelledby="privacy-title">
-    <h2 id="privacy-title">Your privacy and security first</h2>
-    <ul class="grid3">
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><strong>No accounts, no tracking</strong><span>No sign-up, no ads, no analytics.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg><strong>Keys encrypted on your server</strong><span>Integration keys can't be read back and never appear in a log.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></svg><strong>Roles per device</strong><span>Viewer, operator or admin, with instant revocation.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4l2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><strong>Sensitive actions confirmed</strong><span>Hold to confirm plus biometrics, and every change is logged.</span></li>
+
+  <div class="wide facts-row">
+    <ul class="facts" aria-label="Homelab Pulse in numbers">
+      <li><b>1</b> <span>command installs the agent</span></li>
+      <li><b>0</b> <span>ports to open on your router</span></li>
+      <li><b>0</b> <span>accounts, ads or trackers</span></li>
+      <li><b>30<small>days</small></b> <span>of charts, kept on your own server</span></li>
+      <li><b>27.7<small>MB</small></b> <span>the agent’s memory on a Raspberry Pi 5, median over 72 hours; its root helper takes 16.3 MB more</span></li>
     </ul>
-    <p class="note" style="margin-top:16px"><a href="privacy/">Read the privacy policy</a></p>
+  </div>
+
+  <section class="band" id="night" aria-labelledby="night-title">
+    <div class="wide">
+      <p class="label"><span class="num">01</span> A night with your server</p>
+      <h2 id="night-title">What happened while you slept, line by line.</h2>
+      <p class="intro">One night on a home server, told with the app’s own screens.</p>
+      <ol class="night">
+        <li class="entry">
+          <p class="stamp"><time>02:39</time><span class="lvl crit">CRIT</span></p>
+          <p class="logline">Container immich-server is unhealthy</p>
+          <h3>Your phone is asleep. The server isn’t.</h3>
+          <p>The agent checks your alert rules on the server itself, so nothing waits for your phone to wake up. The alert reaches it as a push only your phone can read: encrypted end to end, with a key made when you paired.</p>
+          <figure class="screen">
+            <picture>
+              <source media="(prefers-color-scheme: dark)" srcset="assets/screens/en/alerts-dark-280.webp 280w, assets/screens/en/alerts-dark-560.webp 560w" sizes="(min-width: 1100px) 280px, (min-width: 720px) 248px, (min-width: 540px) 200px, (min-width: 360px) 35vw, 56vw">
+              <img src="assets/screens/en/alerts-light-560.webp" srcset="assets/screens/en/alerts-light-280.webp 280w, assets/screens/en/alerts-light-560.webp 560w" sizes="(min-width: 1100px) 280px, (min-width: 720px) 248px, (min-width: 540px) 200px, (min-width: 360px) 35vw, 56vw" width="560" height="1214" alt="The top of Status and alerts: 4 issues need your attention, and a critical alert, container immich-server is unhealthy, with Acknowledge and Snooze" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+        </li>
+        <li class="entry">
+          <p class="stamp"><time>02:44</time><span class="lvl crit">CRIT</span></p>
+          <p class="logline">Not acknowledged in 5 minutes: sent to Telegram</p>
+          <h3>Nobody answered. Telegram is next.</h3>
+          <p>A critical alert left unacknowledged for five minutes goes to Telegram as well, through a bot you create and own. Your server sends it to Telegram directly, so it reaches a phone without Google services too.</p>
+          <figure class="screen">
+            <picture>
+              <source media="(prefers-color-scheme: dark)" srcset="assets/screens/en/telegram-dark-280.webp 280w, assets/screens/en/telegram-dark-560.webp 560w" sizes="(min-width: 1100px) 280px, (min-width: 720px) 248px, (min-width: 540px) 200px, (min-width: 360px) 35vw, 56vw">
+              <img src="assets/screens/en/telegram-light-560.webp" srcset="assets/screens/en/telegram-light-280.webp 280w, assets/screens/en/telegram-light-560.webp 560w" sizes="(min-width: 1100px) 280px, (min-width: 720px) 248px, (min-width: 540px) 200px, (min-width: 360px) 35vw, 56vw" width="560" height="1214" alt="Telegram settings: connected to the bot @pulse_bot, with buttons to send a test message, replace the bot or remove Telegram" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+        </li>
+        <li class="entry">
+          <p class="stamp"><time>07:30</time><span class="lvl info">INFO</span></p>
+          <p class="logline">home-srv up 1 day 2 hours · containers 5/6 healthy</p>
+          <h3>One look with your morning coffee.</h3>
+          <p>Uptime, CPU, memory, temperature, storage and network, then containers, services, backups and updates, on one screen. CPU, memory, temperature, storage and network keep their history on your server, up to 30 days back.</p>
+          <figure class="screen">
+            <picture>
+              <source media="(prefers-color-scheme: dark)" srcset="assets/screens/en/dashboard-dark-280.webp 280w, assets/screens/en/dashboard-dark-560.webp 560w" sizes="(min-width: 1100px) 280px, (min-width: 720px) 248px, (min-width: 540px) 200px, (min-width: 360px) 35vw, 56vw">
+              <img src="assets/screens/en/dashboard-light-560.webp" srcset="assets/screens/en/dashboard-light-280.webp 280w, assets/screens/en/dashboard-light-560.webp 560w" sizes="(min-width: 1100px) 280px, (min-width: 720px) 248px, (min-width: 540px) 200px, (min-width: 360px) 35vw, 56vw" width="560" height="1214" alt="The top of the dashboard of home-srv: up 1 day 2 hours, 9 services running, last backup at 23:53, CPU 24%, memory 38%, temperature 51 degrees, storage 531 of 916 GB, and network" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+        </li>
+        <li class="entry">
+          <p class="stamp"><time>12:10</time><span class="lvl ok">OK</span></p>
+          <p class="logline">immich-server restarted · through Cloudflare · in the audit log</p>
+          <h3>Fixed from the office, with nothing opened at home.</h3>
+          <p>Away from home the app reaches your server through Cloudflare Tunnel, behind Cloudflare Access, and switches between home and away by itself. Restarting asks for your fingerprint or screen lock first, and the server writes it in the audit log.</p>
+          <figure class="screen">
+            <picture>
+              <source media="(prefers-color-scheme: dark)" srcset="assets/screens/en/container-dark-280.webp 280w, assets/screens/en/container-dark-411.webp 411w" sizes="(min-width: 1100px) 280px, (min-width: 720px) 248px, (min-width: 540px) 200px, (min-width: 360px) 35vw, 56vw">
+              <img src="assets/screens/en/container-light-411.webp" srcset="assets/screens/en/container-light-280.webp 280w, assets/screens/en/container-light-411.webp 411w" sizes="(min-width: 1100px) 280px, (min-width: 720px) 248px, (min-width: 540px) 200px, (min-width: 360px) 35vw, 56vw" width="411" height="891" alt="The top of the container immich-server: unhealthy, CPU 41% and memory 1.3 GB, the Restart, Stop and Logs buttons, and the first lines of its recent logs" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+        </li>
+      </ol>
+    </div>
   </section>
-  <section class="section faq" id="faq" aria-labelledby="faq-title">
-    <h2 id="faq-title">Frequently asked questions</h2>
-    <details><summary>Which server systems are supported?</summary><p>64-bit Debian, Ubuntu and Raspberry Pi OS (arm64 or amd64) with systemd. Docker support turns on by itself when Docker is there.</p></details>
-    <details><summary>Do I need to open ports on my router?</summary><p>No. At home the app talks to your server directly; away it goes through Cloudflare Tunnel, protected by Cloudflare Access.</p></details>
-    <details><summary>Where is my server's data stored?</summary><p>On your server. The app talks to the agent directly, and push alerts are end-to-end encrypted so nobody else can read them.</p></details>
-    <details><summary>How much does the agent use?</summary><p>On a Raspberry Pi 5: about 26 MB of memory and under 1% of the CPU on average.</p></details>
-    <details><summary>Do alerts work without Google services?</summary><p>Yes, through Telegram with your own bot; the server sends them directly, even to a phone without Google services.</p></details>
+
+  <section class="band" id="features" aria-labelledby="features-title">
+    <div class="wide">
+      <p class="label"><span class="num">02</span> What it watches</p>
+      <h2 id="features-title">One small agent. Your whole homelab.</h2>
+      <dl class="spec">
+        <div><dt>Health</dt> <dd>CPU and each of its cores, memory, temperature, storage with disk health, and network, live every two seconds. The history stays on your server: up to 30 days of charts in the app.</dd></div>
+        <div><dt>Containers and services</dt> <dd>Docker containers and systemd services with their status, health, CPU and memory. Start, stop and restart them, and read their logs live, filtered by level.</dd></div>
+        <div><dt>Alerts</dt> <dd>Seventeen built-in rules, sixteen of them on from the start, and HTTP and TCP checks of your own, all checked on the server. They reach you as an encrypted push, on Telegram, or both.</dd></div>
+        <div><dt>Terminal</dt> <dd>A real terminal on your server, where htop and vim work and Arabic shows as it should. If the connection drops, the session waits up to 30 minutes for you.</dd></div>
+        <div><dt>Homelab</dt> <dd>Backup freshness (by default, a backup older than 26 hours counts as failed), pending updates, fail2ban and UFW, and your Uptime Kuma monitors next to your server’s own state.</dd></div>
+        <div><dt>Family and team</dt> <dd>As many servers as you like. Invite another phone with a one-time code and a role, end its access at once, and see every change it made in the audit log.</dd></div>
+      </dl>
+    </div>
   </section>
-  <section class="final">
-    <h2>Ready to try it?</h2>
-    <p>Install the agent on your server and follow the step-by-step guide.</p>
-    <a class="btn primary" href="guides/install-agent/">Installation guide</a>
+
+  <section class="band" id="how" aria-labelledby="how-title">
+    <div class="wide">
+      <p class="label"><span class="num">03</span> How it works</p>
+      <h2 id="how-title">A small agent, your phone, and no account with us.</h2>
+      <p class="intro">The agent is one program on your server. It keeps the history, checks the rules and sends the alerts. Your phone talks to it directly at home, and through Cloudflare when you’re away.</p>
+      <figure class="diagram">
+      <svg class="wide-svg" viewBox="0 0 1200 520" aria-hidden="true" focusable="false"><defs><marker id="dwen-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path class="dg-arrow" d="M0 0 L10 5 L0 10 z"/></marker><marker id="dwen-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path class="dg-arrow-ok" d="M0 0 L10 5 L0 10 z"/></marker><marker id="dwen-t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path class="dg-arrow-tg" d="M0 0 L10 5 L0 10 z"/></marker></defs><rect class="dg-box" x="30" y="130" width="210" height="360" rx="30"/><text class="dg-t" x="56" y="178" text-anchor="start">Your phone</text><text class="dg-s" x="56" y="202" text-anchor="start">Homelab Pulse</text><text class="dg-m" x="56" y="224" text-anchor="start">Android 8.0+</text><rect class="dg-box" x="890" y="130" width="280" height="360" rx="10"/><text class="dg-t" x="914" y="178" text-anchor="start">Your server</text><circle class="dg-lamp" cx="920" cy="213" r="4.5"/><text class="dg-ok" x="934" y="218" text-anchor="start">hlpulse-agent</text><path class="dg-tg" d="M914 236 L1146 236"/><text class="dg-s" x="914" y="258" text-anchor="start">history · SQLite</text><path class="dg-tg" d="M914 270 L1146 270"/><text class="dg-s" x="914" y="292" text-anchor="start">secrets · encrypted</text><path class="dg-tg" d="M914 304 L1146 304"/><text class="dg-s" x="914" y="326" text-anchor="start">root helper · fixed commands</text><path class="dg-line" d="M240 300 L890 300" marker-start="url(#dwen-a)" marker-end="url(#dwen-a)"/><text class="dg-m" x="565" y="288" text-anchor="middle">at home · TLS, pinned certificate · port 8443</text><rect class="dg-edge" x="430" y="24" width="240" height="76" rx="10"/><text class="dg-t" x="550" y="56" text-anchor="middle">Cloudflare</text><text class="dg-s" x="550" y="80" text-anchor="middle">Access, then Tunnel</text><path class="dg-line" d="M135 130 L135 62 L430 62" marker-end="url(#dwen-a)"/><path class="dg-line" d="M670 62 L1050 62 L1050 130" marker-end="url(#dwen-a)"/><text class="dg-m" x="150" y="112" text-anchor="start">away from home</text><text class="dg-m" x="1035" y="112" text-anchor="end">opened from the server</text><rect class="dg-edge" x="330" y="352" width="230" height="60" rx="10"/><text class="dg-t" x="445" y="377" text-anchor="middle">Pulse relay, then FCM</text><text class="dg-s" x="445" y="399" text-anchor="middle">passes it on unread</text><path class="dg-push" d="M890 382 L560 382"/><path class="dg-push" d="M330 382 L240 382" marker-end="url(#dwen-p)"/><text class="dg-ok" x="725" y="372" text-anchor="middle">alert, encrypted for your phone</text><rect class="dg-edge" x="330" y="430" width="230" height="54" rx="10"/><text class="dg-t" x="445" y="453" text-anchor="middle">Telegram</text><text class="dg-s" x="445" y="474" text-anchor="middle">your own bot</text><path class="dg-tg" d="M890 457 L560 457"/><path class="dg-tg" d="M330 457 L240 457" marker-end="url(#dwen-t)"/><text class="dg-m" x="725" y="447" text-anchor="middle">or straight to Telegram</text></svg>
+      <svg class="tall" viewBox="0 0 340 516" aria-hidden="true" focusable="false"><defs><marker id="dten-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path class="dg-arrow" d="M0 0 L10 5 L0 10 z"/></marker><marker id="dten-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path class="dg-arrow-ok" d="M0 0 L10 5 L0 10 z"/></marker><marker id="dten-t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path class="dg-arrow-tg" d="M0 0 L10 5 L0 10 z"/></marker></defs><rect class="dg-box" x="6" y="10" width="328" height="78" rx="22"/><text class="dg-t" x="24" y="44" text-anchor="start">Your phone</text><text class="dg-s" x="24" y="68" text-anchor="start">Homelab Pulse</text><path class="dg-line" d="M58 172 L58 88" marker-end="url(#dten-a)"/><path class="dg-line" d="M58 310 L58 266" marker-start="url(#dten-a)"/><rect class="dg-edge" x="6" y="172" width="104" height="94" rx="10"/><text class="dg-t" x="58" y="200" text-anchor="middle">At home</text><text class="dg-s" x="58" y="224" text-anchor="middle">TLS, pinned</text><text class="dg-m" x="58" y="247" text-anchor="middle">port 8443</text><path class="dg-line" d="M170 172 L170 88" marker-end="url(#dten-a)"/><path class="dg-line" d="M170 310 L170 266" marker-start="url(#dten-a)"/><rect class="dg-edge" x="118" y="172" width="104" height="94" rx="10"/><text class="dg-t" x="170" y="200" text-anchor="middle">Away</text><text class="dg-s" x="170" y="224" text-anchor="middle">Cloudflare</text><text class="dg-m" x="170" y="247" text-anchor="middle">no open port</text><path class="dg-push" d="M282 172 L282 88" marker-end="url(#dten-p)"/><path class="dg-push" d="M282 310 L282 266"/><rect class="dg-edge" x="230" y="172" width="104" height="94" rx="10"/><text class="dg-t" x="282" y="200" text-anchor="middle">Alerts</text><text class="dg-s" x="282" y="224" text-anchor="middle">relay, FCM</text><text class="dg-m" x="282" y="247" text-anchor="middle">or Telegram</text><rect class="dg-box" x="6" y="310" width="328" height="196" rx="10"/><text class="dg-t" x="24" y="346" text-anchor="start">Your server</text><circle class="dg-lamp" cx="30" cy="375" r="4.5"/><text class="dg-ok" x="44" y="380" text-anchor="start">hlpulse-agent</text><path class="dg-tg" d="M24 398 L316 398"/><text class="dg-s" x="24" y="420" text-anchor="start">history · SQLite</text><path class="dg-tg" d="M24 432 L316 432"/><text class="dg-s" x="24" y="454" text-anchor="start">secrets · encrypted</text><path class="dg-tg" d="M24 466 L316 466"/><text class="dg-s" x="24" y="488" text-anchor="start">root helper · fixed commands</text></svg>
+        <figcaption class="sr">How the phone reaches the server, and how alerts reach the phone: the three paths below.</figcaption>
+      </figure>
+      <ul class="paths">
+        <li><b>At home</b> Straight to the agent over TLS, on port 8443 by default. The app trusts only the certificate in the QR code you scanned.</li>
+        <li><b>Away from home</b> Through Cloudflare Tunnel, which your server opens outward, behind Cloudflare Access. Cloudflare can see this traffic at its edge, as the privacy policy says.</li>
+        <li><b>Alerts</b> Encrypted on the server for your phone, then passed by the Pulse relay to Firebase Cloud Messaging, neither of which can read them. Or sent by your own Telegram bot.</li>
+      </ul>
+      <div class="setup">
+        <div>
+          <h3>Install</h3>
+          <div class="term">
+            <p class="term-bar"><span class="lamp" aria-hidden="true"></span>your server</p>
+            <pre tabindex="0" role="region" aria-label="Install command">curl -fsSL https://github.com/Aldaghir/homelab-pulse/releases/latest/download/install.sh | sudo sh</pre>
+          </div>
+          <p>The command prints a QR code. Scan it in the app and your phone is paired. <a href="guides/install-agent/">The installation guide</a> shows every screen.</p>
+          <p class="prelaunch" data-prelaunch>This command goes live with the first public release, coming soon. <a href="mailto:android@aldaghir.com?subject=Notify%20me%20when%20Homelab%20Pulse%20launches">Notify me at launch</a></p>
+        </div>
+        <div>
+          <h3>You need</h3>
+          <dl class="needs-list">
+            <div><dt>A server</dt> <dd>Debian, Ubuntu or Raspberry Pi OS, 64-bit (arm64 or amd64), with systemd</dd></div>
+            <div><dt>Docker</dt> <dd><span class="opt">Optional</span> Container features turn on when Docker is there</dd></div>
+            <div><dt>A phone</dt> <dd>Android 8.0 or later</dd></div>
+            <div><dt>Away from home</dt> <dd><span class="opt">Optional</span> A domain on your Cloudflare account; the free plan is enough</dd></div>
+            <div><dt>Without Google</dt> <dd><span class="opt">Optional</span> A Telegram bot you create, for alerts</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band guard-band" id="security" aria-labelledby="security-title">
+    <div class="wide">
+      <div class="side">
+        <p class="label"><span class="num">04</span> Security</p>
+        <h2 id="security-title" class="big">What keeps your server yours.</h2>
+        <p class="intro">The app can restart services and open a shell on your server, so each step is guarded.</p>
+        <p class="more"><a href="privacy/">Read the privacy policy</a></p>
+      </div>
+      <ol class="guards">
+        <li><span class="tag">SHA-256</span><h3>A pinned certificate</h3><p>The QR code carries the agent’s certificate fingerprint. The app trusts that certificate and no other, and refuses to connect if it changes.</p></li>
+        <li><span class="tag">256-bit</span><h3>A token for each phone</h3><p>Each phone gets its own token, which the agent keeps only as a hash. A pairing code works once, within ten minutes.</p></li>
+        <li><span class="tag">viewer · operator · admin</span><h3>A role for each phone</h3><p>Choose what each phone may do. Ending a phone’s access cuts its live data and its terminal at once.</p></li>
+        <li><span class="tag">Android Keystore</span><h3>Your fingerprint for risky actions</h3><p>The terminal, stopping or restarting, rebooting, rules, integrations, invites and remote access need a fresh signature from a key in your phone’s Keystore, unlocked by your fingerprint or screen lock. Without it, the server refuses.</p></li>
+        <li><span class="tag">AES-256-GCM</span><h3>Keys nobody reads back</h3><p>Your Telegram, Cloudflare and Uptime Kuma keys are stored encrypted on your server. The app can replace them but never read them, and no log shows them.</p></li>
+        <li><span class="tag">no sudo</span><h3>The least it needs</h3><p>The agent runs without sudo. A small helper runs the few commands that need root, and only in the fixed forms its configuration allows.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band" id="pro" aria-labelledby="pro-title">
+    <div class="wide">
+      <p class="label"><span class="num">05</span> Free and Pro</p>
+      <h2 id="pro-title">Free to run. Pro if you want more.</h2>
+      <div class="plans">
+        <div class="plan">
+          <p class="price"><b>0</b><span>in every edition</span></p>
+          <h3>Everything above</h3>
+          <p>On as many servers as you like<!-- @public -->, in the edition from GitHub and in the one from Google Play<!-- /@public -->. No trial, no limit, no account.</p>
+        </div>
+        <div class="plan">
+          <p class="price"><b>4.99</b><span>USD, once, in the Google Play edition</span></p>
+          <h3>Pro</h3>
+          <ul>
+            <li>The full file browser<span class="state on">available</span></li>
+            <li>Advanced widgets<span class="state">coming</span></li>
+            <li>Extra themes<span class="state">coming</span></li>
+            <li>A weekly summary<span class="state">coming</span></li>
+          </ul>
+        </div>
+      </div>
+      <!-- @public -->
+      <p class="support">Homelab Pulse is free software. If it saves you a night, you can support its work on <a href="https://github.com/sponsors/Aldaghir">GitHub Sponsors</a> or <a href="https://ko-fi.com/aldaghir">Ko-fi</a>.</p>
+      <!-- /@public -->
+    </div>
+  </section>
+
+  <section class="band source-band" id="source" aria-labelledby="source-title">
+    <div class="wide">
+      <div>
+        <p class="label"><span class="num">06</span> Open source</p>
+        <h2 id="source-title" class="big">Read the code that runs on your server.</h2>
+        <p class="intro">The app’s core is under the GPL-3.0, and the agent, its API and the push relay under the Apache-2.0. Only Pro, in the Google Play edition, is closed.</p>
+      </div>
+      <div>
+        <div class="actions">
+          <!-- @public -->
+          <a class="btn primary" href="https://github.com/Aldaghir/homelab-pulse"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+          <!-- /@public -->
+          <a class="btn line" href="source/">Licenses and source code</a>
+        </div>
+        <!-- @public -->
+        <p class="prelaunch" data-prelaunch>The repository opens with the first public release. <a href="mailto:android@aldaghir.com?subject=Notify%20me%20when%20Homelab%20Pulse%20launches">Notify me at launch</a></p>
+        <!-- /@public -->
+      </div>
+    </div>
+  </section>
+
+  <section class="closing" aria-labelledby="closing-title">
+    <div class="wide">
+      <p class="last"><time>12:11</time><span class="lvl ok">OK</span><span>all checks passing</span></p>
+      <h2 id="closing-title">Install it tonight. Read the log in the morning.</h2>
+      <div class="actions"><a class="btn primary" href="guides/install-agent/">Install the agent</a><a class="btn line" href="guides/">All setup guides</a></div>
+    </div>
   </section>
 </main>
 <!-- @footer -->
