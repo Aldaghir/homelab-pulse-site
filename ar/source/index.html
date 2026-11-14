@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>الكود المصدري · Homelab Pulse</title>
-<meta name="description" content="نواة Homelab Pulse ووكيله برنامجان حرّان: تراخيصهما، وطريقة الحصول على كودهما المصدري.">
+<meta name="description" content="ما المفتوح في Homelab Pulse وما ليس مفتوحاً، وتراخيص نواة التطبيق ووكيله، وكيف تحصل على الكود المصدري وتبنيه.">
 <meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D1113" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="../../favicon.ico" sizes="32x32">
@@ -25,7 +25,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Homelab Pulse">
 <meta property="og:title" content="الكود المصدري · Homelab Pulse">
-<meta property="og:description" content="نواة Homelab Pulse ووكيله برنامجان حرّان: تراخيصهما، وطريقة الحصول على كودهما المصدري.">
+<meta property="og:description" content="ما المفتوح في Homelab Pulse وما ليس مفتوحاً، وتراخيص نواة التطبيق ووكيله، وكيف تحصل على الكود المصدري وتبنيه.">
 <meta property="og:url" content="https://pulse.aldaghir.com/ar/source/">
 <meta property="og:locale" content="ar_AR">
 <meta property="og:locale:alternate" content="en_US">
@@ -35,7 +35,7 @@
 <meta property="og:image:alt" content="هاتف يعرض لوحة Homelab Pulse بتنبيهات السيرفر والمعالج والذاكرة والحرارة والتخزين والشبكة، بجانب اسم التطبيق وعبارة: سيرفرك المنزلي في جيبك">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="الكود المصدري · Homelab Pulse">
-<meta name="twitter:description" content="نواة Homelab Pulse ووكيله برنامجان حرّان: تراخيصهما، وطريقة الحصول على كودهما المصدري.">
+<meta name="twitter:description" content="ما المفتوح في Homelab Pulse وما ليس مفتوحاً، وتراخيص نواة التطبيق ووكيله، وكيف تحصل على الكود المصدري وتبنيه.">
 <meta name="twitter:image" content="https://pulse.aldaghir.com/assets/og-ar.jpg">
 <meta name="twitter:image:alt" content="هاتف يعرض لوحة Homelab Pulse بتنبيهات السيرفر والمعالج والذاكرة والحرارة والتخزين والشبكة، بجانب اسم التطبيق وعبارة: سيرفرك المنزلي في جيبك">
 <!-- /@head -->
@@ -48,11 +48,11 @@
   <nav class="nav" aria-label="الرئيسي">
     <a href="../#features">المزايا</a>
     <a href="../#how">كيف يعمل</a>
-    <a href="../#security">الأمان</a>
+    <a href="../security/">الأمان</a>
     <a href="../pricing/">الأسعار</a>
     <a href="../guides/">الأدلة</a>
     <a href="../download/">التنزيل</a>
-    <a href="../support/">ادعم</a>
+    <a href="../support/">الدعم</a>
   </nav>
   <a class="lang" href="../../source/" hreflang="en" lang="en">English</a>
   <details class="menu">
@@ -60,33 +60,140 @@
     <nav aria-label="الرئيسي">
       <a href="../#features">المزايا</a>
       <a href="../#how">كيف يعمل</a>
-      <a href="../#security">الأمان</a>
+      <a href="../security/">الأمان</a>
       <a href="../pricing/">الأسعار</a>
       <a href="../guides/">الأدلة</a>
       <a href="../download/">التنزيل</a>
-      <a href="../support/">ادعم</a>
+      <a href="../support/">الدعم</a>
     </nav>
   </details>
 </header>
 <!-- /@header -->
-<main id="main" tabindex="-1" class="wrap">
-<article class="card">
-  <h1>الكود المصدري</h1>
-  <p>نواة <span dir="ltr">Homelab Pulse</span> ووكيله برنامجان حرّان: لك أن تستخدمهما وتدرسهما وتعدّلهما وتنشرهما وفق ترخيصيهما.</p>
+<main id="main" tabindex="-1" class="wide page">
+  <div class="page-head">
+    <h1>الكود المصدري</h1>
+    <p class="lead"><span dir="ltr" class="nw">Homelab Pulse</span> نواته مفتوحة: نواة التطبيق، والوكيل على سيرفرك، ومُرحِّل الإشعارات برامج حرّة، لك أن تستخدمها وتدرسها وتعدّلها وتنشرها. والمغلق Pro وحده، ويُباع في نسخة Google Play.</p>
+  </div>
 
-  <section class="summary" aria-labelledby="summary">
-    <h2 id="summary">التراخيص</h2>
-    <ul>
-      <li>نواة التطبيق: <a href="https://www.gnu.org/licenses/gpl-3.0.html">رخصة جنو العمومية العامة، الإصدار 3</a> (<span dir="ltr">GPL-3.0-only</span>).</li>
-      <li>الوكيل وواجهته البرمجية ومُرحِّل الإشعارات: <a href="https://www.apache.org/licenses/LICENSE-2.0">رخصة Apache 2.0</a>.</li>
-      <li>المكتبات داخل التطبيق: لكلٍّ منها ترخيصها، وهي مدرجة بنصوص تراخيصها كاملة داخل التطبيق في الإعدادات ← حول التطبيق ← كل المكتبات وتراخيصها.</li>
-      <li>الميزات المدفوعة الاختيارية في نسخة Google Play، إن وُجدت، ليست مفتوحة المصدر ولا تشملها هذه التراخيص.</li>
-    </ul>
+  <section class="part" aria-labelledby="open-title">
+    <div class="side">
+      <p class="label"><span class="num">01</span> ما المفتوح</p>
+      <h2 id="open-title">كل جزء وترخيصه</h2>
+      <p>النسختان تُبنيان من الكود نفسه: يُكتب الإصلاح مرة واحدة، ويصل إلى النسختين في اليوم نفسه.</p>
+    </div>
+    <ol class="ledger">
+      <li>
+        <h3>نواة التطبيق <span class="state on" dir="ltr">GPL-3.0-only</span></h3>
+        <p>كل ما يفعله التطبيق دون Pro: المراقبة، والحاويات والخدمات، والسجلات، والطرفية، والتنبيهات، والوصول عن بُعد، والدعوات.</p>
+        <p class="note">لك أن تشغّلها وتدرسها وتعدّلها وتنشرها. وإن نشرت نسخة معدّلة منها فانشر معها كودها، بالترخيص نفسه. <a href="https://www.gnu.org/licenses/gpl-3.0.html">رخصة جنو العمومية العامة، الإصدار 3</a></p>
+      </li>
+      <li>
+        <h3>الوكيل وواجهته البرمجية ومُرحِّل الإشعارات <span class="state on" dir="ltr">Apache-2.0</span></h3>
+        <p>ما يعمل على سيرفرك كله، بكل قدراته ولكل المستخدمين. وهو يعمل هناك بصلاحيات، فلك أن تقرأ كل سطر فيه.</p>
+        <p class="note">لك أن تستخدمه وتعدّله وتوزّعه، ولو داخل منتج مغلق، ما دمت تُبقي ترخيصه وإشعاراته. <a href="https://www.apache.org/licenses/LICENSE-2.0">رخصة Apache 2.0</a></p>
+      </li>
+      <li>
+        <h3>Pro <span class="state">مغلق</span></h3>
+        <p>الميزات التي يفتحها Pro، وكود نسخة Google Play الخاص الذي يبيعه، لا يُنشران، ولا تشملهما هذه التراخيص.</p>
+      </li>
+      <li>
+        <h3>المكتبات داخل التطبيق <span class="state">لكلٍّ ترخيصه</span></h3>
+        <p>لكل مكتبة ترخيصها. والتطبيق يدرجها كلها بنصوص تراخيصها كاملة، في الإعدادات ← حول التطبيق ← كل المكتبات وتراخيصها.</p>
+      </li>
+    </ol>
   </section>
 
-  <h2 id="get">الحصول على الكود المصدري</h2>
-  <p>للحصول على الكود المصدري لنواة التطبيق وللوكيل، راسلنا على <a href="mailto:android@aldaghir.com" dir="ltr">android@aldaghir.com</a> واذكر رقم الإصدار الظاهر في الإعدادات ← حول التطبيق.</p>
-</article>
+  <section class="part" aria-labelledby="get-title">
+    <div class="side">
+      <p class="label"><span class="num">02</span> الكود</p>
+      <h2 id="get-title">الحصول على الكود المصدري</h2>
+    </div>
+    <ol class="ledger">
+      <li>
+        <h3>بالبريد</h3>
+        <p>للحصول على الكود المصدري لنواة التطبيق وللوكيل، راسلنا واذكر رقم الإصدار الظاهر في الإعدادات ← حول التطبيق.</p>
+        <p class="more"><a href="mailto:android@aldaghir.com" dir="ltr">android@aldaghir.com</a></p>
+      </li>
+      <!-- @public -->
+      <li>
+        <h3>على GitHub <span class="state">مع أول إصدار</span></h3>
+        <p>المستودع المجتمعي: النواة والوكيل والمُرحِّل، ومعها إصدارات النسخة المجتمعية.</p>
+        <p class="more"><a href="https://github.com/Aldaghir/homelab-pulse">المستودع على GitHub</a></p>
+        <p class="prelaunch" data-prelaunch>يُفتح المستودع مع أول إصدار عام.</p>
+      </li>
+      <!-- /@public -->
+    </ol>
+  </section>
+
+  <section class="part" aria-labelledby="build-title">
+    <div class="side">
+      <p class="label"><span class="num">03</span> البناء</p>
+      <h2 id="build-title">ابنِه بنفسك</h2>
+      <p>من المجلد الأعلى للكود المصدري.</p>
+    </div>
+    <ol class="ledger">
+      <li>
+        <h3>الوكيل</h3>
+        <p>بـ Go ‏1.27 أو أحدث: اختباراته أولاً، ثم ملف تنفيذي واحد مستقل، <code>agent/bin/hlpulse-agent</code>.</p>
+        <pre tabindex="0" role="region" aria-label="أوامر بناء الوكيل">cd agent
+make test
+make build</pre>
+      </li>
+      <li>
+        <h3>التطبيق</h3>
+        <p>بـ JDK ‏21 وAndroid SDK: النسخة المجتمعية، في ملف APK للتطوير (debug).</p>
+        <pre tabindex="0" role="region" aria-label="أوامر بناء التطبيق">cd android
+./gradlew assembleDebug</pre>
+        <p class="note">إشعارات الدفع تحتاج مشروع Firebase خاصاً بك، وملفه <code>google-services.json</code> في <code>android/app</code>. ويُبنى التطبيق دونه.</p>
+      </li>
+    </ol>
+  </section>
+  <!-- @public -->
+
+  <section class="part" aria-labelledby="help-title">
+    <div class="side">
+      <p class="label"><span class="num">04</span> المساهمة</p>
+      <h2 id="help-title">ساعد في تحسينه</h2>
+      <p>البلاغات وطلبات الدمج المركّزة مرحّب بها حين يصير المستودع عاماً، مع أول إصدار.</p>
+    </div>
+    <ol class="ledger">
+      <li>
+        <h3>البلاغات (Issues)</h3>
+        <p>خطأ أو فكرة، في العلن. اذكر ما فعلته وما ظهر لك، ومعه رقمَا إصدار التطبيق والوكيل.</p>
+        <p class="more"><a href="https://github.com/Aldaghir/homelab-pulse/issues">افتح بلاغاً</a></p>
+        <p class="prelaunch" data-prelaunch>تُفتح البلاغات مع المستودع، في أول إصدار عام.</p>
+      </li>
+      <li>
+        <h3>طلبات الدمج (Pull requests)</h3>
+        <p>تغيير واحد مركّز في كل طلب، يُفتح في المستودع المجتمعي. وبعد مراجعته هناك سطراً سطراً، يأخذه المشروع إلى الكود الذي تُبنى منه النسختان، فتعود تعديلاته إلى المستودع المجتمعي باسمك.</p>
+      </li>
+      <li>
+        <h3>اتفاقية المساهمة</h3>
+        <p>يطلب منك أول طلب دمج توقيع اتفاقية ترخيص المساهمة (CLA)، مرة واحدة. وهي تتيح أن يصدر تغييرك في نسخة Google Play أيضاً، بجانب Pro.</p>
+      </li>
+      <li>
+        <h3>مشكلة أمنية</h3>
+        <p>لا تضعها في بلاغ ولا في طلب دمج أبداً، بل أبلغ عنها سراً.</p>
+        <p class="more"><a href="../security/">كيف تبلّغ عنها</a></p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="part" aria-labelledby="rules-title">
+    <div class="side">
+      <p class="label"><span class="num">05</span> القواعد</p>
+      <h2 id="rules-title">ما يجتازه كل تغيير</h2>
+      <p>والقائمة كاملة في ملف CONTRIBUTING.md في المستودع.</p>
+    </div>
+    <dl class="needs-list">
+      <div><dt>الـ commits</dt> <dd>بصيغة Conventional Commits، مثل <code>feat(agent): …</code> أو <code>fix(android): …</code>.</dd></div>
+      <div><dt>التطبيق</dt> <dd>أسلوب Kotlin الرسمي، ونظيف في ktlint وdetekt. وكل نص بالعربية والإنجليزية، وكل شاشة مفحوصة بالمظهرين الفاتح والداكن، ومن اليمين ومن اليسار.</dd></div>
+      <div><dt>الوكيل</dt> <dd>تمرّ <code>gofmt</code> و<code>go vet</code> و<code>golangci-lint run</code> و<code>go test -race ./...</code>.</dd></div>
+      <div><dt>الأمان</dt> <dd>لا سرّ في أي سجل. وكل إجراء جديد يُضاف إلى قائمة السماح في الوكيل مع سطر تدقيق. والأسرار تُكتب عبر الواجهة البرمجية ولا تُقرأ.</dd></div>
+      <div><dt>القرارات</dt> <dd>كل تغيير في المعمارية يأتي معه سجل قرار في <code>docs/adr/</code>.</dd></div>
+    </dl>
+  </section>
+  <!-- /@public -->
 </main>
 <!-- @footer -->
 <footer class="wide foot">
@@ -94,10 +201,13 @@
   <a href="../guides/">أدلة الإعداد</a>
   <a href="../download/">التنزيل</a>
   <a href="../pricing/">الأسعار</a>
+  <a href="../changelog/">سجل التغييرات</a>
+  <a href="../roadmap/">خارطة الطريق</a>
   <a href="../support/">الدعم</a>
+  <a href="../security/">الأمان</a>
+  <a href="./" aria-current="page">الكود المصدري</a>
   <a href="../privacy/">سياسة الخصوصية</a>
   <a href="../terms/">شروط الاستخدام</a>
-  <a href="./" aria-current="page">الكود المصدري</a>
   <a href="mailto:android@aldaghir.com">تواصل معنا</a>
 </footer>
 <!-- /@footer -->

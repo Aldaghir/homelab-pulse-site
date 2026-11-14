@@ -157,4 +157,40 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/source/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/source/"/>
   </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/changelog/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/changelog/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/changelog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/changelog/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/ar/changelog/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/changelog/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/changelog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/changelog/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/security/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/security/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/security/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/security/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/ar/security/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/security/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/security/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/security/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/roadmap/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/roadmap/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/roadmap/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/roadmap/"/>
+  </url>
+  <url>
+    <loc>https://pulse.aldaghir.com/ar/roadmap/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/roadmap/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/roadmap/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/roadmap/"/>
+  </url>
 </urlset>

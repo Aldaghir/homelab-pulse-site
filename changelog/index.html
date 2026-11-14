@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<!-- @head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Changelog · Homelab Pulse</title>
+<meta name="description" content="Every change to the Homelab Pulse app, its agent and its push relay, version by version, as the project’s CHANGELOG.md records it.">
+<meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1113" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="preload" href="../assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/plex-sans-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/changa-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/changa-arabic-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="canonical" href="https://pulse.aldaghir.com/changelog/">
+<link rel="alternate" hreflang="en" href="https://pulse.aldaghir.com/changelog/">
+<link rel="alternate" hreflang="ar" href="https://pulse.aldaghir.com/ar/changelog/">
+<link rel="alternate" hreflang="x-default" href="https://pulse.aldaghir.com/changelog/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Homelab Pulse">
+<meta property="og:title" content="Changelog · Homelab Pulse">
+<meta property="og:description" content="Every change to the Homelab Pulse app, its agent and its push relay, version by version, as the project’s CHANGELOG.md records it.">
+<meta property="og:url" content="https://pulse.aldaghir.com/changelog/">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:image" content="https://pulse.aldaghir.com/assets/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A phone showing the Homelab Pulse dashboard, a server's alerts, processor, memory, temperature, storage and network, beside the app's name and the words: Your home server in your pocket">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Changelog · Homelab Pulse">
+<meta name="twitter:description" content="Every change to the Homelab Pulse app, its agent and its push relay, version by version, as the project’s CHANGELOG.md records it.">
+<meta name="twitter:image" content="https://pulse.aldaghir.com/assets/og-en.jpg">
+<meta name="twitter:image:alt" content="A phone showing the Homelab Pulse dashboard, a server's alerts, processor, memory, temperature, storage and network, beside the app's name and the words: Your home server in your pocket">
+<!-- /@head -->
+</head>
+<body>
+<!-- @header -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="wide top">
+  <a class="brand" href="../"><img src="../assets/icon.svg" alt="" role="presentation" width="34" height="34"><span dir="ltr">Homelab Pulse</span></a>
+  <nav class="nav" aria-label="Main">
+    <a href="../#features">Features</a>
+    <a href="../#how">How it works</a>
+    <a href="../security/">Security</a>
+    <a href="../pricing/">Pricing</a>
+    <a href="../guides/">Guides</a>
+    <a href="../download/">Download</a>
+    <a href="../support/">Support</a>
+  </nav>
+  <a class="lang" href="../ar/changelog/" hreflang="ar" lang="ar">العربية</a>
+  <details class="menu">
+    <summary><svg viewBox="0 0 24 24" aria-hidden="true"><path class="bars" d="M4 7h16M4 12h16M4 17h16"/><path class="cross" d="M6 6l12 12M18 6L6 18"/></svg><span class="sr">Menu</span></summary>
+    <nav aria-label="Main">
+      <a href="../#features">Features</a>
+      <a href="../#how">How it works</a>
+      <a href="../security/">Security</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../guides/">Guides</a>
+      <a href="../download/">Download</a>
+      <a href="../support/">Support</a>
+    </nav>
+  </details>
+</header>
+<!-- /@header -->
+<main id="main" tabindex="-1" class="wide page">
+  <div class="page-head">
+    <h1>Changelog</h1>
+    <p class="lead">Every change to the app, the agent and the push relay, newest version first. Both editions of the app share each version number.</p>
+  </div>
+
+<!-- @changelog -->
+<section class="part" aria-labelledby="v1.0.0" data-version="1.0.0" data-released="unreleased">
+  <div class="side">
+    <p class="label" data-state="unreleased">Not released yet</p>
+    <h2 class="version" id="v1.0.0"><span class="num">1.0.0</span></h2>
+    <p data-src="b1d2c900">The first public release.</p>
+    <p class="note" data-state="unreleased">This version has not been released yet: what follows is what it will hold.</p>
+  </div>
+  <div class="log">
+    <h3 data-section="App">App</h3>
+    <ul class="changes">
+      <li data-src="e63946d2">A health verdict leads the home screen: one sentence (“All good” or “2 issues need your attention: …”) and a score from 0 to 100, built from the active alerts and pending security updates, with each issue leading to where it can be looked into.</li>
+      <li data-src="b67ece44">Live dashboard: CPU, memory, temperature, storage (with SMART health) and network, with history from 1 hour to 30 days, and each network interface’s traffic today and yesterday.</li>
+      <li data-src="e253de87">Docker containers and systemd services: status, health, resources and logs; start, stop and restart with confirmation; a cleanup preview that shows exactly what will be removed.</li>
+      <li data-src="976f17c2">Terminal over the authenticated agent connection, with Arabic-aware rendering, sessions that survive dropped connections, editable quick commands and a full-screen mode.</li>
+      <li data-src="b46a427a">Alerts: rules evaluated on the server, end-to-end encrypted push notifications, and Telegram through your own bot.</li>
+      <li data-src="faf92e83">Homelab insights: backup freshness, custom HTTP/TCP checks, apt and image updates, fail2ban/UFW and logins, Cloudflare Tunnel health and Uptime Kuma monitors.</li>
+      <li data-src="b79a0d0e">Remote access through Cloudflare Tunnel and Cloudflare Access, set up from one API token, with automatic switching between home and away and a connection doctor.</li>
+      <li data-src="ed6f4a70">Several servers, members and devices with scoped roles (viewer, operator, admin), one-time invites, instant revocation and an audit log.</li>
+      <li data-src="0f42f8c1">Invites can end after a day, a week or a month, and decide whether the phone may connect away from home. Each phone renews its own key every 30 days and right after a backup is restored; an admin can rotate the shared Cloudflare Access key while the old one keeps working for a week.</li>
+      <li data-src="2ef5d948">Guided setup wizards for every integration, each linked to an illustrated guide.</li>
+      <li data-src="fa671f05">Home-screen widget and Quick Settings tile; list-detail layouts on tablets and foldables.</li>
+      <li data-src="dae0219b">Encrypted backup of servers and settings to move to a new phone.</li>
+      <li data-src="97526cb7">Sensitive actions (a new terminal, stopping or restarting, cleanup, power, alert rules, integrations, checks, invites, devices and remote access) are confirmed with the fingerprint or screen lock, and the server itself checks it: the phone signs each one with a key that never leaves its secure hardware, so a copied token cannot act alone.</li>
+      <li data-src="c2134796">App lock that hides the app behind it, from the screen, from TalkBack and from the recent-apps preview, and locks at once or after 1, 5 or 15 minutes; the widget and the Quick Settings tile still show their summary.</li>
+      <li data-src="8715696a">Arabic-first, fully mirrored interface plus English; light and dark themes, accent colors, wallpaper colors; tested at 200 % text size.</li>
+      <li data-src="88eff8c3">Every error explains its probable cause and the fix.</li>
+      <li data-src="7571c83b">Optional, scrubbed crash reports that travel through your own agent.</li>
+    </ul>
+    <h3 data-section="Agent">Agent</h3>
+    <ul class="changes">
+      <li data-src="0eecd79e">A single static binary for Linux arm64 and amd64, installed as a systemd service under its own user, with Debian packages and an install script that checks the release’s Sigstore signature (cosign) and checksums and takes every other file from the verified binary.</li>
+      <li data-src="c1a88bae">No sudo for the agent: a small root helper does the few privileged things the configuration allows (drive health, firewall status, actions on allowed units, reboot, the terminal’s login shell), so the agent itself runs locked down (systemd exposure 1.7). Docker is reached through a filtered API instead of the docker group: creating containers or exec is refused.</li>
+      <li data-src="380aedca">Pairing by QR code with a pinned TLS certificate, 256-bit device tokens stored hashed, rate limits, and a second listener reserved for Cloudflare Access.</li>
+      <li data-src="4baeec9d">Step-up for sensitive actions: without a fresh, single-use signature from the phone’s hardware key over that very request, the agent answers 428.</li>
+      <li data-src="cd0e53b7">History in SQLite, alert evaluation and notification while the phone is asleep or offline.</li>
+      <li data-src="d2d710e2">Daily traffic per network interface, counted from the kernel’s counters and kept across agent restarts and reboots.</li>
+      <li data-src="74ac9a2b">Write-only, encrypted storage for integration secrets.</li>
+      <li data-src="a285bcba">Custom checks keep their credentials on the server: the app sees a check’s URL or address with its user, password and secret query parameters (<code>?token=</code>) masked as <code>***</code>, and a command check’s program alone unless the configuration lets it see the command line (<code>show_command</code>), with credentials in common forms masked. The agent says so (the <code>checks-masked</code> capability), so the app can tell it from an older agent that sends targets whole. A command check written as one item (<code>[&quot;mysqladmin -p… ping&quot;]</code>), which never ran, no longer goes unnoticed: the agent starts without it, logs a warning that leaves the command out, and the app lists it as an invalid configuration.</li>
+      <li data-src="25a93301">Least privilege for every device: the whole system journal is for admins, while viewers and operators follow the services the app shows them; caps on open connections and log streams per device and per agent keep a reconnecting phone from exhausting the server.</li>
+    </ul>
+    <h3 data-section="Relay">Relay</h3>
+    <ul class="changes">
+      <li data-src="57bf6c4d">Pulse Relay forwards end-to-end encrypted push notifications to Firebase Cloud Messaging without seeing their content; it can run as a Cloudflare Worker or self-hosted next to the agent.</li>
+    </ul>
+  </div>
+</section>
+<!-- /@changelog -->
+
+  <div class="page-end">
+    <p class="note">Written from <code>CHANGELOG.md</code> in the source code, which follows Keep a Changelog and Semantic Versioning.</p>
+    <p class="more"><a href="../roadmap/">What comes next: the roadmap</a></p>
+  </div>
+</main>
+<!-- @footer -->
+<footer class="wide foot">
+  <span dir="ltr">© 2026 Aldaghir</span>
+  <a href="../guides/">Setup guides</a>
+  <a href="../download/">Download</a>
+  <a href="../pricing/">Pricing</a>
+  <a href="./" aria-current="page">Changelog</a>
+  <a href="../roadmap/">Roadmap</a>
+  <a href="../support/">Support</a>
+  <a href="../security/">Security</a>
+  <a href="../source/">Source Code</a>
+  <a href="../privacy/">Privacy Policy</a>
+  <a href="../terms/">Terms of Use</a>
+  <a href="mailto:android@aldaghir.com">Contact</a>
+</footer>
+<!-- /@footer -->
+</body>
+</html>

@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source Code · Homelab Pulse</title>
-<meta name="description" content="The core of Homelab Pulse and its agent are free software: their licenses, and how to get their source code.">
+<meta name="description" content="What is open in Homelab Pulse and what is not, the licenses of the app’s core and of its agent, and how to get the source code and build it.">
 <meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D1113" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="../favicon.ico" sizes="32x32">
@@ -23,7 +23,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Homelab Pulse">
 <meta property="og:title" content="Source Code · Homelab Pulse">
-<meta property="og:description" content="The core of Homelab Pulse and its agent are free software: their licenses, and how to get their source code.">
+<meta property="og:description" content="What is open in Homelab Pulse and what is not, the licenses of the app’s core and of its agent, and how to get the source code and build it.">
 <meta property="og:url" content="https://pulse.aldaghir.com/source/">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ar_AR">
@@ -33,7 +33,7 @@
 <meta property="og:image:alt" content="A phone showing the Homelab Pulse dashboard, a server's alerts, processor, memory, temperature, storage and network, beside the app's name and the words: Your home server in your pocket">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Source Code · Homelab Pulse">
-<meta name="twitter:description" content="The core of Homelab Pulse and its agent are free software: their licenses, and how to get their source code.">
+<meta name="twitter:description" content="What is open in Homelab Pulse and what is not, the licenses of the app’s core and of its agent, and how to get the source code and build it.">
 <meta name="twitter:image" content="https://pulse.aldaghir.com/assets/og-en.jpg">
 <meta name="twitter:image:alt" content="A phone showing the Homelab Pulse dashboard, a server's alerts, processor, memory, temperature, storage and network, beside the app's name and the words: Your home server in your pocket">
 <!-- /@head -->
@@ -46,7 +46,7 @@
   <nav class="nav" aria-label="Main">
     <a href="../#features">Features</a>
     <a href="../#how">How it works</a>
-    <a href="../#security">Security</a>
+    <a href="../security/">Security</a>
     <a href="../pricing/">Pricing</a>
     <a href="../guides/">Guides</a>
     <a href="../download/">Download</a>
@@ -58,7 +58,7 @@
     <nav aria-label="Main">
       <a href="../#features">Features</a>
       <a href="../#how">How it works</a>
-      <a href="../#security">Security</a>
+      <a href="../security/">Security</a>
       <a href="../pricing/">Pricing</a>
       <a href="../guides/">Guides</a>
       <a href="../download/">Download</a>
@@ -67,24 +67,131 @@
   </details>
 </header>
 <!-- /@header -->
-<main id="main" tabindex="-1" class="wrap">
-<article class="card">
-  <h1>Source Code</h1>
-  <p>The core of Homelab Pulse and its agent are free software: you may use, study, change and share them under their licenses.</p>
+<main id="main" tabindex="-1" class="wide page">
+  <div class="page-head">
+    <h1>Source Code</h1>
+    <p class="lead">Homelab Pulse is open core. The app’s core, the agent on your server and the push relay are free software: you may use, study, change and share them. Only Pro, sold in the Google Play edition, is closed.</p>
+  </div>
 
-  <section class="summary" aria-labelledby="summary">
-    <h2 id="summary">Licenses</h2>
-    <ul>
-      <li>The app's core: the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License v3.0</a> (GPL-3.0-only).</li>
-      <li>The agent, its API and the push relay: the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>.</li>
-      <li>The libraries inside the app: each under its own license, listed with its full text in the app under Settings › About › Every library and its license.</li>
-      <li>Optional paid features of the Google Play edition, if offered, are not open source and are not covered by these licenses.</li>
-    </ul>
+  <section class="part" aria-labelledby="open-title">
+    <div class="side">
+      <p class="label"><span class="num">01</span> What is open</p>
+      <h2 id="open-title">Each part and its license</h2>
+      <p>Both editions are built from the same code: a fix is written once and reaches both on the same day.</p>
+    </div>
+    <ol class="ledger">
+      <li>
+        <h3>The app’s core <span class="state on">GPL-3.0-only</span></h3>
+        <p>Everything the app does without Pro: monitoring, containers and services, logs, the terminal, alerts, remote access and invites.</p>
+        <p class="note">You may run, study, change and share it. A changed version you share goes with its source, under the same license. <a href="https://www.gnu.org/licenses/gpl-3.0.html">The GNU General Public License v3.0</a></p>
+      </li>
+      <li>
+        <h3>The agent, its API and the push relay <span class="state on">Apache-2.0</span></h3>
+        <p>What runs on your server, all of it, with every capability for every user. It runs with privileges there, so you can read every line of it.</p>
+        <p class="note">You may use, change and ship it, in a closed product too, keeping its license and notices. <a href="https://www.apache.org/licenses/LICENSE-2.0">The Apache License 2.0</a></p>
+      </li>
+      <li>
+        <h3>Pro <span class="state">closed</span></h3>
+        <p>The features Pro opens, and the Google Play edition’s own code that sells it, are not published, and these licenses do not cover them.</p>
+      </li>
+      <li>
+        <h3>The libraries inside the app <span class="state">their own licenses</span></h3>
+        <p>Each keeps its own license. The app lists every one with its license’s full text, under Settings › About › Every library and its license.</p>
+      </li>
+    </ol>
   </section>
 
-  <h2 id="get">Getting the source code</h2>
-  <p>To get the source code of the app's core and of the agent, write to <a href="mailto:android@aldaghir.com">android@aldaghir.com</a> with the version shown in Settings › About.</p>
-</article>
+  <section class="part" aria-labelledby="get-title">
+    <div class="side">
+      <p class="label"><span class="num">02</span> The code</p>
+      <h2 id="get-title">Getting the source code</h2>
+    </div>
+    <ol class="ledger">
+      <li>
+        <h3>By email</h3>
+        <p>To get the source code of the app’s core and of the agent, write with the version shown in Settings › About.</p>
+        <p class="more"><a href="mailto:android@aldaghir.com">android@aldaghir.com</a></p>
+      </li>
+      <!-- @public -->
+      <li>
+        <h3>On GitHub <span class="state">with the first release</span></h3>
+        <p>The community repository: the core, the agent and the relay, with the community edition’s releases.</p>
+        <p class="more"><a href="https://github.com/Aldaghir/homelab-pulse">The repository on GitHub</a></p>
+        <p class="prelaunch" data-prelaunch>The repository opens with the first public release.</p>
+      </li>
+      <!-- /@public -->
+    </ol>
+  </section>
+
+  <section class="part" aria-labelledby="build-title">
+    <div class="side">
+      <p class="label"><span class="num">03</span> Building</p>
+      <h2 id="build-title">Build it yourself</h2>
+      <p>From the top folder of the source code.</p>
+    </div>
+    <ol class="ledger">
+      <li>
+        <h3>The agent</h3>
+        <p>With Go 1.27 or later: its tests, then one static binary, <code>agent/bin/hlpulse-agent</code>.</p>
+        <pre tabindex="0" role="region" aria-label="Commands to build the agent">cd agent
+make test
+make build</pre>
+      </li>
+      <li>
+        <h3>The app</h3>
+        <p>With JDK 21 and the Android SDK: the community edition, as a debug APK.</p>
+        <pre tabindex="0" role="region" aria-label="Commands to build the app">cd android
+./gradlew assembleDebug</pre>
+        <p class="note">Push notifications need a Firebase project of your own, its <code>google-services.json</code> in <code>android/app</code>. The app builds without it.</p>
+      </li>
+    </ol>
+  </section>
+  <!-- @public -->
+
+  <section class="part" aria-labelledby="help-title">
+    <div class="side">
+      <p class="label"><span class="num">04</span> Contributing</p>
+      <h2 id="help-title">Help make it better</h2>
+      <p>Issues and focused pull requests are welcome once the repository is public, with the first release.</p>
+    </div>
+    <ol class="ledger">
+      <li>
+        <h3>Issues</h3>
+        <p>A bug or an idea, in the open. Say what you did and what you saw, with the app’s version and the agent’s.</p>
+        <p class="more"><a href="https://github.com/Aldaghir/homelab-pulse/issues">Open an issue</a></p>
+        <p class="prelaunch" data-prelaunch>Issues open with the repository, at the first public release.</p>
+      </li>
+      <li>
+        <h3>Pull requests</h3>
+        <p>One focused change each, opened on the community repository. Once it is reviewed there, line by line, the project takes it into the code both editions are built from, and its commits come back to the community repository under your name.</p>
+      </li>
+      <li>
+        <h3>The contributor agreement</h3>
+        <p>Your first pull request asks you to sign a contributor license agreement (CLA), once. It lets your change ship in the Google Play edition too, beside Pro.</p>
+      </li>
+      <li>
+        <h3>A security problem</h3>
+        <p>Never in an issue or a pull request: report it privately.</p>
+        <p class="more"><a href="../security/">How to report it</a></p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="part" aria-labelledby="rules-title">
+    <div class="side">
+      <p class="label"><span class="num">05</span> Ground rules</p>
+      <h2 id="rules-title">What a change passes</h2>
+      <p>The repository’s CONTRIBUTING.md has the whole list.</p>
+    </div>
+    <dl class="needs-list">
+      <div><dt>Commits</dt> <dd>Conventional Commits, such as <code>feat(agent): …</code> or <code>fix(android): …</code>.</dd></div>
+      <div><dt>The app</dt> <dd>Kotlin’s official style, ktlint and detekt clean. Every text in English and in Arabic, every screen checked light and dark, right to left and left to right.</dd></div>
+      <div><dt>The agent</dt> <dd><code>gofmt</code>, <code>go vet</code>, <code>golangci-lint run</code> and <code>go test -race ./...</code> pass.</dd></div>
+      <div><dt>Security</dt> <dd>No secret in a log. A new action goes on the agent’s allowlist, with an audit entry. Secrets are write-only through the API.</dd></div>
+      <div><dt>Decisions</dt> <dd>A change to the architecture comes with a decision record in <code>docs/adr/</code>.</dd></div>
+    </dl>
+  </section>
+  <!-- /@public -->
 </main>
 <!-- @footer -->
 <footer class="wide foot">
@@ -92,10 +199,13 @@
   <a href="../guides/">Setup guides</a>
   <a href="../download/">Download</a>
   <a href="../pricing/">Pricing</a>
+  <a href="../changelog/">Changelog</a>
+  <a href="../roadmap/">Roadmap</a>
   <a href="../support/">Support</a>
+  <a href="../security/">Security</a>
+  <a href="./" aria-current="page">Source Code</a>
   <a href="../privacy/">Privacy Policy</a>
   <a href="../terms/">Terms of Use</a>
-  <a href="./" aria-current="page">Source Code</a>
   <a href="mailto:android@aldaghir.com">Contact</a>
 </footer>
 <!-- /@footer -->

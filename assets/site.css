@@ -1,5 +1,5 @@
-/* Homelab Pulse: the project site (home page, guides, download, pricing, support, privacy policy, terms, source
-   code, 404).
+/* Homelab Pulse: the project site (home page, guides, download, pricing, support, source code, changelog,
+   security, roadmap, privacy policy, terms, 404).
 
    الاتجاه: «سجل المناوبة». الموقع دفتر مناوبة ليلية لسيرفر منزلي: ما جرى مكتوب أسطراً مختومة بالوقت، يقرؤها
    صاحبه في الصباح. ورقٌ هادئ وحبرٌ داكن في الفاتح، وليلُ غرفة السيرفر في الداكن. الأخضر لمبة «سليم» لا لون
@@ -209,7 +209,10 @@ main.wrap:has(.steps) { max-width: calc(960px + 2 * var(--gutter)); }
   display: flex; flex-wrap: wrap; align-items: center; gap: 0 20px; margin-block-start: 64px; padding-block: 18px 40px;
   border-top: 1px solid var(--rule); color: var(--muted); font-size: 15px;
 }
-.foot > span { font-family: var(--mono); font-size: 14px; margin-inline-end: auto; }
+/* The free space goes before the first link, in the page's direction: the copyright line's own dir="ltr" would
+   turn a margin of its own to the right in an Arabic page, away from the edge it starts from. */
+.foot > span { font-family: var(--mono); font-size: 14px; }
+.foot > span + a { margin-inline-start: auto; }
 .foot a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; color: var(--ink-2); text-decoration: none; }
 .foot a:hover { color: var(--ink); text-decoration: underline; text-decoration-color: var(--ok); }
 .foot a[aria-current] { color: var(--ink); font-weight: 600; }
@@ -611,6 +614,33 @@ html[lang="ar"] .part h2 { line-height: 1.4; }
   .ledger > li { padding-block: 18px; }
   .ledger h3 { font-size: 20px; }
   .part .price b { font-size: 38px; }
+}
+/* The changelog (E7-03), written from CHANGELOG.md: a version is a part, its number at the reading edge in the
+   log's face, as large as a price; its sections' items on ruled lines beside it. */
+.part h2.version, html[lang="ar"] .part h2.version { margin: 0 0 14px; font: 400 clamp(44px, 6vw, 64px)/1 var(--mono); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.log h3 { font-size: 22px; margin: 0 0 10px; }
+/* Each item numbered as a log's lines are, in the margin (positioned, so that code inside the text stays inline).
+   The margin grows with the text, so a long word breaks where a 320 px phone with text at 200% has no room. */
+.changes { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); counter-reset: change; }
+.changes li { position: relative; margin: 0; padding-block: 12px; padding-inline-start: 3.25em; border-bottom: 1px solid var(--rule); color: var(--ink-2); counter-increment: change; overflow-wrap: anywhere; }
+.changes li::before { content: counter(change, decimal-leading-zero); position: absolute; inset-inline-start: 0; top: 12px; color: var(--muted); font: 13px/2.2 var(--mono); letter-spacing: .04em; }
+html[lang="ar"] .changes li::before { line-height: 2.5; }
+.changes + h3 { margin-top: 40px; }
+.page-end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--rule); }
+.page-end .note { margin-bottom: 4px; }
+/* The security page: where to report, at the side as the support page's places to give are, and the model in
+   the home page's guards. */
+.side .give { margin: 22px 0 16px; max-width: 30em; }
+/* A side that ends in a note or a link keeps clear of the rule that opens the entries under it on a phone. */
+.side > .note:last-child, .side > .more:last-child { margin-bottom: 28px; }
+/* A file's name in a part's side (CONTRIBUTING.md) is one word wider than a 320 px phone with text at 200%. */
+.side p { overflow-wrap: anywhere; }
+.part .guards .tag { margin-bottom: 6px; }
+@media (max-width: 719.98px) {
+  .part h2.version, html[lang="ar"] .part h2.version { font-size: 38px; }
+  .log h3 { font-size: 20px; }
+  .changes li { padding-block: 10px; padding-inline-start: 2.6em; }
+  .changes li::before { top: 10px; }
 }
 
 /* ── The page served at any missing address (404.html, E7-05): one message in both languages, the Arabic

@@ -1,0 +1,8 @@
+# Homelab Pulse: where to report a security problem (RFC 9116).
+# Please report privately, never in a public issue. Acknowledgement within 72 hours, assessment within
+# 7 days. The policy, in English and Arabic: https://pulse.aldaghir.com/security/
+Contact: mailto:android@aldaghir.com
+Expires: 2027-10-31T00:00:00Z
+Preferred-Languages: ar, en
+Canonical: https://pulse.aldaghir.com/.well-known/security.txt
+Policy: https://pulse.aldaghir.com/security/

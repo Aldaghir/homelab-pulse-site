@@ -1,0 +1,164 @@
+<!doctype html>
+<!-- Written by tools/site_sync.py from site/security/index.html: edit that page, never this copy (ADR-0022). -->
+<html lang="en" dir="ltr">
+<head>
+<!-- @head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security · Homelab Pulse</title>
+<meta name="description" content="How to report a security problem in Homelab Pulse privately and what happens next, and what protects your server, with its limits.">
+<meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1113" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../../favicon.ico" sizes="32x32">
+<link rel="icon" href="../../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="preload" href="../../assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/plex-sans-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/changa-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/changa-arabic-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="canonical" href="https://pulse.aldaghir.com/security/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Homelab Pulse">
+<meta property="og:title" content="Security · Homelab Pulse">
+<meta property="og:description" content="How to report a security problem in Homelab Pulse privately and what happens next, and what protects your server, with its limits.">
+<meta property="og:url" content="https://pulse.aldaghir.com/security/">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:image" content="https://pulse.aldaghir.com/assets/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A phone showing the Homelab Pulse dashboard, a server's alerts, processor, memory, temperature, storage and network, beside the app's name and the words: Your home server in your pocket">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Security · Homelab Pulse">
+<meta name="twitter:description" content="How to report a security problem in Homelab Pulse privately and what happens next, and what protects your server, with its limits.">
+<meta name="twitter:image" content="https://pulse.aldaghir.com/assets/og-en.jpg">
+<meta name="twitter:image:alt" content="A phone showing the Homelab Pulse dashboard, a server's alerts, processor, memory, temperature, storage and network, beside the app's name and the words: Your home server in your pocket">
+<!-- /@head -->
+</head>
+<body>
+<!-- @header -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="wide top">
+  <a class="brand" href="../"><img src="../../assets/icon.svg" alt="" role="presentation" width="34" height="34"><span dir="ltr">Homelab Pulse</span></a>
+  <nav class="nav" aria-label="Main">
+    <a href="../#features">Features</a>
+    <a href="../#how">How it works</a>
+    <a href="./" aria-current="page">Security</a>
+    <a href="../pricing/">Pricing</a>
+    <a href="../guides/">Guides</a>
+  </nav>
+  <a class="lang" href="../ar/security/" hreflang="ar" lang="ar">العربية</a>
+  <details class="menu">
+    <summary><svg viewBox="0 0 24 24" aria-hidden="true"><path class="bars" d="M4 7h16M4 12h16M4 17h16"/><path class="cross" d="M6 6l12 12M18 6L6 18"/></svg><span class="sr">Menu</span></summary>
+    <nav aria-label="Main">
+      <a href="../#features">Features</a>
+      <a href="../#how">How it works</a>
+      <a href="./" aria-current="page">Security</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../guides/">Guides</a>
+    </nav>
+  </details>
+</header>
+<!-- /@header -->
+<main id="main" tabindex="-1" class="wide page">
+  <div class="page-head">
+    <h1>Security</h1>
+    <p class="lead">Homelab Pulse can restart services and open a shell on your server. How to tell us about a problem in private, what guards each step, and what it does not guard against.</p>
+  </div>
+
+  <section class="part" aria-labelledby="report-title">
+    <div class="side">
+      <p class="label"><span class="num">01</span> Reporting</p>
+      <h2 id="report-title">Found a problem? Tell us in private</h2>
+      <p>Please do not open a public issue about it, nor publish it, before a fix is out.</p>
+      <ul class="give report">
+        <li><a href="mailto:android@aldaghir.com?subject=Security%20report"><strong>Email a report</strong><span class="host">android@aldaghir.com</span></a></li>
+      </ul>
+      <p class="more"><a href="../../.well-known/security.txt">The same, for tools: security.txt</a></p>
+    </div>
+    <dl class="needs-list">
+      <div><dt>Where</dt> <dd>By email to <a href="mailto:android@aldaghir.com">android@aldaghir.com</a>.</dd></div>
+      <div><dt>What to send</dt> <dd>The version affected (the app’s from Settings › About, the agent’s from <code>hlpulse-agent version</code>), what someone could do with the problem, and the steps to reproduce it.</dd></div>
+      <div><dt>In 72 hours</dt> <dd>You hear back that your report arrived.</dd></div>
+      <div><dt>In 7 days</dt> <dd>It has been assessed.</dd></div>
+      <div><dt>The fix</dt> <dd>Made in private and released in both editions of the app together. Its details are published after that.</dd></div>
+      <div><dt>Credit</dt> <dd>Your name goes with the fix, unless you would rather it did not.</dd></div>
+      <div><dt>In scope</dt> <dd>The agent API’s authentication and authorization, pairing, certificate pinning, the check of Cloudflare Access, the secrets vault, the terminal, the push relay’s encryption, and what the app stores on the phone.</dd></div>
+    </dl>
+  </section>
+
+  <section class="part" aria-labelledby="guards-title">
+    <div class="side">
+      <p class="label"><span class="num">02</span> The model</p>
+      <h2 id="guards-title">What guards your server</h2>
+      <p>From pairing to the release you install, each step and what it rests on.</p>
+    </div>
+    <ol class="guards">
+      <li><span class="tag">SHA-256</span><h3>Pairing you can trust</h3><p>The QR code carries the agent’s certificate fingerprint, and on your home network the app trusts that certificate alone. Away from home it goes over HTTPS through Cloudflare Access, with the phone’s own token as well. A pairing code works once, within ten minutes, and an address that keeps guessing is locked out.</p></li>
+      <li><span class="tag">256-bit · viewer · operator · admin</span><h3>A token and a role for each phone</h3><p>Each phone has its own token, which the agent keeps only as a hash, and a role that decides every request it may make. Revoking a phone ends its live data, its log streams and its shells at once.</p></li>
+      <li><span class="tag">ECDSA P-256 · Keystore</span><h3>Your fingerprint, checked by the server</h3><p>A new terminal, stopping or restarting, cleanup, rebooting or powering off, alert rules, integrations, checks, invites, devices and remote access each need a fresh signature over that very request. It comes from a key in your phone’s Keystore that signs only within 30 seconds of your fingerprint or screen lock, and never leaves the phone. Without it the agent refuses: a copied token can read alerts, not act.</p></li>
+      <li><span class="tag">Cloudflare Access</span><h3>No port open on your router</h3><p>Away from home, the app reaches the agent through a Cloudflare Tunnel behind Cloudflare Access. The agent checks Access’s signed token as well as the phone’s own, on a listener kept for the tunnel.</p></li>
+      <li><span class="tag">X25519 · AES-GCM</span><h3>Push notifications only your phone can read</h3><p>Push notifications are encrypted on the server for each phone, with a key the two exchanged at pairing. The relay and Firebase carry them without seeing what they say. Alerts sent to Telegram are not sealed this way (see the limits).</p></li>
+      <li><span class="tag">AES-256-GCM</span><h3>Keys that stay on the server</h3><p>Your Telegram, Cloudflare and Uptime Kuma keys are kept encrypted on the server, with a key only the agent’s user can read. The app can replace them but never read them back, and logs leave them out.</p></li>
+      <li><span class="tag">no sudo · exposure 1.7</span><h3>An agent with the least it needs</h3><p>It runs as its own user, without sudo, inside systemd’s sandbox. A small helper does the few things that need root, only in the fixed forms its configuration allows, and Docker is reached through a filter that refuses creating containers and exec.</p></li>
+      <li><span class="tag">Android Keystore · PBKDF2</span><h3>What your phone keeps</h3><p>Tokens and keys are encrypted with a key the Keystore never lets out. Nothing of the app’s goes to cloud backup or to a new phone’s transfer, and a backup file you make is encrypted with your password. The copy of what you last saw, kept for offline use, is not encrypted by the app (see the limits).</p></li>
+      <li><span class="tag">Sigstore</span><h3>What you install is checked</h3><p>The install script installs the agent only when the release’s checksums carry a valid signature from the project’s release workflow and the download matches them. The code’s dependencies are checked for known vulnerabilities on every change and every week.</p></li>
+    </ol>
+  </section>
+
+  <section class="part" aria-labelledby="limits-title">
+    <div class="side">
+      <p class="label"><span class="num">03</span> Limits</p>
+      <h2 id="limits-title">What it does not guard against</h2>
+      <p>Choices made on purpose, so that you can plan around them.</p>
+    </div>
+    <ol class="ledger">
+      <li>
+        <h3>An admin phone can do what you can</h3>
+        <p>Through the terminal, an admin phone gets your shell on the server. Make admins only of phones you trust, and keep the app lock on.</p>
+      </li>
+      <li>
+        <h3>The root helper has no sandbox</h3>
+        <p>It runs as root, unconfined, so that the shells it opens can use sudo. It does nothing that its configuration, owned by root, does not allow.</p>
+      </li>
+      <li>
+        <h3>Telegram reads what it carries</h3>
+        <p>If you set up Telegram, alerts from the level you choose go to your own bot as ordinary Telegram messages, and so does a critical alert no one has acknowledged after a few minutes (5 by default). Telegram can read them. If that matters to you, keep Telegram off, or send it critical alerts only.</p>
+      </li>
+      <li>
+        <h3>The app does not encrypt what it keeps for offline use</h3>
+        <p>To show your servers without a connection, the app keeps what it last showed you, including SSH sign-ins from the timeline, with user names and addresses, and the audit log, with the address each action came from. The app does not encrypt this copy itself. Android keeps it in the app’s own storage, which other apps cannot read, and out of backups. It is deleted when you remove or pair the server again, when the server refuses this phone, or when a guest’s access ends.</p>
+        <p>With the app lock on, the app shows it only after your fingerprint or screen lock. The home-screen widget and the Quick Settings tile, if you add them, do not ask: they show from this copy the server’s name, whether all is well or how many alerts are active, and its CPU and memory use (the widget its temperature too). The tile may show on the lock screen as well.</p>
+      </li>
+      <li>
+        <h3>Screenshots are allowed</h3>
+        <p>While the app is open you can take screenshots, as people who look after servers do. With the app lock on, the recent-apps list shows no picture of the app.</p>
+      </li>
+      <li>
+        <h3>No reliance on obfuscation</h3>
+        <p>The app relies on no obfuscation and no tamper checks for its security: its core is open source (Pro’s code is not), and it holds no secret of ours.</p>
+      </li>
+      <li>
+        <h3>No outside audit yet</h3>
+        <p>The last security review, on <span class="num">2026-10-10</span>, was the project’s own, against OWASP MASVS v2, and left no high or critical finding open. It is not an independent audit.</p>
+      </li>
+    </ol>
+  </section>
+</main>
+<!-- @footer -->
+<footer class="wide foot">
+  <span dir="ltr">© 2026 Aldaghir</span>
+  <a href="../guides/">Setup guides</a>
+  <a href="../pricing/">Pricing</a>
+  <a href="../changelog/">Changelog</a>
+  <a href="../roadmap/">Roadmap</a>
+  <a href="./" aria-current="page">Security</a>
+  <a href="../source/">Source Code</a>
+  <a href="../privacy/">Privacy Policy</a>
+  <a href="../terms/">Terms of Use</a>
+  <a href="mailto:android@aldaghir.com">Contact</a>
+</footer>
+<!-- /@footer -->
+</body>
+</html>
