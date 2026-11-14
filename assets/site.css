@@ -1,5 +1,5 @@
 /* Homelab Pulse: the project site (home page, guides, download, pricing, support, source code, changelog,
-   security, roadmap, privacy policy, terms, 404).
+   security, roadmap, about, press kit, privacy policy, terms, 404).
 
    الاتجاه: «سجل المناوبة». الموقع دفتر مناوبة ليلية لسيرفر منزلي: ما جرى مكتوب أسطراً مختومة بالوقت، يقرؤها
    صاحبه في الصباح. ورقٌ هادئ وحبرٌ داكن في الفاتح، وليلُ غرفة السيرفر في الداكن. الأخضر لمبة «سليم» لا لون
@@ -204,18 +204,28 @@ main.wrap:has(.steps) { max-width: calc(960px + 2 * var(--gutter)); }
   .menu { display: none; }
 }
 
-/* ── Shared footer */
+/* ── Shared footer (E7-03): the index at the back of the log book. Thirteen links in three groups, each under
+   a small title set as the sections' labels are, one link a line; the copyright line under them. The groups
+   share the row, as many as fit at 9em each, so text made bigger stacks them; from 960px they stand where a
+   part's entries stand (its 4fr | 8fr), the copyright line where its title stands. */
 .foot {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 0 20px; margin-block-start: 64px; padding-block: 18px 40px;
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px 64px; margin-block-start: 72px; padding-block: 24px 40px;
   border-top: 1px solid var(--rule); color: var(--muted); font-size: 15px;
 }
-/* The free space goes before the first link, in the page's direction: the copyright line's own dir="ltr" would
-   turn a margin of its own to the right in an Arabic page, away from the edge it starts from. */
-.foot > span { font-family: var(--mono); font-size: 14px; }
-.foot > span + a { margin-inline-start: auto; }
+.foot-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9em), 1fr)); gap: 16px 24px; }
+.foot h2 { margin: 0 0 4px; color: var(--muted); font: 13px/1.5 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+html[lang="ar"] .foot h2 { font: 600 15px/1.5 var(--sans); letter-spacing: 0; }
+.foot ul { list-style: none; margin: 0; padding: 0; }
+.foot li { margin: 0; }
 .foot a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; color: var(--ink-2); text-decoration: none; }
 .foot a:hover { color: var(--ink); text-decoration: underline; text-decoration-color: var(--ok); }
 .foot a[aria-current] { color: var(--ink); font-weight: 600; }
+.foot-copy { margin: 0; font: 14px/1.6 var(--mono); }
+@media (min-width: 960px) {
+  .foot { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }
+  .foot-links { grid-column: 2; }
+  .foot-copy { grid-column: 1; grid-row: 1; padding-top: 1px; }
+}
 
 /* ── Buttons and small parts shared by the pages */
 .btn {
@@ -621,10 +631,11 @@ html[lang="ar"] .part h2 { line-height: 1.4; }
 .log h3 { font-size: 22px; margin: 0 0 10px; }
 /* Each item numbered as a log's lines are, in the margin (positioned, so that code inside the text stays inline).
    The margin grows with the text, so a long word breaks where a 320 px phone with text at 200% has no room. */
-.changes { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); counter-reset: change; }
-.changes li { position: relative; margin: 0; padding-block: 12px; padding-inline-start: 3.25em; border-bottom: 1px solid var(--rule); color: var(--ink-2); counter-increment: change; overflow-wrap: anywhere; }
-.changes li::before { content: counter(change, decimal-leading-zero); position: absolute; inset-inline-start: 0; top: 12px; color: var(--muted); font: 13px/2.2 var(--mono); letter-spacing: .04em; }
-html[lang="ar"] .changes li::before { line-height: 2.5; }
+/* About's principles are numbered lines too (.lines). */
+.changes, .lines { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); counter-reset: change; }
+.changes li, .lines li { position: relative; margin: 0; padding-block: 12px; padding-inline-start: 3.25em; border-bottom: 1px solid var(--rule); color: var(--ink-2); counter-increment: change; overflow-wrap: anywhere; }
+:is(.changes, .lines) li::before { content: counter(change, decimal-leading-zero); position: absolute; inset-inline-start: 0; top: 12px; color: var(--muted); font: 13px/2.2 var(--mono); letter-spacing: .04em; }
+html[lang="ar"] :is(.changes, .lines) li::before { line-height: 2.5; }
 .changes + h3 { margin-top: 40px; }
 .page-end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--rule); }
 .page-end .note { margin-bottom: 4px; }
@@ -639,8 +650,48 @@ html[lang="ar"] .changes li::before { line-height: 2.5; }
 @media (max-width: 719.98px) {
   .part h2.version, html[lang="ar"] .part h2.version { font-size: 38px; }
   .log h3 { font-size: 20px; }
-  .changes li { padding-block: 10px; padding-inline-start: 2.6em; }
-  .changes li::before { top: 10px; }
+  .changes li, .lines li { padding-block: 10px; padding-inline-start: 2.6em; }
+  :is(.changes, .lines) li::before { top: 10px; }
+}
+
+/* ── About and the press kit (E7-03). About: the story in the developer's own words a size up, beside its title;
+   what we stand by on numbered lines, as the changelog's items; the address to write to as large as a place
+   to give. */
+.story { padding-top: 18px; border-top: 1px solid var(--ink); }
+.story p { margin: 0; max-width: 34em; color: var(--ink); font-size: 20px; line-height: 1.6; }
+html[lang="ar"] .story p { line-height: 1.9; }
+/* The press kit: each text to copy on the sheet code sits on, selected whole by any selection (user-select,
+   no script); the facts as the home page's requirements are; each file on a ruled line with its size in pixels
+   and its weight, and the screens standing on their list's rule as the home page's phones stand on theirs. */
+.copy { margin: 0 0 2px; padding: 14px 18px; background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; color: var(--ink); font-size: 18px; line-height: 1.6; -webkit-user-select: all; user-select: all; }
+html[lang="ar"] .copy { line-height: 1.9; }
+.ledger .copy p { margin: 0; color: inherit; }
+.logo-art { display: block; width: 88px; height: 88px; margin: 14px 0 18px; }
+.proof { display: grid; grid-template-columns: repeat(4, minmax(0, 128px)); gap: 14px; margin: 18px 0 0; }
+.proof img {
+  display: block; width: 100%; height: auto; aspect-ratio: 560 / 880; object-fit: cover; object-position: top;
+  border: 4px solid var(--bezel); border-bottom: 0; border-radius: 18px 18px 0 0; background: var(--bezel);
+}
+.previews { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; margin: 18px 0 18px; }
+.previews img { display: block; width: 100%; height: auto; border-radius: 4px; background: var(--bezel); }
+@media (min-width: 560px) { .previews { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.files { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.files li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 18px; margin: 0; padding-block: 2px; border-bottom: 1px solid var(--rule); }
+.files li:last-child { border-bottom: 0; } /* the entry's own rule closes the list */
+.files .what { flex: 1 1 10em; min-width: 0; padding-block: 10px; color: var(--ink); font-weight: 600; }
+.files .dims { flex: 0 1 auto; color: var(--muted); font-size: 14px; }
+html[lang="ar"] .files .dims:not(.num) { font-size: 15px; }
+/* A file's links share one group, on a line of its own on a phone; each link underlined whole, its weight in it. */
+.files .get { display: flex; flex-wrap: wrap; gap: 0 20px; }
+.files a { display: inline-block; min-width: 44px; padding-block: 10px; line-height: 24px; }
+.files a .num { margin-inline-start: 4px; color: var(--muted); font-size: 14px; }
+@media (max-width: 719.98px) {
+  .story p { font-size: 18px; }
+  .copy { font-size: 17px; }
+  .proof { gap: 10px; }
+  .files .what { padding-block: 10px 0; }
+  .files .get { flex: 1 1 100%; }
+  .proof img { border-width: 3px; border-bottom: 0; border-radius: 13px 13px 0 0; }
 }
 
 /* ── The page served at any missing address (404.html, E7-05): one message in both languages, the Arabic
