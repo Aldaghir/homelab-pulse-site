@@ -20,7 +20,10 @@
    shadows, no icons in circles or tinted squares, no grid of identical cards, no green call-to-action box.
 
    Colours: the light and dark tokens below, each text pair ≥ 4.5:1 (E7-02, X-10), each outline that must be
-   seen ≥ 3:1 (WCAG 1.4.11). Fonts: self-hosted subsets, written by tools/site_fonts.py (E7-14). */
+   seen ≥ 3:1 (WCAG 1.4.11). Fonts: self-hosted subsets, written by tools/site_fonts.py (E7-14). The two
+   Changa faces (Pulse Display, the titles) are optional, still preloaded (owner, 2026-11-15, E7-13): when
+   Changa comes after the first paint, a title keeps the text font for that page instead of being laid out
+   again, so it never moves; the text fonts stay swap. */
 
 @font-face { font-family: "Pulse Sans"; font-weight: 400; font-display: swap; src: url("fonts/plex-arabic-400.woff2") format("woff2");
   unicode-range: U+0600-06FF, U+200C-200F, U+FB50-FDFF, U+FE70-FEFF; }
@@ -30,9 +33,9 @@
   unicode-range: U+0000-05FF, U+0700-200B, U+2010-FB4F, U+FE00-FE6F, U+FF00-FFFF; }
 @font-face { font-family: "Pulse Sans"; font-weight: 600; font-display: swap; src: url("fonts/plex-sans-600.woff2") format("woff2");
   unicode-range: U+0000-05FF, U+0700-200B, U+2010-FB4F, U+FE00-FE6F, U+FF00-FFFF; }
-@font-face { font-family: "Pulse Display"; font-weight: 600; font-display: swap; src: url("fonts/changa-arabic-600.woff2") format("woff2");
+@font-face { font-family: "Pulse Display"; font-weight: 600; font-display: optional; src: url("fonts/changa-arabic-600.woff2") format("woff2");
   unicode-range: U+0600-06FF, U+200C-200F, U+FB50-FDFF, U+FE70-FEFF; }
-@font-face { font-family: "Pulse Display"; font-weight: 600; font-display: swap; src: url("fonts/changa-latin-600.woff2") format("woff2");
+@font-face { font-family: "Pulse Display"; font-weight: 600; font-display: optional; src: url("fonts/changa-latin-600.woff2") format("woff2");
   unicode-range: U+0000-05FF, U+0700-200B, U+2010-FB4F, U+FE00-FE6F, U+FF00-FFFF; }
 @font-face { font-family: "Pulse Mono"; font-weight: 400; font-display: swap; src: url("fonts/plex-mono-400.woff2") format("woff2");
   unicode-range: U+0000-05FF, U+0700-200B, U+2010-FB4F, U+FE00-FE6F, U+FF00-FFFF; }
@@ -307,7 +310,7 @@ html[lang="ar"] .meta { font-family: var(--sans); }
 .guide-list a::before { content: counter(guide, decimal-leading-zero); grid-row: 1 / span 2; font: 14px/1.9 var(--mono); color: var(--ok); }
 .guide-list a:hover strong { text-decoration: underline; text-decoration-color: var(--ok); text-underline-offset: 5px; }
 .guide-list strong { display: block; font: 600 21px/1.35 var(--display); }
-.guide-list span { color: var(--muted); font-size: 16px; }
+.guide-list a > span { color: var(--muted); font-size: 16px; }
 .next { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--rule); }
 
 /* ── The home page */
