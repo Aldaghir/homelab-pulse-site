@@ -97,7 +97,7 @@
       <li>
         <h3>تحقّق من الـ APK</h3>
         <p>تُنشر مع الإصدار بصمةُ SHA-256 للشهادة التي وُقّع بها الـ APK. قارنها بما يطبعه <a href="https://developer.android.com/tools/apksigner">apksigner</a>، من أدوات البناء في Android SDK، للملف الذي نزّلته:</p>
-        <pre tabindex="0" role="region" aria-label="أمر طباعة شهادة الـ APK">apksigner verify --print-certs &lt;file.apk&gt;</pre>
+        <pre lang="en" dir="ltr" tabindex="0" role="region" aria-label="أمر طباعة شهادة الـ APK">apksigner verify --print-certs &lt;file.apk&gt;</pre>
         <p>وبعد تثبيته لا يقبل أندرويد تحديثاً فوقه إلا إن وُقّع بالمفتاح نفسه.</p>
       </li>
     </ol>
@@ -112,7 +112,7 @@
     <div>
       <div class="term">
         <p class="term-bar"><span class="lamp" aria-hidden="true"></span>سيرفرك</p>
-        <pre tabindex="0" role="region" aria-label="أمر التثبيت">curl -fsSL https://github.com/Aldaghir/homelab-pulse/releases/latest/download/install.sh | sudo sh</pre>
+        <pre lang="en" dir="ltr" tabindex="0" role="region" aria-label="أمر التثبيت">curl -fsSL https://github.com/Aldaghir/homelab-pulse/releases/latest/download/install.sh | sudo sh</pre>
       </div>
       <p class="prelaunch" data-prelaunch>يعمل هذا الأمر مع أول إصدار عام قريباً. <a href="mailto:android@aldaghir.com?subject=%D8%A3%D8%B9%D9%84%D9%85%D9%86%D9%8A%20%D8%B9%D9%86%D8%AF%20%D8%A5%D8%B7%D9%84%D8%A7%D9%82%20Homelab%20Pulse">أعلمني عند الإطلاق</a></p>
       <p>لا يثبّت السكربت الوكيل إلا إن حملت قائمة البصمات في الإصدار توقيعاً صحيحاً من سير عمل الإصدار في المشروع، وطابقها الوكيل الذي نزّله. ثم يطبع رمز QR تمسحه في التطبيق، فيقترن هاتفك.</p>
@@ -129,17 +129,17 @@
     <ol class="ledger">
       <li>
         <h3>ما يوقّعه الإصدار</h3>
-        <p>في كل إصدار ملف <code>checksums.txt</code>، وفيه بصمات SHA-256 للوكيل بمعماريتي arm64 وamd64، وحزمه لـ Debian، و<code>install.sh</code>، وقائمة مكوّنات الوكيل البرمجية (CycloneDX). ويوقّعه سير عمل الإصدار بـ Sigstore دون مفتاح دائم، فيحمل التوقيع في <code>checksums.txt.sigstore.json</code> اسمَ سير العمل ووسم الإصدار.</p>
+        <p>في كل إصدار ملف <code lang="en" dir="ltr">checksums.txt</code>، وفيه بصمات SHA-256 للوكيل بمعماريتي arm64 وamd64، وحزمه لـ Debian، و<code lang="en" dir="ltr">install.sh</code>، وقائمة مكوّنات الوكيل البرمجية (CycloneDX). ويوقّعه سير عمل الإصدار بـ Sigstore دون مفتاح دائم، فيحمل التوقيع في <code lang="en" dir="ltr">checksums.txt.sigstore.json</code> اسمَ سير العمل ووسم الإصدار.</p>
       </li>
       <li>
         <h3>تحقّق من التوقيع ثم من الملفات</h3>
         <p>في مجلد ما نزّلته، بعد تثبيت <a href="https://docs.sigstore.dev/cosign/system_config/installation/">cosign</a>:</p>
-        <pre tabindex="0" role="region" aria-label="أوامر التحقق من التنزيل">cosign verify-blob checksums.txt \
+        <pre lang="en" dir="ltr" tabindex="0" role="region" aria-label="أوامر التحقق من التنزيل">cosign verify-blob checksums.txt \
   --bundle checksums.txt.sigstore.json \
   --certificate-identity-regexp '^https://github\.com/Aldaghir/homelab-pulse/\.github/workflows/agent-release\.yml@refs/tags/v[0-9]' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
 sha256sum -c checksums.txt --ignore-missing</pre>
-        <p>والـ APK ليس في <code>checksums.txt</code>: تحقّق منه بشهادته، كما في الأعلى.</p>
+        <p>والـ APK ليس في <code lang="en" dir="ltr">checksums.txt</code>: تحقّق منه بشهادته، كما في الأعلى.</p>
       </li>
     </ol>
   </section>

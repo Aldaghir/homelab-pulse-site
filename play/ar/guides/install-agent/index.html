@@ -72,7 +72,7 @@
     <h2 id="needs">تحتاج إلى</h2>
     <ul>
       <li>سيرفر يعمل بنظام Debian أو Ubuntu أو <span dir="ltr" class="nw">Raspberry Pi OS</span> بإصدار 64 بت (amd64 أو arm64) مع systemd.</li>
-      <li>حساب يملك صلاحية <code>sudo</code> عليه.</li>
+      <li>حساب يملك صلاحية <code lang="en" dir="ltr">sudo</code> عليه.</li>
       <li>أن يكون هاتفك على شبكة السيرفر نفسها في أول اقتران.</li>
     </ul>
   </section>
@@ -80,8 +80,8 @@
     <li class="with-shot">
       <h2>انسخ أمر التثبيت</h2>
       <p>افتح في التطبيق <strong>إضافة سيرفر</strong>. تجد أمر التثبيت في البطاقة الأولى: انسخه، أو شاركه إلى الحاسوب الذي تصل منه إلى سيرفرك.</p>
-      <pre tabindex="0" role="region" aria-label="أمر التثبيت">curl -fsSL https://github.com/Aldaghir/homelab-pulse/releases/latest/download/install.sh | sudo sh</pre><p class="prelaunch" data-prelaunch>يعمل هذا الأمر مع أول إصدار عام قريباً. <a href="mailto:android@aldaghir.com?subject=%D8%A3%D8%B9%D9%84%D9%85%D9%86%D9%8A%20%D8%B9%D9%86%D8%AF%20%D8%A5%D8%B7%D9%84%D8%A7%D9%82%20Homelab%20Pulse">أعلمني عند الإطلاق</a></p>
-      <div class="tip"><p>تفضّل قراءة السكربت قبل تشغيله؟ نزّل <code>install.sh</code> من آخر إصدار واقرأه، ثم شغّله بالأمر <code>sudo sh install.sh</code>. يتحقق المثبّت من الوكيل الذي ينزّله بمطابقته مع بصمات الإصدار (checksums).</p></div>
+      <pre lang="en" dir="ltr" tabindex="0" role="region" aria-label="أمر التثبيت">curl -fsSL https://github.com/Aldaghir/homelab-pulse/releases/latest/download/install.sh | sudo sh</pre><p class="prelaunch" data-prelaunch>يعمل هذا الأمر مع أول إصدار عام قريباً. <a href="mailto:android@aldaghir.com?subject=%D8%A3%D8%B9%D9%84%D9%85%D9%86%D9%8A%20%D8%B9%D9%86%D8%AF%20%D8%A5%D8%B7%D9%84%D8%A7%D9%82%20Homelab%20Pulse">أعلمني عند الإطلاق</a></p>
+      <div class="tip"><p>تفضّل قراءة السكربت قبل تشغيله؟ نزّل <code lang="en" dir="ltr">install.sh</code> من آخر إصدار واقرأه، ثم شغّله بالأمر <code lang="en" dir="ltr">sudo sh install.sh</code>. يتحقق المثبّت من الوكيل الذي ينزّله بمطابقته مع بصمات الإصدار (checksums).</p></div>
       <figure class="shot">
       <picture>
         <source srcset="../../../../guides/img/agent_install_ar_dark.webp" media="(prefers-color-scheme: dark)">
@@ -91,8 +91,8 @@
     </li>
     <li>
       <h2>شغّله على سيرفرك</h2>
-      <p>الصق الأمر في طرفية السيرفر. يثبّت الوكيل خدمةَ systemd باسم <code>hlpulse-agent</code> تعمل بمستخدمها الخاص <code>hlpulse</code>، ويطبع في النهاية رمز QR ورمز اقتران وبصمة السيرفر. يعمل الرمز مرة واحدة وتنتهي صلاحيته بعد 10 دقائق.</p>
-      <div class="tip"><p>انتهت صلاحية الرمز، أو كان الوكيل مثبّتاً من قبل؟ شغّل <code>sudo hlpulse-agent pair</code> لرمز جديد.</p></div>
+      <p>الصق الأمر في طرفية السيرفر. يثبّت الوكيل خدمةَ systemd باسم <code lang="en" dir="ltr">hlpulse-agent</code> تعمل بمستخدمها الخاص <code lang="en" dir="ltr">hlpulse</code>، ويطبع في النهاية رمز QR ورمز اقتران وبصمة السيرفر. يعمل الرمز مرة واحدة وتنتهي صلاحيته بعد 10 دقائق.</p>
+      <div class="tip"><p>انتهت صلاحية الرمز، أو كان الوكيل مثبّتاً من قبل؟ شغّل <code lang="en" dir="ltr">sudo hlpulse-agent pair</code> لرمز جديد.</p></div>
     </li>
     <li class="with-shot">
       <h2>امسح رمز QR</h2>
@@ -133,11 +133,11 @@
     <dt>التطبيق لا يصل إلى السيرفر</dt>
     <dd>يجب أن يكون الهاتف والسيرفر على الشبكة نفسها، وأن يقبل السيرفر الاتصال على منفذ TCP رقم 8443. إن كان عليه جدار حماية فاسمح بهذا المنفذ من شبكتك المحلية.</dd>
     <dt>البصمة لا تطابق</dt>
-    <dd>لا تقترن: جهاز آخر يردّ على ذلك العنوان. شغّل <code>sudo hlpulse-agent pair</code> على السيرفر وقارن مرة أخرى.</dd>
+    <dd>لا تقترن: جهاز آخر يردّ على ذلك العنوان. شغّل <code lang="en" dir="ltr">sudo hlpulse-agent pair</code> على السيرفر وقارن مرة أخرى.</dd>
     <dt>هل الوكيل يعمل؟</dt>
-    <dd>الأمر <code>systemctl status hlpulse-agent</code> يعرض حالته، والأمر <code>journalctl -u hlpulse-agent -e</code> يعرض آخر رسائله.</dd>
+    <dd>الأمر <code lang="en" dir="ltr">systemctl status hlpulse-agent</code> يعرض حالته، والأمر <code lang="en" dir="ltr">journalctl -u hlpulse-agent -e</code> يعرض آخر رسائله.</dd>
     <dt>إزالة الوكيل</dt>
-    <dd>شغّل أمر التثبيت مع إضافة <code>--uninstall</code>: <code>curl -fsSL …/install.sh | sudo sh -s -- --uninstall</code>، فيوقف الوكيل ويزيله. تبقى بياناته في <code>/var/lib/hlpulse</code> وإعداداته في <code>/etc/hlpulse</code> حتى تحذفها بنفسك.</dd>
+    <dd>شغّل أمر التثبيت مع إضافة <code lang="en" dir="ltr">--uninstall</code>: <code lang="en" dir="ltr">curl -fsSL …/install.sh | sudo sh -s -- --uninstall</code>، فيوقف الوكيل ويزيله. تبقى بياناته في <code lang="en" dir="ltr">/var/lib/hlpulse</code> وإعداداته في <code lang="en" dir="ltr">/etc/hlpulse</code> حتى تحذفها بنفسك.</dd>
   </dl>
 </article>
 </main>

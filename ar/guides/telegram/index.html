@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>استقبل التنبيهات على Telegram · Homelab Pulse</title>
-<meta name="description" content="أرسل تنبيهات سيرفرك إلى محادثة Telegram عبر بوت تنشئه وتملكه بنفسك.">
+<meta name="description" content="أرسل تنبيهات سيرفرك إلى محادثة Telegram عبر بوت تنشئه وتملكه بنفسك، مباشرة ودون أن تمر عبرنا.">
 <meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D1113" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="../../../favicon.ico" sizes="32x32">
@@ -25,7 +25,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Homelab Pulse">
 <meta property="og:title" content="استقبل التنبيهات على Telegram · Homelab Pulse">
-<meta property="og:description" content="أرسل تنبيهات سيرفرك إلى محادثة Telegram عبر بوت تنشئه وتملكه بنفسك.">
+<meta property="og:description" content="أرسل تنبيهات سيرفرك إلى محادثة Telegram عبر بوت تنشئه وتملكه بنفسك، مباشرة ودون أن تمر عبرنا.">
 <meta property="og:url" content="https://pulse.aldaghir.com/ar/guides/telegram/">
 <meta property="og:locale" content="ar_AR">
 <meta property="og:locale:alternate" content="en_US">
@@ -35,9 +35,29 @@
 <meta property="og:image:alt" content="هاتف يعرض لوحة Homelab Pulse بتنبيهات السيرفر والمعالج والذاكرة والحرارة والتخزين والشبكة، بجانب اسم التطبيق وعبارة: سيرفرك المنزلي في جيبك">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="استقبل التنبيهات على Telegram · Homelab Pulse">
-<meta name="twitter:description" content="أرسل تنبيهات سيرفرك إلى محادثة Telegram عبر بوت تنشئه وتملكه بنفسك.">
+<meta name="twitter:description" content="أرسل تنبيهات سيرفرك إلى محادثة Telegram عبر بوت تنشئه وتملكه بنفسك، مباشرة ودون أن تمر عبرنا.">
 <meta name="twitter:image" content="https://pulse.aldaghir.com/assets/og-ar.jpg">
 <meta name="twitter:image:alt" content="هاتف يعرض لوحة Homelab Pulse بتنبيهات السيرفر والمعالج والذاكرة والحرارة والتخزين والشبكة، بجانب اسم التطبيق وعبارة: سيرفرك المنزلي في جيبك">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "أدلة الإعداد",
+      "item": "https://pulse.aldaghir.com/ar/guides/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "استقبل التنبيهات على Telegram",
+      "item": "https://pulse.aldaghir.com/ar/guides/telegram/"
+    }
+  ]
+}
+</script>
 <!-- /@head -->
 </head>
 <body>
@@ -79,7 +99,7 @@
     <ul>
       <li>تطبيق Telegram على هاتفك.</li>
       <li>هاتف بصلاحية مسؤول في <span class="nw"><span dir="ltr">Homelab Pulse</span>.</span></li>
-      <li>اتصال من سيرفرك بالإنترنت يصل إلى Telegram (<code>api.telegram.org</code>).</li>
+      <li>اتصال من سيرفرك بالإنترنت يصل إلى Telegram (<code lang="en" dir="ltr">api.telegram.org</code>).</li>
     </ul>
   </section>
   <ol class="steps">
@@ -95,8 +115,8 @@
     </li>
     <li class="with-shot">
       <h2>أنشئ بوتك عبر BotFather</h2>
-      <p>اضغط <strong>فتح <span dir="ltr" class="nw">@BotFather</span></strong>، وهو بوت Telegram الرسمي لإنشاء البوتات، وأرسل <code>/newbot</code>. اختر اسماً للعرض، ثم اسم مستخدم ينتهي بـ «bot»، مثل <code>my_homelab_bot</code>.</p>
-      <p>سيردّ BotFather بمفتاح مثل <code>123456789:AAE…</code>. انسخه، ثم اضغط <strong>لديّ المفتاح</strong>.</p>
+      <p>اضغط <strong>فتح <span dir="ltr" class="nw">@BotFather</span></strong>، وهو بوت Telegram الرسمي لإنشاء البوتات، وأرسل <code lang="en" dir="ltr">/newbot</code>. اختر اسماً للعرض، ثم اسم مستخدم ينتهي بـ «bot»، مثل <code lang="en" dir="ltr">my_homelab_bot</code>.</p>
+      <p>سيردّ BotFather بمفتاح مثل <code lang="en" dir="ltr">123456789:AAE…</code>. انسخه، ثم اضغط <strong>لديّ المفتاح</strong>.</p>
       <figure class="shot">
       <picture>
         <source srcset="../../../guides/img/telegram_bot_ar_dark.webp" media="(prefers-color-scheme: dark)">
@@ -118,7 +138,7 @@
     <li class="with-shot">
       <h2>اربط محادثتك</h2>
       <p>اضغط <strong>فتح البوت</strong>، ثم <strong>START</strong> في Telegram. يلتقط المعالج ذلك خلال ثوانٍ.</p>
-      <p>لاستخدام مجموعة بدلاً من ذلك، أضف البوت إليها وأرسل <code>/start</code> فيها.</p>
+      <p>لاستخدام مجموعة بدلاً من ذلك، أضف البوت إليها وأرسل <code lang="en" dir="ltr">/start</code> فيها.</p>
       <figure class="shot">
       <picture>
         <source srcset="../../../guides/img/telegram_link_ar_dark.webp" media="(prefers-color-scheme: dark)">
@@ -160,16 +180,16 @@
   <h2 id="good-to-know">معلومات مفيدة</h2>
   <ul>
     <li>لا يردّ البوت إلا على المحادثة التي ربطتها، ويتجاهل رسائل أي شخص آخر.</li>
-    <li>إن ظننت أن المفتاح تسرّب، أرسل <code>/revoke</code> إلى <span dir="ltr" class="nw">@BotFather</span>، ثم اضغط <strong>استبدال البوت</strong> في التطبيق.</li>
+    <li>إن ظننت أن المفتاح تسرّب، أرسل <code lang="en" dir="ltr">/revoke</code> إلى <span dir="ltr" class="nw">@BotFather</span>، ثم اضغط <strong>استبدال البوت</strong> في التطبيق.</li>
   </ul>
   <h2 id="trouble">إن واجهتك مشكلة</h2>
   <dl class="trouble">
     <dt>المفتاح مرفوض</dt>
     <dd>انسخ المفتاح كاملاً، بما فيه الأرقام التي تسبق النقطتين.</dd>
     <dt>لا يحدث شيء بعد START</dt>
-    <dd>تأكد أنك فتحت بوتك أنت (راجع اسم المستخدم) وضغطت START. وفي المجموعة أرسل <code>/start</code> بعد إضافة البوت.</dd>
+    <dd>تأكد أنك فتحت بوتك أنت (راجع اسم المستخدم) وضغطت START. وفي المجموعة أرسل <code lang="en" dir="ltr">/start</code> بعد إضافة البوت.</dd>
     <dt>الرسالة التجريبية لا تصل</dt>
-    <dd>يحتاج سيرفرك اتصالاً بالإنترنت يصل إلى <code>api.telegram.org</code>.</dd>
+    <dd>يحتاج سيرفرك اتصالاً بالإنترنت يصل إلى <code lang="en" dir="ltr">api.telegram.org</code>.</dd>
   </dl>
 </article>
 </main>

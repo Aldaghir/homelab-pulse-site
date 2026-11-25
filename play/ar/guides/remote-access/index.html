@@ -72,14 +72,14 @@
     <h2 id="needs">تحتاج إلى</h2>
     <ul>
       <li>نطاق (دومين) في حسابك على Cloudflare. تكفي الخطة المجانية.</li>
-      <li>نفق يعمل على السيرفر عبر <code>cloudflared</code>. تشرح Cloudflare ذلك في <a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/" lang="en">Get started with Cloudflare Tunnel</a>.</li>
+      <li>نفق يعمل على السيرفر عبر <code lang="en" dir="ltr">cloudflared</code>. تشرح Cloudflare ذلك في <a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/" lang="en">Get started with Cloudflare Tunnel</a>.</li>
       <li>هاتف بصلاحية مسؤول: الهاتف الذي ثبّت الوكيل، أو هاتف دُعي بصلاحية مسؤول.</li>
     </ul>
   </section>
   <ol class="steps">
     <li class="with-shot">
       <h2>اختر اسم نطاق عاماً</h2>
-      <p>افتح <strong>الإعدادات ← الوصول عن بُعد</strong> وأبقِ <strong>تلقائي</strong> مختاراً. اكتب نطاقاً فرعياً من نطاقك في Cloudflare، مثل <code>pulse.example.com</code>. لا يلزم أن يكون موجوداً مسبقاً.</p>
+      <p>افتح <strong>الإعدادات ← الوصول عن بُعد</strong> وأبقِ <strong>تلقائي</strong> مختاراً. اكتب نطاقاً فرعياً من نطاقك في Cloudflare، مثل <code lang="en" dir="ltr">pulse.example.com</code>. لا يلزم أن يكون موجوداً مسبقاً.</p>
       <figure class="shot">
       <picture>
         <source srcset="../../../../guides/img/remote_automatic_ar_dark.webp" media="(prefers-color-scheme: dark)">
@@ -111,13 +111,13 @@
     </li>
     <li>
       <h2>إن كان نفقك يُدار بملف إعداد، فأضف المسار</h2>
-      <p>الأنفاق المُدارة من لوحة Cloudflare يُضاف إليها المسار تلقائياً. أما إن كان نفقك مُعدّاً في <code>/etc/cloudflared/config.yml</code> فسيعرض المعالج سطرين تضيفهما قبل القاعدة الأخيرة، ثم تعيد تشغيل cloudflared.</p>
-      <pre tabindex="0" role="region" aria-label="الأسطر التي تُضاف إلى config.yml">ingress:
+      <p>الأنفاق المُدارة من لوحة Cloudflare يُضاف إليها المسار تلقائياً. أما إن كان نفقك مُعدّاً في <code lang="en" dir="ltr">/etc/cloudflared/config.yml</code> فسيعرض المعالج سطرين تضيفهما قبل القاعدة الأخيرة، ثم تعيد تشغيل cloudflared.</p>
+      <pre lang="en" dir="ltr" tabindex="0" role="region" aria-label="الأسطر التي تُضاف إلى config.yml">ingress:
   - hostname: pulse.example.com
     service: http://127.0.0.1:8444
   # … your other routes …
   - service: http_status:404</pre>
-      <pre tabindex="0" role="region" aria-label="أمر إعادة تشغيل cloudflared">sudo systemctl restart cloudflared</pre>
+      <pre lang="en" dir="ltr" tabindex="0" role="region" aria-label="أمر إعادة تشغيل cloudflared">sudo systemctl restart cloudflared</pre>
     </li>
     <li class="with-shot">
       <h2>اختبر الاتصال</h2>

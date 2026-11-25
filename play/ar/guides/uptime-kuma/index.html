@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>اعرض مراقبات Uptime Kuma · Homelab Pulse</title>
-<meta name="description" content="اربط Uptime Kuma ليعرض Homelab Pulse حالة كل مراقب بجانب حالة سيرفرك.">
+<meta name="description" content="اربط Uptime Kuma ليعرض Homelab Pulse حالة كل مراقب بجانب حالة سيرفرك، ويبقى مفتاحه على سيرفرك.">
 <meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D1113" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="../../../../favicon.ico" sizes="32x32">
@@ -23,7 +23,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Homelab Pulse">
 <meta property="og:title" content="اعرض مراقبات Uptime Kuma · Homelab Pulse">
-<meta property="og:description" content="اربط Uptime Kuma ليعرض Homelab Pulse حالة كل مراقب بجانب حالة سيرفرك.">
+<meta property="og:description" content="اربط Uptime Kuma ليعرض Homelab Pulse حالة كل مراقب بجانب حالة سيرفرك، ويبقى مفتاحه على سيرفرك.">
 <meta property="og:url" content="https://pulse.aldaghir.com/ar/guides/uptime-kuma/">
 <meta property="og:locale" content="ar_AR">
 <meta property="og:locale:alternate" content="en_US">
@@ -33,7 +33,7 @@
 <meta property="og:image:alt" content="هاتف يعرض لوحة Homelab Pulse بتنبيهات السيرفر والمعالج والذاكرة والحرارة والتخزين والشبكة، بجانب اسم التطبيق وعبارة: سيرفرك المنزلي في جيبك">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="اعرض مراقبات Uptime Kuma · Homelab Pulse">
-<meta name="twitter:description" content="اربط Uptime Kuma ليعرض Homelab Pulse حالة كل مراقب بجانب حالة سيرفرك.">
+<meta name="twitter:description" content="اربط Uptime Kuma ليعرض Homelab Pulse حالة كل مراقب بجانب حالة سيرفرك، ويبقى مفتاحه على سيرفرك.">
 <meta name="twitter:image" content="https://pulse.aldaghir.com/assets/og-ar.jpg">
 <meta name="twitter:image:alt" content="هاتف يعرض لوحة Homelab Pulse بتنبيهات السيرفر والمعالج والذاكرة والحرارة والتخزين والشبكة، بجانب اسم التطبيق وعبارة: سيرفرك المنزلي في جيبك">
 <!-- /@head -->
@@ -78,11 +78,11 @@
   <ol class="steps">
     <li>
       <h2>أنشئ مفتاح API في <span dir="ltr" class="nw">Uptime Kuma</span></h2>
-      <p>افتح في <span dir="ltr" class="nw">Uptime Kuma</span> المسار <span lang="en" dir="ltr">Settings → API Keys → Generate</span>. سمِّ المفتاح، مثل <span class="nw">«<span dir="ltr">Homelab Pulse</span>»،</span> واختر هل تنتهي صلاحيته، ثم انسخه: يبدأ بـ <code>uk1_</code>.</p>
+      <p>افتح في <span dir="ltr" class="nw">Uptime Kuma</span> المسار <span lang="en" dir="ltr">Settings → API Keys → Generate</span>. سمِّ المفتاح، مثل <span class="nw">«<span dir="ltr">Homelab Pulse</span>»،</span> واختر هل تنتهي صلاحيته، ثم انسخه: يبدأ بـ <code lang="en" dir="ltr">uk1_</code>.</p>
     </li>
     <li class="with-shot">
       <h2>اربطه في التطبيق</h2>
-      <p>افتح <strong>الإعدادات ← <span dir="ltr" class="nw">Uptime Kuma</span></strong>. اكتب عنوان <span dir="ltr" class="nw">Uptime Kuma</span> كما يصل إليه سيرفرك، مثل <code>http://192.168.1.10:3001</code>، أو <code>http://127.0.0.1:3001</code> إن كانا يعملان على الجهاز نفسه. الصق المفتاح واضغط <strong>تحقّق واحفظ</strong>.</p>
+      <p>افتح <strong>الإعدادات ← <span dir="ltr" class="nw">Uptime Kuma</span></strong>. اكتب عنوان <span dir="ltr" class="nw">Uptime Kuma</span> كما يصل إليه سيرفرك، مثل <code lang="en" dir="ltr">http://192.168.1.10:3001</code>، أو <code lang="en" dir="ltr">http://127.0.0.1:3001</code> إن كانا يعملان على الجهاز نفسه. الصق المفتاح واضغط <strong>تحقّق واحفظ</strong>.</p>
       <figure class="shot">
       <picture>
         <source srcset="../../../../guides/img/kuma_form_ar_dark.webp" media="(prefers-color-scheme: dark)">
