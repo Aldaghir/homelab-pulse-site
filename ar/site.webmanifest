@@ -1,0 +1,32 @@
+{
+  "name": "Homelab Pulse",
+  "description": "راقب سيرفرك المنزلي وأدِره من أندرويد عبر وكيل صغير: حالة حيّة، وتنبيهات حتى والهاتف نائم، وحاويات وخدمات وطرفية، ووصول آمن.",
+  "lang": "ar",
+  "dir": "rtl",
+  "id": "/ar/",
+  "start_url": "/ar/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#F3F1EA",
+  "theme_color": "#F3F1EA",
+  "icons": [
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

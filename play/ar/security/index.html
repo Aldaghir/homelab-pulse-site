@@ -11,6 +11,7 @@
 <meta name="theme-color" content="#0D1113" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="../../../favicon.ico" sizes="32x32">
 <link rel="icon" href="../../../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="stylesheet" href="../../../assets/site.css">
 <link rel="preload" href="../../../assets/fonts/plex-arabic-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../assets/fonts/plex-arabic-600.woff2" as="font" type="font/woff2" crossorigin>
@@ -97,7 +98,7 @@
       <p>من الاقتران إلى الإصدار الذي تثبّته: كل خطوة، وما تقوم عليه.</p>
     </div>
     <ol class="guards">
-      <li><span class="tag">SHA-256</span><h3>اقتران تثق به</h3><p>يحمل رمز QR بصمة شهادة الوكيل، فلا يثق التطبيق في شبكة منزلك إلا بتلك الشهادة. ومن خارج المنزل يمر الاتصال بـ HTTPS عبر Cloudflare Access، ومعه رمز الهاتف نفسه. ورمز الاقتران يعمل مرة واحدة خلال عشر دقائق، ويُقفل الباب أمام عنوان يواصل التخمين.</p></li>
+      <li><span class="tag">SHA-256</span><h3>اقتران تثق به</h3><p>يحمل رمز QR بصمة شهادة الوكيل، فلا يثق التطبيق في شبكة منزلك إلا بتلك الشهادة. ومن خارج المنزل يمر الاتصال بـ&nbsp;HTTPS عبر Cloudflare Access، ومعه رمز الهاتف نفسه. ورمز الاقتران يعمل مرة واحدة خلال عشر دقائق، ويُقفل الباب أمام عنوان يواصل التخمين.</p></li>
       <li><span class="tag">256-bit · viewer · operator · admin</span><h3>رمز ودور لكل هاتف</h3><p>لكل هاتف رمزه الخاص، ولا يحفظ الوكيل منه إلا بصمته، ودورٌ يحدّد كل طلب مسموح له. وإلغاء هاتف يقطع بياناته الحيّة وتدفقات سجلاته وصدفاته في الحال.</p></li>
       <li><span class="tag">ECDSA P-256 · Keystore</span><h3>بصمتك، والسيرفر يتحقق منها</h3><p>الطرفية الجديدة، والإيقاف أو إعادة التشغيل، والتنظيف، وإعادة تشغيل السيرفر أو إطفاؤه، وقواعد التنبيه، والتكاملات، والفحوص، والدعوات، والأجهزة، والوصول عن بُعد، كلها تحتاج توقيعاً جديداً على الطلب نفسه. ويأتي التوقيع من مفتاح في Keystore هاتفك لا يوقّع إلا خلال 30 ثانية من البصمة أو قفل الشاشة، ولا يغادر الهاتف. ودونه يرفض الوكيل: فالرمز المنسوخ يقرأ التنبيهات ولا يتصرف.</p></li>
       <li><span class="tag">Cloudflare Access</span><h3>لا منفذ مفتوحاً في الراوتر</h3><p>من خارج المنزل، يصل التطبيق إلى الوكيل عبر Cloudflare Tunnel خلف Cloudflare Access. ويتحقق الوكيل من رمز Access الموقَّع ومن رمز الهاتف نفسه، على منفذ استماع مخصص للنفق.</p></li>

@@ -331,7 +331,11 @@ html[lang="ar"] .band > .wide > h2, html[lang="ar"] .band h2.big { line-height: 
 /* Hero: the title at the reading edge, the night photo out to the far edge of the screen. */
 .hero { display: grid; grid-template-columns: var(--gutter) minmax(0, 1fr) var(--gutter); padding-block: 40px 0; }
 .hero > * { grid-column: 2; }
-.kicker { display: flex; align-items: center; gap: 12px; margin: 0 0 22px; color: var(--ink-2); font-size: 15px; }
+/* Positioned, so it paints after the title's text (CSS 2.1, appendix E): a line of Pulse Display is 1.84 em tall, so
+   the title's first line, set at line-height 1, reaches 0.42 em above its box, past this line's 22 px, and in forced
+   colours the browser draws a plate under that text, which hid this line, the only one in the first screen that says
+   the app is not out yet (E9-01's SA1). No z-index: with one, Chromium drew this line's text a little differently. */
+.kicker { display: flex; align-items: center; gap: 12px; margin: 0 0 22px; color: var(--ink-2); font-size: 15px; position: relative; }
 .hero h1 { overflow-wrap: break-word; font-size: clamp(44px, 9.6vw, 96px); line-height: 1; letter-spacing: -0.015em; margin: 0 0 26px; max-width: 11em; }
 html[lang="ar"] .hero h1 { line-height: 1.22; letter-spacing: 0; max-width: 10em; }
 .hero h1 em { font-style: normal; color: var(--ok); }

@@ -10,6 +10,8 @@
 <meta name="theme-color" content="#0D1113" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="../../favicon.ico" sizes="32x32">
 <link rel="icon" href="../../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../ar/site.webmanifest">
 <link rel="stylesheet" href="../../assets/site.css">
 <link rel="preload" href="../../assets/fonts/plex-arabic-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../assets/fonts/plex-arabic-600.woff2" as="font" type="font/woff2" crossorigin>
@@ -134,14 +136,14 @@
     <ol class="ledger">
       <li>
         <h3>الوكيل</h3>
-        <p>بـ Go ‏1.27 أو أحدث: اختباراته أولاً، ثم ملف تنفيذي واحد مستقل، <code lang="en" dir="ltr">agent/bin/hlpulse-agent</code>.</p>
+        <p>بـ&nbsp;Go ‏1.27 أو أحدث: اختباراته أولاً، ثم ملف تنفيذي واحد مستقل، <code lang="en" dir="ltr">agent/bin/hlpulse-agent</code>.</p>
         <pre lang="en" dir="ltr" tabindex="0" role="region" aria-label="أوامر بناء الوكيل">cd agent
 make test
 make build</pre>
       </li>
       <li>
         <h3>التطبيق</h3>
-        <p>بـ JDK ‏21 وAndroid SDK: النسخة المجتمعية، في ملف APK للتطوير (debug).</p>
+        <p>بـ&nbsp;JDK ‏21 وAndroid SDK: النسخة المجتمعية، في ملف APK للتطوير (debug).</p>
         <pre lang="en" dir="ltr" tabindex="0" role="region" aria-label="أوامر بناء التطبيق">cd android
 ./gradlew assembleDebug</pre>
         <p class="note">إشعارات الدفع تحتاج مشروع Firebase خاصاً بك، وملفه <code lang="en" dir="ltr">google-services.json</code> في <code lang="en" dir="ltr">android/app</code>. ويُبنى التطبيق دونه.</p>
@@ -186,7 +188,7 @@ make build</pre>
       <p>والقائمة كاملة في ملف CONTRIBUTING.md في المستودع.</p>
     </div>
     <dl class="needs-list">
-      <div><dt>الـ commits</dt> <dd>بصيغة Conventional Commits، مثل <code lang="en" dir="ltr" class="nw">feat(agent): …</code> أو <code lang="en" dir="ltr" class="nw">fix(android): …</code>.</dd></div>
+      <div><dt>الـ&nbsp;commits</dt> <dd>بصيغة Conventional Commits، مثل <code lang="en" dir="ltr" class="nw">feat(agent): …</code> أو <code lang="en" dir="ltr" class="nw">fix(android): …</code>.</dd></div>
       <div><dt>التطبيق</dt> <dd>أسلوب Kotlin الرسمي، ونظيف في ktlint وdetekt. وكل نص بالعربية والإنجليزية، وكل شاشة مفحوصة بالمظهرين الفاتح والداكن، ومن اليمين ومن اليسار.</dd></div>
       <div><dt>الوكيل</dt> <dd>تمرّ <code lang="en" dir="ltr">gofmt</code> و<code lang="en" dir="ltr">go vet</code> و<code lang="en" dir="ltr">golangci-lint run</code> و<code lang="en" dir="ltr">go test -race ./...</code>.</dd></div>
       <div><dt>الأمان</dt> <dd>لا سرّ في أي سجل. وكل إجراء جديد يُضاف إلى قائمة السماح في الوكيل مع سطر تدقيق. والأسرار تُكتب عبر الواجهة البرمجية ولا تُقرأ.</dd></div>

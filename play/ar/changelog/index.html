@@ -11,6 +11,7 @@
 <meta name="theme-color" content="#0D1113" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="../../../favicon.ico" sizes="32x32">
 <link rel="icon" href="../../../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="stylesheet" href="../../../assets/site.css">
 <link rel="preload" href="../../../assets/fonts/plex-arabic-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../assets/fonts/plex-arabic-600.woff2" as="font" type="font/woff2" crossorigin>
@@ -102,9 +103,9 @@
       </ul>
       <h3 data-section="Agent">الوكيل</h3>
       <ul class="changes">
-        <li data-src="0eecd79e">ملف تنفيذي مستقل واحد لـ Linux على arm64 وamd64، يُثبَّت خدمةً في systemd تحت مستخدم خاص به، مع حزم Debian وسكربت تثبيت يتحقق من توقيع الإصدار بـ Sigstore ‏(cosign) ومن بصمات ملفاته، ويأخذ كل ملف آخر من الملف التنفيذي الذي تحقّق منه.</li>
+        <li data-src="0eecd79e">ملف تنفيذي مستقل واحد لـ&nbsp;Linux على arm64 وamd64، يُثبَّت خدمةً في systemd تحت مستخدم خاص به، مع حزم Debian وسكربت تثبيت يتحقق من توقيع الإصدار بـ&nbsp;Sigstore ‏(cosign) ومن بصمات ملفاته، ويأخذ كل ملف آخر من الملف التنفيذي الذي تحقّق منه.</li>
         <li data-src="c1a88bae">لا sudo للوكيل: مساعد صغير بصلاحيات root يؤدي الأعمال القليلة التي تحتاجها وتسمح بها الإعدادات (صحة الأقراص، وحالة الجدار الناري، والإجراءات على الوحدات المسموح بها، وإعادة التشغيل، وصدفة الدخول في الطرفية)، فيعمل الوكيل نفسه مقيَّداً (درجة انكشافه في systemd ‏1.7). ويصل إلى Docker عبر واجهة برمجية مُرشَّحة بدل مجموعة docker، فيُرفض إنشاء الحاويات وexec.</li>
-        <li data-src="380aedca">اقتران برمز QR مع شهادة TLS مثبّتة، ورموز أجهزة بطول 256 بت تُحفظ ببصمتها لا بنصها، وحدود لمعدل الطلبات، ومنفذ استماع ثانٍ مخصص لـ Cloudflare Access.</li>
+        <li data-src="380aedca">اقتران برمز QR مع شهادة TLS مثبّتة، ورموز أجهزة بطول 256 بت تُحفظ ببصمتها لا بنصها، وحدود لمعدل الطلبات، ومنفذ استماع ثانٍ مخصص لـ&nbsp;Cloudflare Access.</li>
         <li data-src="4baeec9d">تأكيد إضافي للإجراءات الحساسة: دون توقيع جديد لمرة واحدة، من مفتاح في عتاد الهاتف، على الطلب نفسه، يرد الوكيل بالرمز 428.</li>
         <li data-src="cd0e53b7">التاريخ في SQLite، وتقييم التنبيهات والإشعار بها والهاتف نائم أو غير متصل.</li>
         <li data-src="d2d710e2">حركة يومية لكل واجهة شبكة، تُحسب من عدّادات نواة Linux، وتبقى بعد إعادة تشغيل الوكيل أو السيرفر.</li>
